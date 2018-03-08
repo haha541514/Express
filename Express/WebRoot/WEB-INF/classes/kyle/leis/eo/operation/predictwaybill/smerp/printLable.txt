@@ -1,0 +1,7 @@
+{
+    "ApiToken":"EC55DE27E3FA4C2483FF208A24F3B00F",  
+    "CallbackUrl": "http://domaintemplate.smerp.cn/Forwarder/Callback.aspx", 
+    "detail":[  
+		{"cwscwscode ":"20161018TEST"} 
+    ]
+}

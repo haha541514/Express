@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TcoShipperblacklist" 
+    table="T_CO_SHIPPERBLACKLIST"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_CO_SHIPPERBLACKLIST"
+    </meta>
+
+    <id
+        name="sblCode"
+        type="java.lang.Long"
+        column="SBL_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="SBL_CODE"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_SBL_Code"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_SBL_Code</param>
+        </generator>
+    </id>
+
+    <property
+        name="sblCompanyname"
+        type="java.lang.String"
+        column="SBL_COMPANYNAME"
+        not-null="true"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SBL_COMPANYNAME"
+            length="80"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="sblCreatedate"
+        type="java.sql.Timestamp"
+        column="SBL_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SBL_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="sblModifydate"
+        type="java.sql.Timestamp"
+        column="SBL_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SBL_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByOpIdCreator"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_CREATOR"         
+        </meta>
+        <column name="OP_ID_CREATOR" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByOpIdModifier"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_MODIFIER"         
+        </meta>
+        <column name="OP_ID_MODIFIER" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiServerstructuregroup -->
+    <many-to-one
+        name="tdiServerstructuregroup"
+        class="kyle.leis.hi.TdiServerstructuregroup"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SSG_CODE"         
+        </meta>
+        <column name="SSG_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

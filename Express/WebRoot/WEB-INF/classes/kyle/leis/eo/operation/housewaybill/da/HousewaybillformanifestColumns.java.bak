@@ -1,0 +1,394 @@
+package kyle.leis.eo.operation.housewaybill.da;
+
+import java.io.Serializable;
+import kyle.common.dbaccess.query.GeneralColumns;
+
+public class HousewaybillformanifestColumns extends GeneralColumns implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8265284628323765505L;
+
+	public HousewaybillformanifestColumns() {
+		m_astrColumns = new String[39];
+	}
+	
+	public HousewaybillformanifestColumns(String Channelcode, 
+            String Shippercompany, String Shipperattn, 
+            String Referenceid, String Shipmentid, 
+            String Receivercompany, String Receiverattn, 
+            String Receiveradd1, String Receiveradd2, 
+            String Receiveradd3, String Receivercity, 
+            String Receivercitycode, String Receiverpostalcode, 
+            String Receivercountrycode, String Receivercountryname, 
+            String Receivercountrycname, String Receivermobile, 
+            String Shipmnetpieces, String Shipmentweight, 
+            String Localproductcode, 
+            String Cargoinfo, String Cargoinfocname, 
+            String Totalcargopcs, String Totalcargoinfo, 
+            String Baglabelcode, String Shipperaccount, 
+            String hwHw_shippername, String hwHw_shipperaddress1, 
+            String hwHw_shipperaddress2, String hwHw_shipperaddress3, 
+            String hwHw_shippertelephone, String pmPm_code, 
+            String pmPm_name, String Dt_statecode, 
+            String cwCw_grossweight, String cwCw_chargeweight, 
+            String cwVolumeweight,String ccoCo_labelcode, 
+            String ccoCo_sname){
+		m_astrColumns = new String[39];
+		setChannelcode(Channelcode);
+		setShippercompany(Shippercompany);
+		setShipperattn(Shipperattn);
+		setReferenceid(Referenceid);
+		setShipmentid(Shipmentid);
+		setReceivercompany(Receivercompany);
+		setReceiverattn(Receiverattn);
+		setReceiveradd1(Receiveradd1);
+		setReceiveradd2(Receiveradd2);
+		setReceiveradd3(Receiveradd3);
+		setReceivercity(Receivercity);
+		setReceivercitycode(Receivercitycode);
+		setReceiverpostalcode(Receiverpostalcode);
+		setReceivercountrycode(Receivercountrycode);
+		setReceivercountryname(Receivercountryname);
+		setReceivercountrycname(Receivercountrycname);
+		setReceivermobile(Receivermobile);
+		setShipmnetpieces(Shipmnetpieces);
+		setShipmentweight(Shipmentweight);
+		setLocalproductcode(Localproductcode);
+		setCargoinfo(Cargoinfo);
+		setCargoinfocname(Cargoinfocname);
+		setTotalcargopcs(Totalcargopcs);
+		setTotalcargoinfo(Totalcargoinfo);
+		setBaglabelcode(Baglabelcode);
+		setShipperaccount(Shipperaccount);
+		setHwhw_shippername(hwHw_shippername);
+		setHwhw_shipperaddress1(hwHw_shipperaddress1);
+		setHwhw_shipperaddress2(hwHw_shipperaddress2);
+		setHwhw_shipperaddress3(hwHw_shipperaddress3);
+		setHwhw_shippertelephone(hwHw_shippertelephone);
+		setPmpm_code(pmPm_code);
+		setPmpm_name(pmPm_name);
+		setDt_statecode(Dt_statecode);
+		setCwcw_grossweight(cwCw_grossweight);
+		setCwcw_chargeweight(cwCw_chargeweight);
+		setCwvolumeweight(cwVolumeweight);
+	}
+
+	public void setChannelcode(String Channelcode) {
+		this.setField(0, Channelcode);
+	}
+
+	public String getChannelcode() {
+		return this.getField(0);
+	}
+
+	public void setShippercompany(String Shippercompany) {
+		this.setField(1, Shippercompany);
+	}
+
+	public String getShippercompany() {
+		return this.getField(1);
+	}
+
+	public void setShipperattn(String Shipperattn) {
+		this.setField(2, Shipperattn);
+	}
+
+	public String getShipperattn() {
+		return this.getField(2);
+	}
+
+	public void setReferenceid(String Referenceid) {
+		this.setField(3, Referenceid);
+	}
+
+	public String getReferenceid() {
+		return this.getField(3);
+	}
+
+	public void setShipmentid(String Shipmentid) {
+		this.setField(4, Shipmentid);
+	}
+
+	public String getShipmentid() {
+		return this.getField(4);
+	}
+
+	public void setReceivercompany(String Receivercompany) {
+		this.setField(5, Receivercompany);
+	}
+
+	public String getReceivercompany() {
+		return this.getField(5);
+	}
+
+	public void setReceiverattn(String Receiverattn) {
+		this.setField(6, Receiverattn);
+	}
+
+	public String getReceiverattn() {
+		return this.getField(6);
+	}
+
+	public void setReceiveradd1(String Receiveradd1) {
+		this.setField(7, Receiveradd1);
+	}
+
+	public String getReceiveradd1() {
+		return this.getField(7);
+	}
+
+	public void setReceiveradd2(String Receiveradd2) {
+		this.setField(8, Receiveradd2);
+	}
+
+	public String getReceiveradd2() {
+		return this.getField(8);
+	}
+
+	public void setReceiveradd3(String Receiveradd3) {
+		this.setField(9, Receiveradd3);
+	}
+
+	public String getReceiveradd3() {
+		return this.getField(9);
+	}
+
+	public void setReceivercity(String Receivercity) {
+		this.setField(10, Receivercity);
+	}
+
+	public String getReceivercity() {
+		return this.getField(10);
+	}
+
+	public void setReceivercitycode(String Receivercitycode) {
+		this.setField(11, Receivercitycode);
+	}
+
+	public String getReceivercitycode() {
+		return this.getField(11);
+	}
+
+	public void setReceiverpostalcode(String Receiverpostalcode) {
+		this.setField(12, Receiverpostalcode);
+	}
+
+	public String getReceiverpostalcode() {
+		return this.getField(12);
+	}
+
+	public void setReceivercountrycode(String Receivercountrycode) {
+		this.setField(13, Receivercountrycode);
+	}
+
+	public String getReceivercountrycode() {
+		return this.getField(13);
+	}
+
+	public void setReceivercountryname(String Receivercountryname) {
+		this.setField(14, Receivercountryname);
+	}
+
+	public String getReceivercountryname() {
+		return this.getField(14);
+	}
+
+	public void setReceivercountrycname(String Receivercountrycname) {
+		this.setField(15, Receivercountrycname);
+	}
+
+	public String getReceivercountrycname() {
+		return this.getField(15);
+	}
+
+	public void setReceivermobile(String Receivermobile) {
+		this.setField(16, Receivermobile);
+	}
+
+	public String getReceivermobile() {
+		return this.getField(16);
+	}
+
+	public void setShipmnetpieces(String Shipmnetpieces) {
+		this.setField(17, Shipmnetpieces);
+	}
+
+	public String getShipmnetpieces() {
+		return this.getField(17);
+	}
+
+	public void setShipmentweight(String Shipmentweight) {
+		this.setField(18, Shipmentweight);
+	}
+
+	public String getShipmentweight() {
+		return this.getField(18);
+	}
+
+	public void setLocalproductcode(String Localproductcode) {
+		this.setField(19, Localproductcode);
+	}
+
+	public String getLocalproductcode() {
+		return this.getField(19);
+	}
+
+	public void setCargoinfo(String Cargoinfo) {
+		this.setField(20, Cargoinfo);
+	}
+
+	public String getCargoinfo() {
+		return this.getField(20);
+	}
+
+	public void setCargoinfocname(String Cargoinfocname) {
+		this.setField(21, Cargoinfocname);
+	}
+
+	public String getCargoinfocname() {
+		return this.getField(21);
+	}
+
+	public void setTotalcargopcs(String Totalcargopcs) {
+		this.setField(22, Totalcargopcs);
+	}
+
+	public String getTotalcargopcs() {
+		return this.getField(22);
+	}
+
+	public void setTotalcargoinfo(String Totalcargoinfo) {
+		this.setField(23, Totalcargoinfo);
+	}
+
+	public String getTotalcargoinfo() {
+		return this.getField(23);
+	}
+
+	public void setBaglabelcode(String Baglabelcode) {
+		this.setField(24, Baglabelcode);
+	}
+
+	public String getBaglabelcode() {
+		return this.getField(24);
+	}
+
+	public void setShipperaccount(String Shipperaccount) {
+		this.setField(25, Shipperaccount);
+	}
+
+	public String getShipperaccount() {
+		return this.getField(25);
+	}
+
+	public void setHwhw_shippername(String hwHw_shippername) {
+		this.setField(26, hwHw_shippername);
+	}
+
+	public String getHwhw_shippername() {
+		return this.getField(26);
+	}
+
+	public void setHwhw_shipperaddress1(String hwHw_shipperaddress1) {
+		this.setField(27, hwHw_shipperaddress1);
+	}
+
+	public String getHwhw_shipperaddress1() {
+		return this.getField(27);
+	}
+
+	public void setHwhw_shipperaddress2(String hwHw_shipperaddress2) {
+		this.setField(28, hwHw_shipperaddress2);
+	}
+
+	public String getHwhw_shipperaddress2() {
+		return this.getField(28);
+	}
+
+	public void setHwhw_shipperaddress3(String hwHw_shipperaddress3) {
+		this.setField(29, hwHw_shipperaddress3);
+	}
+
+	public String getHwhw_shipperaddress3() {
+		return this.getField(29);
+	}
+
+	public void setHwhw_shippertelephone(String hwHw_shippertelephone) {
+		this.setField(30, hwHw_shippertelephone);
+	}
+
+	public String getHwhw_shippertelephone() {
+		return this.getField(30);
+	}
+
+	public void setPmpm_code(String pmPm_code) {
+		this.setField(31, pmPm_code);
+	}
+
+	public String getPmpm_code() {
+		return this.getField(31);
+	}
+
+	public void setPmpm_name(String pmPm_name) {
+		this.setField(32, pmPm_name);
+	}
+
+	public String getPmpm_name() {
+		return this.getField(32);
+	}
+
+	public void setDt_statecode(String Dt_statecode) {
+		this.setField(33, Dt_statecode);
+	}
+
+	public String getDt_statecode() {
+		return this.getField(33);
+	}
+
+	public void setCwcw_grossweight(String cwCw_grossweight) {
+		this.setField(34, cwCw_grossweight);
+	}
+
+	public String getCwcw_grossweight() {
+		return this.getField(34);
+	}
+
+	public void setCwcw_chargeweight(String cwCw_chargeweight) {
+		this.setField(35, cwCw_chargeweight);
+	}
+
+	public String getCwcw_chargeweight() {
+		return this.getField(35);
+	}
+
+	public void setCwvolumeweight(String cwVolumeweight) {
+		this.setField(36, cwVolumeweight);
+	}
+
+	public String getCwvolumeweight() {
+		return this.getField(36);
+	}
+
+	public void setCcoco_labelcode(String ccoCo_labelcode) {
+		this.setField(37, ccoCo_labelcode);
+	}
+
+	public String getCcoco_labelcode() {
+		return this.getField(37);
+	}
+
+	public void setCcoco_sname(String ccoCo_sname) {
+		this.setField(38, ccoCo_sname);
+	}
+
+	public String getCcoco_sname() {
+		return this.getField(38);
+	}	
+	
+    public String toString() {
+        return "Code Generate By Kyle";
+    }	
+	
+}

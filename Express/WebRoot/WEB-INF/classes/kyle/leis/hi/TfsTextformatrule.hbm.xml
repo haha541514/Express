@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfsTextformatrule" 
+    table="T_FS_TEXTFORMATRULE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FS_TEXTFORMATRULE"
+    </meta>
+
+    <id
+        name="tfrCode"
+        type="java.lang.String"
+        column="TFR_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="TFR_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="tfrName"
+        type="java.lang.String"
+        column="TFR_NAME"
+        not-null="true"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TFR_NAME"
+            length="100"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="tfrStart"
+        type="java.lang.String"
+        column="TFR_START"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TFR_START"
+            length="256"
+        </meta>    
+    </property>
+    <property
+        name="tfrEnd"
+        type="java.lang.String"
+        column="TFR_END"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TFR_END"
+            length="256"
+        </meta>    
+    </property>
+    <property
+        name="tfrNote"
+        type="java.lang.String"
+        column="TFR_NOTE"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TFR_NOTE"
+            length="256"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TfsWebpageaccess -->
+    <set
+        name="tfsWebpageaccesses"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="TFR_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsWebpageaccess"
+        </meta>
+        <key>
+            <column name="TFR_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsWebpageaccess"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfsBlocklabel -->
+    <set
+        name="tfsBlocklabels"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="TFR_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsBlocklabel"
+        </meta>
+        <key>
+            <column name="TFR_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsBlocklabel"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

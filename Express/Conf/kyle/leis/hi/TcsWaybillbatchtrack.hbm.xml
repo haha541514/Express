@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TcsWaybillbatchtrack" 
+    table="T_CS_WAYBILLBATCHTRACK"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_CS_WAYBILLBATCHTRACK"
+    </meta>
+
+    <id
+        name="cwCode"
+        type="java.lang.Long"
+        column="CW_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="CW_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="wbbtLatesttrackdesc"
+        type="java.lang.String"
+        column="WBBT_LATESTTRACKDESC"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBBT_LATESTTRACKDESC"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="wbbtLatestcslogdesc"
+        type="java.lang.String"
+        column="WBBT_LATESTCSLOGDESC"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBBT_LATESTCSLOGDESC"
+            length="256"
+        </meta>    
+    </property>
+    <property
+        name="wbbtSignforuser"
+        type="java.lang.String"
+        column="WBBT_SIGNFORUSER"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBBT_SIGNFORUSER"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="wbbtSignfordate"
+        type="java.sql.Timestamp"
+        column="WBBT_SIGNFORDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBBT_SIGNFORDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="wbbtCslogcreatedate"
+        type="java.sql.Timestamp"
+        column="WBBT_CSLOGCREATEDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBBT_CSLOGCREATEDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="wbbtLatesttrackdate"
+        type="java.sql.Timestamp"
+        column="WBBT_LATESTTRACKDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBBT_LATESTTRACKDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="wbbtLatesttrackfetchdate"
+        type="java.sql.Timestamp"
+        column="WBBT_LATESTTRACKFETCHDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBBT_LATESTTRACKFETCHDATE"
+            length="7"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to TopCorewaybill -->
+    <one-to-one
+        name="topCorewaybill"
+        class="kyle.leis.hi.TopCorewaybill"
+        outer-join="auto"
+        constrained="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            class="kyle.leis.hi.TopCorewaybill"
+            outer-join="auto"
+            constrained="true"
+        </meta>    
+    </one-to-one>
+    <!-- bi-directional one-to-many association to TcsWaybilltrack -->
+    <set
+        name="tcsWaybilltracks"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CW_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcsWaybilltrack"
+        </meta>
+        <key>
+            <column name="CW_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcsWaybilltrack"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TdiWaybilltrackstatus -->
+    <many-to-one
+        name="tdiWaybilltrackstatus"
+        class="kyle.leis.hi.TdiWaybilltrackstatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="WBTS_CODE"         
+        </meta>
+        <column name="WBTS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TfsWebpageaccess -->
+    <many-to-one
+        name="tfsWebpageaccess"
+        class="kyle.leis.hi.TfsWebpageaccess"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="WPA_CODE"         
+        </meta>
+        <column name="WPA_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<AccessRequest xml:lang="en-US">
+  <AccessLicenseNumber>$license$</AccessLicenseNumber>
+  <UserId>$userid$</UserId>
+  <Password>$password$</Password>
+</AccessRequest> 
+<?xml version="1.0"?>
+<ShipmentConfirmRequest xml:lang="en-US">
+  <Request>
+    <TransactionReference>
+      <CustomerContext>Customer Comment</CustomerContext>
+      <XpciVersion/>
+    </TransactionReference>
+    <RequestAction>ShipConfirm</RequestAction>
+    <RequestOption>validate</RequestOption>
+  </Request>
+  <LabelSpecification>
+    <LabelPrintMethod>
+      <Code>GIF</Code>
+      <Description>gif file</Description>
+    </LabelPrintMethod>
+    <HTTPUserAgent>Mozilla/4.5</HTTPUserAgent>
+    <LabelImageFormat>
+      <Code>GIF</Code>
+      <Description>gif</Description>
+    </LabelImageFormat>
+  </LabelSpecification>
+  <Shipment>
+   <RateInformation>
+      <NegotiatedRatesIndicator/> 
+    </RateInformation> 
+	<Description/>
+    <Shipper>
+      <Name>$name$</Name>
+      <PhoneNumber>$phone number$</PhoneNumber>
+      <ShipperNumber>$shipper number$</ShipperNumber>
+	  <TaxIdentificationNumber>$taxidentificationnumber$</TaxIdentificationNumber>
+      <Address>
+    	<AddressLine1>$address line1$</AddressLine1>
+    	<City>$city$</City>
+    	<StateProvinceCode>$state province code$</StateProvinceCode>
+    	<PostalCode>$postal code$</PostalCode>
+    	<PostcodeExtendedLow></PostcodeExtendedLow>
+    	<CountryCode>$country code$</CountryCode>
+     </Address>
+    </Shipper>
+	<ShipTo>
+     <CompanyName>$Company name$</CompanyName>
+      <AttentionName>$Attention name$</AttentionName>
+      <PhoneNumber>$Phone number$</PhoneNumber>
+      <Address>
+        <AddressLine1>$Address line1$</AddressLine1>
+        <City>$City$</City>
+        <StateProvinceCode>$State province code$</StateProvinceCode>
+        <PostalCode>$Postal code$</PostalCode>
+        <CountryCode>$Country code$</CountryCode>
+      </Address>
+    </ShipTo>
+    <ShipFrom>
+      <CompanyName>$Company Name$</CompanyName>
+      <AttentionName>$Attention Name$</AttentionName>
+      <PhoneNumber>$Phone Number$</PhoneNumber>
+	  <TaxIdentificationNumber>$TaxidentificationNumber$</TaxIdentificationNumber>
+      <Address>
+        <AddressLine1>$Address Line1$</AddressLine1>
+        <City>$City$</City>
+    	<StateProvinceCode>$State Province Code$</StateProvinceCode>
+    	<PostalCode>$Postal Code$</PostalCode>
+    	<CountryCode>$Country Code$</CountryCode>
+      </Address>
+    </ShipFrom>
+     <PaymentInformation>
+      <Prepaid>
+        <BillShipper>
+          <AccountNumber>$Account Number$</AccountNumber>
+        </BillShipper>
+      </Prepaid>
+    </PaymentInformation>
+    <Service>
+      <Code>02</Code>
+      <Description>2nd Day Air</Description>
+    </Service>
+    <Package>$Package$</Package>
+  </Shipment>
+</ShipmentConfirmRequest> 

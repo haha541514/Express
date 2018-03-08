@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiMemorydeclarename" 
+    table="T_DI_MEMORYDECLARENAME"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_MEMORYDECLARENAME"
+    </meta>
+
+    <id
+        name="mdnCode"
+        type="java.lang.Long"
+        column="MDN_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="MDN_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="mdnLabelcode"
+        type="java.lang.String"
+        column="MDN_LABELCODE"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="MDN_LABELCODE"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="mdnEname"
+        type="java.lang.String"
+        column="MDN_ENAME"
+        not-null="true"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="MDN_ENAME"
+            length="256"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="mdnName"
+        type="java.lang.String"
+        column="MDN_NAME"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="MDN_NAME"
+            length="128"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

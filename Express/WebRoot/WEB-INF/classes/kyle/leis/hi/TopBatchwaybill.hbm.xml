@@ -1,0 +1,461 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TopBatchwaybill" 
+    table="T_OP_BATCHWAYBILL"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_OP_BATCHWAYBILL"
+    </meta>
+
+    <id
+        name="bwCode"
+        type="java.lang.Long"
+        column="BW_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="BW_CODE"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_BatchWayBill_Code"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_BatchWayBill_Code</param>
+        </generator>
+    </id>
+
+    <property
+        name="bwCreatedate"
+        type="java.sql.Timestamp"
+        column="BW_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BW_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="bwModifydate"
+        type="java.sql.Timestamp"
+        column="BW_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BW_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="bwCompletedate"
+        type="java.sql.Timestamp"
+        column="BW_COMPLETEDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BW_COMPLETEDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="bwAuditdate"
+        type="java.sql.Timestamp"
+        column="BW_AUDITDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BW_AUDITDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="bwApprovedate"
+        type="java.sql.Timestamp"
+        column="BW_APPROVEDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BW_APPROVEDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="addDate"
+        type="java.sql.Timestamp"
+        column="ADD_DATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ADD_DATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="bwRemark"
+        type="java.lang.String"
+        column="BW_REMARK"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BW_REMARK"
+            length="256"
+        </meta>    
+    </property>
+    <property
+        name="bwTotalgrossweight"
+        type="java.math.BigDecimal"
+        column="BW_TOTALGROSSWEIGHT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BW_TOTALGROSSWEIGHT"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="bwTotalpieces"
+        type="java.lang.Integer"
+        column="BW_TOTALPIECES"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BW_TOTALPIECES"
+            length="5"
+        </meta>    
+    </property>
+    <property
+        name="bwLabelcode"
+        type="java.lang.String"
+        column="BW_LABELCODE"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BW_LABELCODE"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="bwBatchnumber"
+        type="java.lang.String"
+        column="BW_BATCHNUMBER"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BW_BATCHNUMBER"
+            length="5"
+        </meta>    
+    </property>
+    <property
+        name="bwContainerid"
+        type="java.lang.String"
+        column="BW_CONTAINERID"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BW_CONTAINERID"
+            length="30"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByBwOpIdApprove"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BW_OP_ID_APPROVE"         
+        </meta>
+        <column name="BW_OP_ID_APPROVE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByBwOpIdCreate"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BW_OP_ID_CREATE"         
+        </meta>
+        <column name="BW_OP_ID_CREATE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByBwOpIdAudit"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BW_OP_ID_AUDIT"         
+        </meta>
+        <column name="BW_OP_ID_AUDIT" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByBwOpIdComplete"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BW_OP_ID_COMPLETE"         
+        </meta>
+        <column name="BW_OP_ID_COMPLETE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByBwOpIdModify"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BW_OP_ID_MODIFY"         
+        </meta>
+        <column name="BW_OP_ID_MODIFY" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TcoCorporation -->
+    <many-to-one
+        name="tcoCorporation"
+        class="kyle.leis.hi.TcoCorporation"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CO_CODE"         
+        </meta>
+        <column name="CO_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TchnChannel -->
+    <many-to-one
+        name="tchnChannel"
+        class="kyle.leis.hi.TchnChannel"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CHN_CODE"         
+        </meta>
+        <column name="CHN_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiArrivaldeparturetype -->
+    <many-to-one
+        name="tdiArrivaldeparturetype"
+        class="kyle.leis.hi.TdiArrivaldeparturetype"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="ADT_CODE"         
+        </meta>
+        <column name="ADT_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TopTransportwaybillvalue -->
+    <set
+        name="topTransportwaybillvalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BW_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopTransportwaybillvalue"
+        </meta>
+        <key>
+            <column name="BW_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopTransportwaybillvalue"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopBatchwaybillvalue -->
+    <set
+        name="topBatchwaybillvalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BW_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopBatchwaybillvalue"
+        </meta>
+        <key>
+            <column name="BW_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopBatchwaybillvalue"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopCorewaybill -->
+    <set
+        name="topCorewaybillsByBwCodeDeparture"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BW_CODE_DEPARTURE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopCorewaybill"
+        </meta>
+        <key>
+            <column name="BW_CODE_DEPARTURE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopCorewaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopCorewaybill -->
+    <set
+        name="topCorewaybillsByBwCodeWeightcheck"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BW_CODE_WEIGHTCHECK"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopCorewaybill"
+        </meta>
+        <key>
+            <column name="BW_CODE_WEIGHTCHECK" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopCorewaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopCorewaybill -->
+    <set
+        name="topCorewaybillsByBwCodeArrival"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BW_CODE_ARRIVAL"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopCorewaybill"
+        </meta>
+        <key>
+            <column name="BW_CODE_ARRIVAL" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopCorewaybill"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TdiBatchwaybillstatus -->
+    <many-to-one
+        name="tdiBatchwaybillstatus"
+        class="kyle.leis.hi.TdiBatchwaybillstatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BWS_CODE"         
+        </meta>
+        <column name="BWS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiEnterpriseelement -->
+    <many-to-one
+        name="tdiEnterpriseelement"
+        class="kyle.leis.hi.TdiEnterpriseelement"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="EE_CODE"         
+        </meta>
+        <column name="EE_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

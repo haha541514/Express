@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TesWorkflow" 
+    table="T_ES_WORKFLOW"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_ES_WORKFLOW"
+    </meta>
+
+    <id
+        name="wfId"
+        type="java.lang.Long"
+        column="WF_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="WF_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_WF_ID"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_WF_ID</param>
+        </generator>
+    </id>
+
+    <property
+        name="wfStartstatus"
+        type="java.lang.String"
+        column="WF_STARTSTATUS"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WF_STARTSTATUS"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wfEndstatus"
+        type="java.lang.String"
+        column="WF_ENDSTATUS"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WF_ENDSTATUS"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiWorkbillkind -->
+    <many-to-one
+        name="tdiWorkbillkind"
+        class="kyle.leis.hi.TdiWorkbillkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="WBK_CODE"         
+        </meta>
+        <column name="WBK_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiPosition -->
+    <many-to-one
+        name="tdiPosition"
+        class="kyle.leis.hi.TdiPosition"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PS_CODE"         
+        </meta>
+        <column name="PS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiActionkind -->
+    <many-to-one
+        name="tdiActionkind"
+        class="kyle.leis.hi.TdiActionkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="AK_CODE"         
+        </meta>
+        <column name="AK_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

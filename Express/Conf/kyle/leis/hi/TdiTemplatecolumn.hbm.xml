@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiTemplatecolumn" 
+    table="T_DI_TEMPLATECOLUMN"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_TEMPLATECOLUMN"
+    </meta>
+
+    <id
+        name="tcId"
+        type="java.lang.String"
+        column="TC_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="TC_ID"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="tcColumnindex"
+        type="int"
+        column="TC_COLUMNINDEX"
+        not-null="true"
+        length="3"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TC_COLUMNINDEX"
+            length="3"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="tcColumnname"
+        type="java.lang.String"
+        column="TC_COLUMNNAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TC_COLUMNNAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="tcColumnename"
+        type="java.lang.String"
+        column="TC_COLUMNENAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TC_COLUMNENAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="tcColumngroup"
+        type="java.lang.String"
+        column="TC_COLUMNGROUP"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TC_COLUMNGROUP"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="tcColumntype"
+        type="java.lang.String"
+        column="TC_COLUMNTYPE"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TC_COLUMNTYPE"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="tcAllownullsign"
+        type="java.lang.String"
+        column="TC_ALLOWNULLSIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TC_ALLOWNULLSIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="tcMaxlength"
+        type="int"
+        column="TC_MAXLENGTH"
+        not-null="true"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TC_MAXLENGTH"
+            length="5"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="tcMinlength"
+        type="int"
+        column="TC_MINLENGTH"
+        not-null="true"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TC_MINLENGTH"
+            length="5"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TcoPredictordertemplatevalue -->
+    <set
+        name="tcoPredictordertemplatevalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="TC_STANDARDCOLUMN"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoPredictordertemplatevalue"
+        </meta>
+        <key>
+            <column name="TC_STANDARDCOLUMN" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoPredictordertemplatevalue"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

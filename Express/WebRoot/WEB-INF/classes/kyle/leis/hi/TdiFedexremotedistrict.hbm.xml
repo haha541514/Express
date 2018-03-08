@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiFedexremotedistrict" 
+    table="T_DI_FEDEXREMOTEDISTRICT"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_FEDEXREMOTEDISTRICT"
+    </meta>
+
+    <id
+        name="frdCode"
+        type="java.lang.String"
+        column="FRD_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="FRD_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="frdNationcode"
+        type="java.lang.String"
+        column="FRD_NATIONCODE"
+        length="6"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FRD_NATIONCODE"
+            length="6"
+        </meta>    
+    </property>
+    <property
+        name="frdNationname"
+        type="java.lang.String"
+        column="FRD_NATIONNAME"
+        length="40"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FRD_NATIONNAME"
+            length="40"
+        </meta>    
+    </property>
+    <property
+        name="frdCityname"
+        type="java.lang.String"
+        column="FRD_CITYNAME"
+        length="40"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FRD_CITYNAME"
+            length="40"
+        </meta>    
+    </property>
+    <property
+        name="frdStartpostcode"
+        type="java.lang.String"
+        column="FRD_STARTPOSTCODE"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FRD_STARTPOSTCODE"
+            length="80"
+        </meta>    
+    </property>
+    <property
+        name="frdEndpostcode"
+        type="java.lang.String"
+        column="FRD_ENDPOSTCODE"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FRD_ENDPOSTCODE"
+            length="80"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

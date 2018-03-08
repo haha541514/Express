@@ -1,0 +1,224 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TbrWeightrule" 
+    table="T_BR_WEIGHTRULE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_BR_WEIGHTRULE"
+    </meta>
+
+    <id
+        name="brId"
+        type="java.lang.Long"
+        column="BR_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="BR_ID"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="wrPelenghtformula"
+        type="java.lang.String"
+        column="WR_PELENGHTFORMULA"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WR_PELENGHTFORMULA"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="wrPeweightformula"
+        type="java.lang.String"
+        column="WR_PEWEIGHTFORMULA"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WR_PEWEIGHTFORMULA"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="wrPeactualweight"
+        type="java.math.BigDecimal"
+        column="WR_PEACTUALWEIGHT"
+        length="6"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WR_PEACTUALWEIGHT"
+            length="6"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to TbrBusinessrule -->
+    <one-to-one
+        name="tbrBusinessrule"
+        class="kyle.leis.hi.TbrBusinessrule"
+        outer-join="auto"
+        constrained="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            class="kyle.leis.hi.TbrBusinessrule"
+            outer-join="auto"
+            constrained="true"
+        </meta>    
+    </one-to-one>
+    <!-- bi-directional many-to-one association to TbrWeightrulekind -->
+    <many-to-one
+        name="tbrWeightrulekind"
+        class="kyle.leis.hi.TbrWeightrulekind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="WRK_ID"         
+        </meta>
+        <column name="WRK_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiServerweightkind -->
+    <many-to-one
+        name="tdiServerweightkindBySwkCodeTransfer"
+        class="kyle.leis.hi.TdiServerweightkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SWK_CODE_TRANSFER"         
+        </meta>
+        <column name="SWK_CODE_TRANSFER" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiServerweightkind -->
+    <many-to-one
+        name="tdiServerweightkindBySwkCode"
+        class="kyle.leis.hi.TdiServerweightkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SWK_CODE"         
+        </meta>
+        <column name="SWK_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TbrWeightrulevalue -->
+    <set
+        name="tbrWeightrulevalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BR_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrWeightrulevalue"
+        </meta>
+        <key>
+            <column name="BR_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrWeightrulevalue"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrVolumeweightrulevalue -->
+    <set
+        name="tbrVolumeweightrulevalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BR_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrVolumeweightrulevalue"
+        </meta>
+        <key>
+            <column name="BR_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrVolumeweightrulevalue"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrCarryweightrulevalue -->
+    <set
+        name="tbrCarryweightrulevalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BR_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrCarryweightrulevalue"
+        </meta>
+        <key>
+            <column name="BR_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrCarryweightrulevalue"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TdiUnittype -->
+    <many-to-one
+        name="tdiUnittype"
+        class="kyle.leis.hi.TdiUnittype"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="UT_CODE"         
+        </meta>
+        <column name="UT_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

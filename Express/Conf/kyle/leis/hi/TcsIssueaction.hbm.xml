@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TcsIssueaction" 
+    table="T_CS_ISSUEACTION"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_CS_ISSUEACTION"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TcsIssueactionPK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="isaId" 
+            column="ISA_ID" 
+            type="java.lang.Integer"
+            length="5"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="ISA_ID"
+                length="5"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="isuId" 
+            column="ISU_ID" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="ISU_ID"
+                length="10"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="isaCreatedate"
+        type="java.sql.Timestamp"
+        column="ISA_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ISA_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="isaContent"
+        type="java.lang.String"
+        column="ISA_CONTENT"
+        not-null="true"
+        length="1024"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ISA_CONTENT"
+            length="1024"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TcsIssue -->
+    <many-to-one
+        name="tcsIssue"
+	    class="kyle.leis.hi.TcsIssue"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="ISU_ID"
+        </meta>
+    	<column name="ISU_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperator"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_CREATOR"         
+        </meta>
+        <column name="OP_ID_CREATOR" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiActionkind -->
+    <many-to-one
+        name="tdiActionkind"
+        class="kyle.leis.hi.TdiActionkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="AK_CODE"         
+        </meta>
+        <column name="AK_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

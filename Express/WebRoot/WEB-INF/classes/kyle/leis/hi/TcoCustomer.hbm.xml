@@ -1,0 +1,569 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TcoCustomer" 
+    table="T_CO_CUSTOMER"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_CO_CUSTOMER"
+    </meta>
+
+    <id
+        name="coCode"
+        type="java.lang.String"
+        column="CO_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="CO_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="cmInvoicesign"
+        type="java.lang.String"
+        column="CM_INVOICESIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CM_INVOICESIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cmOdanoticesign"
+        type="java.lang.String"
+        column="CM_ODANOTICESIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CM_ODANOTICESIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cmOdaholdsign"
+        type="java.lang.String"
+        column="CM_ODAHOLDSIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CM_ODAHOLDSIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cmCreditlimit"
+        type="java.math.BigDecimal"
+        column="CM_CREDITLIMIT"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CM_CREDITLIMIT"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cmPayablebankaccount"
+        type="java.lang.String"
+        column="CM_PAYABLEBANKACCOUNT"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CM_PAYABLEBANKACCOUNT"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="cmWebtrackneedlogin"
+        type="java.lang.String"
+        column="CM_WEBTRACKNEEDLOGIN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CM_WEBTRACKNEEDLOGIN"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="cmArrearallowsignout"
+        type="java.lang.String"
+        column="CM_ARREARALLOWSIGNOUT"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CM_ARREARALLOWSIGNOUT"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="cmMaxreceivabletotal"
+        type="java.math.BigDecimal"
+        column="CM_MAXRECEIVABLETOTAL"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CM_MAXRECEIVABLETOTAL"
+            length="8"
+        </meta>    
+    </property>
+    <property
+        name="cmMaxrttype"
+        type="java.lang.String"
+        column="CM_MAXRTTYPE"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CM_MAXRTTYPE"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="cmAllowprintlabelsign"
+        type="java.lang.String"
+        column="CM_ALLOWPRINTLABELSIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CM_ALLOWPRINTLABELSIGN"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="cmTemporarycreditlimit"
+        type="java.math.BigDecimal"
+        column="CM_TEMPORARYCREDITLIMIT"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CM_TEMPORARYCREDITLIMIT"
+            length="8"
+        </meta>    
+    </property>
+    <property
+        name="cmTclstartdate"
+        type="java.sql.Timestamp"
+        column="CM_TCLSTARTDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CM_TCLSTARTDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="cmTclenddate"
+        type="java.sql.Timestamp"
+        column="CM_TCLENDDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CM_TCLENDDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="cmPrintchildlabelsign"
+        type="java.lang.String"
+        column="CM_PRINTCHILDLABELSIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CM_PRINTCHILDLABELSIGN"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="cmStructruecode"
+        type="java.lang.String"
+        column="CM_STRUCTRUECODE"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CM_STRUCTRUECODE"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="cmHoldhwrate"
+        type="java.math.BigDecimal"
+        column="CM_HOLDHWRATE"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CM_HOLDHWRATE"
+            length="8"
+        </meta>    
+    </property>
+    <property
+        name="cmWebinputchangeswbsign"
+        type="java.lang.String"
+        column="CM_WEBINPUTCHANGESWBSIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CM_WEBINPUTCHANGESWBSIGN"
+            length="1"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to TcoCorporation -->
+    <one-to-one
+        name="tcoCorporation"
+        class="kyle.leis.hi.TcoCorporation"
+        outer-join="auto"
+        constrained="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            class="kyle.leis.hi.TcoCorporation"
+            outer-join="auto"
+            constrained="true"
+        </meta>    
+    </one-to-one>
+    <!-- bi-directional one-to-many association to TcoShipperconsigneeinfo -->
+    <set
+        name="tcoShipperconsigneeinfos"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CO_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoShipperconsigneeinfo"
+        </meta>
+        <key>
+            <column name="CO_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoShipperconsigneeinfo"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrCussignoutbyoriginwb -->
+    <set
+        name="tbrCussignoutbyoriginwbs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CO_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrCussignoutbyoriginwb"
+        </meta>
+        <key>
+            <column name="CO_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrCussignoutbyoriginwb"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TesSmsservice -->
+    <set
+        name="tesSmsservices"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CO_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TesSmsservice"
+        </meta>
+        <key>
+            <column name="CO_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TesSmsservice"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrCwdhcustomer -->
+    <set
+        name="tbrCwdhcustomers"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CO_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrCwdhcustomer"
+        </meta>
+        <key>
+            <column name="CO_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrCwdhcustomer"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TesSmsmessage -->
+    <set
+        name="tesSmsmessages"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CO_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TesSmsmessage"
+        </meta>
+        <key>
+            <column name="CO_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TesSmsmessage"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcoPredictordertemplate -->
+    <set
+        name="tcoPredictordertemplates"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CO_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoPredictordertemplate"
+        </meta>
+        <key>
+            <column name="CO_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoPredictordertemplate"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcoCustomerapiwebtoken -->
+    <set
+        name="tcoCustomerapiwebtokens"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CO_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoCustomerapiwebtoken"
+        </meta>
+        <key>
+            <column name="CO_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoCustomerapiwebtoken"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcoCustomer -->
+    <set
+        name="tcoCustomers"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CO_CODE_PARENT"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoCustomer"
+        </meta>
+        <key>
+            <column name="CO_CODE_PARENT" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoCustomer"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TcoCustomer -->
+    <many-to-one
+        name="tcoCustomer"
+        class="kyle.leis.hi.TcoCustomer"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CO_CODE_PARENT"         
+        </meta>
+        <column name="CO_CODE_PARENT" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TcoCustomersorestrict -->
+    <set
+        name="tcoCustomersorestricts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CO_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoCustomersorestrict"
+        </meta>
+        <key>
+            <column name="CO_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoCustomersorestrict"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByCmOpIdCservice"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CM_OP_ID_CSERVICE"         
+        </meta>
+        <column name="CM_OP_ID_CSERVICE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByCmOpIdSale"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CM_OP_ID_SALE"         
+        </meta>
+        <column name="CM_OP_ID_SALE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByCmOpIdDun"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CM_OP_ID_DUN"         
+        </meta>
+        <column name="CM_OP_ID_DUN" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiCustomertype -->
+    <many-to-one
+        name="tdiCustomertype"
+        class="kyle.leis.hi.TdiCustomertype"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CT_CODE"         
+        </meta>
+        <column name="CT_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiWaybillcodetype" 
+    table="T_DI_WAYBILLCODETYPE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_WAYBILLCODETYPE"
+    </meta>
+
+    <id
+        name="ctCode"
+        type="java.lang.String"
+        column="CT_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="CT_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="ctName"
+        type="java.lang.String"
+        column="CT_NAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CT_NAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ctEname"
+        type="java.lang.String"
+        column="CT_ENAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CT_ENAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

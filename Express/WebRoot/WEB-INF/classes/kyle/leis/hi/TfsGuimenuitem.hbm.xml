@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfsGuimenuitem" 
+    table="T_FS_GUIMENUITEM"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FS_GUIMENUITEM"
+    </meta>
+
+    <id
+        name="gmCode"
+        type="java.lang.String"
+        column="GM_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="GM_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="gmiContent"
+        type="java.lang.String"
+        column="GMI_CONTENT"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="GMI_CONTENT"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

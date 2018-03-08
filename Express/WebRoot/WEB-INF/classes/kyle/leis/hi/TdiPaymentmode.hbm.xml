@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiPaymentmode" 
+    table="T_DI_PAYMENTMODE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_PAYMENTMODE"
+    </meta>
+
+    <id
+        name="pmCode"
+        type="java.lang.String"
+        column="PM_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="PM_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="pmName"
+        type="java.lang.String"
+        column="PM_NAME"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PM_NAME"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pmEname"
+        type="java.lang.String"
+        column="PM_ENAME"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PM_ENAME"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pmSename"
+        type="java.lang.String"
+        column="PM_SENAME"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PM_SENAME"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="pmVisiblesign"
+        type="java.lang.String"
+        column="PM_VISIBLESIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PM_VISIBLESIGN"
+            length="1"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiSimplestatus -->
+    <many-to-one
+        name="tdiSimplestatus"
+        class="kyle.leis.hi.TdiSimplestatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SS_CODE"         
+        </meta>
+        <column name="SS_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TepIncidentalpricevalue -->
+    <set
+        name="tepIncidentalpricevalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PM_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepIncidentalpricevalue"
+        </meta>
+        <key>
+            <column name="PM_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepIncidentalpricevalue"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepFreightprice -->
+    <set
+        name="tepFreightprices"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PM_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepFreightprice"
+        </meta>
+        <key>
+            <column name="PM_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepFreightprice"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrOperationprompt -->
+    <set
+        name="tbrOperationprompts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PM_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrOperationprompt"
+        </meta>
+        <key>
+            <column name="PM_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrOperationprompt"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopCorewaybill -->
+    <set
+        name="topCorewaybills"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PM_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopCorewaybill"
+        </meta>
+        <key>
+            <column name="PM_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopCorewaybill"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

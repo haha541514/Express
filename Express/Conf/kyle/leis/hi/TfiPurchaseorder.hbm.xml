@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfiPurchaseorder" 
+    table="T_FI_PURCHASEORDER"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FI_PURCHASEORDER"
+    </meta>
+
+    <id
+        name="poId"
+        type="java.lang.Long"
+        column="PO_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="PO_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_PO_ID"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_PO_ID</param>
+        </generator>
+    </id>
+
+    <property
+        name="poCreatedate"
+        type="java.sql.Timestamp"
+        column="PO_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PO_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="poModifydate"
+        type="java.sql.Timestamp"
+        column="PO_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PO_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="poOccurdate"
+        type="java.sql.Timestamp"
+        column="PO_OCCURDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PO_OCCURDATE"
+            length="7"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiSimplestatus -->
+    <many-to-one
+        name="tdiSimplestatus"
+        class="kyle.leis.hi.TdiSimplestatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SS_CODE"         
+        </meta>
+        <column name="SS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByPoOpIdCreator"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PO_OP_ID_CREATOR"         
+        </meta>
+        <column name="PO_OP_ID_CREATOR" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByPoOpIdModifier"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PO_OP_ID_MODIFIER"         
+        </meta>
+        <column name="PO_OP_ID_MODIFIER" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TfiPurchaseorderfee -->
+    <set
+        name="tfiPurchaseorderfees"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PO_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiPurchaseorderfee"
+        </meta>
+        <key>
+            <column name="PO_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiPurchaseorderfee"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiPurchaseorderwaybill -->
+    <set
+        name="tfiPurchaseorderwaybills"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PO_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiPurchaseorderwaybill"
+        </meta>
+        <key>
+            <column name="PO_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiPurchaseorderwaybill"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

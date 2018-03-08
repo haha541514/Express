@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfsWebpageaccess" 
+    table="T_FS_WEBPAGEACCESS"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FS_WEBPAGEACCESS"
+    </meta>
+
+    <id
+        name="wpaCode"
+        type="java.lang.String"
+        column="WPA_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="WPA_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="wpaName"
+        type="java.lang.String"
+        column="WPA_NAME"
+        not-null="true"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPA_NAME"
+            length="100"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wpaType"
+        type="java.lang.String"
+        column="WPA_TYPE"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPA_TYPE"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wpaWebsite"
+        type="java.lang.String"
+        column="WPA_WEBSITE"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPA_WEBSITE"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wpaFetchername"
+        type="java.lang.String"
+        column="WPA_FETCHERNAME"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPA_FETCHERNAME"
+            length="100"
+        </meta>    
+    </property>
+    <property
+        name="wpaDepositorname"
+        type="java.lang.String"
+        column="WPA_DEPOSITORNAME"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPA_DEPOSITORNAME"
+            length="100"
+        </meta>    
+    </property>
+    <property
+        name="wpaFetchinterval"
+        type="java.math.BigDecimal"
+        column="WPA_FETCHINTERVAL"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPA_FETCHINTERVAL"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wpaParameter"
+        type="java.lang.String"
+        column="WPA_PARAMETER"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPA_PARAMETER"
+            length="256"
+        </meta>    
+    </property>
+    <property
+        name="wpaNote"
+        type="java.lang.String"
+        column="WPA_NOTE"
+        length="1024"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPA_NOTE"
+            length="1024"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TfsWebpageaccessrule -->
+    <many-to-one
+        name="tfsWebpageaccessrule"
+        class="kyle.leis.hi.TfsWebpageaccessrule"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="WPAR_CODE"         
+        </meta>
+        <column name="WPAR_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TfsTextformatrule -->
+    <many-to-one
+        name="tfsTextformatrule"
+        class="kyle.leis.hi.TfsTextformatrule"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="TFR_CODE"         
+        </meta>
+        <column name="TFR_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TcsWaybillbatchtrack -->
+    <set
+        name="tcsWaybillbatchtracks"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="WPA_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcsWaybillbatchtrack"
+        </meta>
+        <key>
+            <column name="WPA_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcsWaybillbatchtrack"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

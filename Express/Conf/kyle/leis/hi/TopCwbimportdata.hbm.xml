@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TopCwbimportdata" 
+    table="T_OP_CWBIMPORTDATA"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_OP_CWBIMPORTDATA"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TopCwbimportdataPK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="cwbrId" 
+            column="CWBR_ID" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="CWBR_ID"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="cwlId" 
+            column="CWL_ID" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="CWL_ID"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="cwbdColumnname" 
+            column="CWBD_COLUMNNAME" 
+            type="java.lang.String"
+            length="30"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="CWBD_COLUMNNAME"
+                length="30"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="cwbdValue"
+        type="java.lang.String"
+        column="CWBD_VALUE"
+        not-null="true"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CWBD_VALUE"
+            length="128"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TopCwbimportrow -->
+    <many-to-one
+        name="topCwbimportrow"
+	    class="kyle.leis.hi.TopCwbimportrow"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="CWBR_ID"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="CWL_ID"
+        </meta>
+    	<column name="CWBR_ID" />
+    	<column name="CWL_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

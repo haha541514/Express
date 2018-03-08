@@ -1,0 +1,377 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TblReceivable" 
+    table="T_BL_RECEIVABLE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_BL_RECEIVABLE"
+    </meta>
+
+    <id
+        name="rvId"
+        type="java.lang.Long"
+        column="RV_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="RV_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_Receivable_Code"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_Receivable_Code</param>
+        </generator>
+    </id>
+
+    <property
+        name="rvCreatedate"
+        type="java.sql.Timestamp"
+        column="RV_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RV_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="rvModifydate"
+        type="java.sql.Timestamp"
+        column="RV_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RV_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="rvAuditdate"
+        type="java.sql.Timestamp"
+        column="RV_AUDITDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RV_AUDITDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="brId"
+        type="java.lang.Long"
+        column="BR_ID"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BR_ID"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="rvUnitprice"
+        type="java.math.BigDecimal"
+        column="RV_UNITPRICE"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RV_UNITPRICE"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="rvUnitnumber"
+        type="java.math.BigDecimal"
+        column="RV_UNITNUMBER"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RV_UNITNUMBER"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="rvCurrencyrate"
+        type="java.math.BigDecimal"
+        column="RV_CURRENCYRATE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RV_CURRENCYRATE"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="rvTotal"
+        type="java.math.BigDecimal"
+        column="RV_TOTAL"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RV_TOTAL"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="rvActualtotal"
+        type="java.math.BigDecimal"
+        column="RV_ACTUALTOTAL"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RV_ACTUALTOTAL"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="epCode"
+        type="java.lang.Long"
+        column="EP_CODE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EP_CODE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="epvId"
+        type="java.lang.Integer"
+        column="EPV_ID"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EPV_ID"
+            length="5"
+        </meta>    
+    </property>
+    <property
+        name="rvOccurdate"
+        type="java.sql.Timestamp"
+        column="RV_OCCURDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RV_OCCURDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="rvCommissionrate"
+        type="java.math.BigDecimal"
+        column="RV_COMMISSIONRATE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RV_COMMISSIONRATE"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="rvIdReference"
+        type="java.lang.Long"
+        column="RV_ID_REFERENCE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RV_ID_REFERENCE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="rvRemark"
+        type="java.lang.String"
+        column="RV_REMARK"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RV_REMARK"
+            length="128"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByRvOpIdAuditor"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="RV_OP_ID_AUDITOR"         
+        </meta>
+        <column name="RV_OP_ID_AUDITOR" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByRvOpIdCreator"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="RV_OP_ID_CREATOR"         
+        </meta>
+        <column name="RV_OP_ID_CREATOR" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByRvOpIdModifier"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="RV_OP_ID_MODIFIER"         
+        </meta>
+        <column name="RV_OP_ID_MODIFIER" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TcoCorporation -->
+    <many-to-one
+        name="tcoCorporation"
+        class="kyle.leis.hi.TcoCorporation"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CO_CODE"         
+        </meta>
+        <column name="CO_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiCurrencykind -->
+    <many-to-one
+        name="tdiCurrencykind"
+        class="kyle.leis.hi.TdiCurrencykind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CK_CODE"         
+        </meta>
+        <column name="CK_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TchnChannel -->
+    <many-to-one
+        name="tchnChannel"
+        class="kyle.leis.hi.TchnChannel"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CHN_CODE"         
+        </meta>
+        <column name="CHN_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TopCorewaybill -->
+    <many-to-one
+        name="topCorewaybill"
+        class="kyle.leis.hi.TopCorewaybill"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CW_CODE"         
+        </meta>
+        <column name="CW_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiFeestatus -->
+    <many-to-one
+        name="tdiFeestatus"
+        class="kyle.leis.hi.TdiFeestatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="FS_CODE"         
+        </meta>
+        <column name="FS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiFeekind -->
+    <many-to-one
+        name="tdiFeekind"
+        class="kyle.leis.hi.TdiFeekind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="FK_CODE"         
+        </meta>
+        <column name="FK_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiBillingkind -->
+    <many-to-one
+        name="tdiBillingkind"
+        class="kyle.leis.hi.TdiBillingkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BK_CODE"         
+        </meta>
+        <column name="BK_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

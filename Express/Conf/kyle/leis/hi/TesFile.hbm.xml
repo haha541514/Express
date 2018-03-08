@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TesFile" 
+    table="T_ES_FILE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_ES_FILE"
+    </meta>
+
+    <id
+        name="flId"
+        type="java.lang.Long"
+        column="FL_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="FL_ID"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="flName"
+        type="java.lang.String"
+        column="FL_NAME"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FL_NAME"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="flPath"
+        type="java.lang.String"
+        column="FL_PATH"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FL_PATH"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="flCreatedate"
+        type="java.sql.Timestamp"
+        column="FL_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FL_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

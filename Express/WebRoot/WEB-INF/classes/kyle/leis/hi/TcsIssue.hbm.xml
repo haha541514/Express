@@ -1,0 +1,221 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TcsIssue" 
+    table="T_CS_ISSUE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_CS_ISSUE"
+    </meta>
+
+    <id
+        name="isuId"
+        type="java.lang.Long"
+        column="ISU_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="ISU_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_Issue_Code"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_Issue_Code</param>
+        </generator>
+    </id>
+
+    <property
+        name="isuCreatedate"
+        type="java.sql.Timestamp"
+        column="ISU_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ISU_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="isuModifydate"
+        type="java.sql.Timestamp"
+        column="ISU_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ISU_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="isContent"
+        type="java.lang.String"
+        column="IS_CONTENT"
+        not-null="true"
+        length="1024"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="IS_CONTENT"
+            length="1024"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiIssueholdstatus -->
+    <many-to-one
+        name="tdiIssueholdstatus"
+        class="kyle.leis.hi.TdiIssueholdstatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="IHS_CODE"         
+        </meta>
+        <column name="IHS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByOpIdExecutor"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_EXECUTOR"         
+        </meta>
+        <column name="OP_ID_EXECUTOR" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByOpIdModifier"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_MODIFIER"         
+        </meta>
+        <column name="OP_ID_MODIFIER" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByOpIdCreator"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_CREATOR"         
+        </meta>
+        <column name="OP_ID_CREATOR" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiIssuetype -->
+    <many-to-one
+        name="tdiIssuetype"
+        class="kyle.leis.hi.TdiIssuetype"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="ISUT_CODE"         
+        </meta>
+        <column name="ISUT_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TopCorewaybill -->
+    <many-to-one
+        name="topCorewaybill"
+        class="kyle.leis.hi.TopCorewaybill"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CW_CODE"         
+        </meta>
+        <column name="CW_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiIssuegrade -->
+    <many-to-one
+        name="tdiIssuegrade"
+        class="kyle.leis.hi.TdiIssuegrade"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="ISUG_CODE"         
+        </meta>
+        <column name="ISUG_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TcsIssueaction -->
+    <set
+        name="tcsIssueactions"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="ISU_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcsIssueaction"
+        </meta>
+        <key>
+            <column name="ISU_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcsIssueaction"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TdiIssuestatus -->
+    <many-to-one
+        name="tdiIssuestatus"
+        class="kyle.leis.hi.TdiIssuestatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="ISUS_CODE"         
+        </meta>
+        <column name="ISUS_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TbrDistrictproductrule" 
+    table="T_BR_DISTRICTPRODUCTRULE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_BR_DISTRICTPRODUCTRULE"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TbrDistrictproductrulePK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="brId" 
+            column="BR_ID" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="BR_ID"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="dtCode" 
+            column="DT_CODE" 
+            type="java.lang.String"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="DT_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TdiDistrict -->
+    <many-to-one
+        name="tdiDistrict"
+	    class="kyle.leis.hi.TdiDistrict"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="DT_CODE"
+        </meta>
+    	<column name="DT_CODE" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to TbrProductrule -->
+    <many-to-one
+        name="tbrProductrule"
+	    class="kyle.leis.hi.TbrProductrule"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="BR_ID"
+        </meta>
+    	<column name="BR_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

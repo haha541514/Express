@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TepSurchargevalue" 
+    table="T_EP_SURCHARGEVALUE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_EP_SURCHARGEVALUE"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TepSurchargevaluePK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="epCode" 
+            column="EP_CODE" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="EP_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="svId" 
+            column="SV_ID" 
+            type="java.lang.Integer"
+            length="5"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="SV_ID"
+                length="5"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="znvId"
+        type="long"
+        column="ZNV_ID"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ZNV_ID"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="svReversesign"
+        type="java.lang.String"
+        column="SV_REVERSESIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SV_REVERSESIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="svBasevalue"
+        type="java.math.BigDecimal"
+        column="SV_BASEVALUE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SV_BASEVALUE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="svMinimumvalue"
+        type="java.math.BigDecimal"
+        column="SV_MINIMUMVALUE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SV_MINIMUMVALUE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="svPricevalue"
+        type="java.math.BigDecimal"
+        column="SV_PRICEVALUE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SV_PRICEVALUE"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="svMaximumvalue"
+        type="java.math.BigDecimal"
+        column="SV_MAXIMUMVALUE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SV_MAXIMUMVALUE"
+            length="10"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TepFreightprice -->
+    <many-to-one
+        name="tepFreightprice"
+	    class="kyle.leis.hi.TepFreightprice"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="EP_CODE"
+        </meta>
+    	<column name="EP_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional one-to-many association to TepSurchargevaluebase -->
+    <set
+        name="tepSurchargevaluebases"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EP_CODE"
+           @hibernate.collection-key
+            column="SV_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepSurchargevaluebase"
+        </meta>
+        <key>
+            <column name="EP_CODE" />
+            <column name="SV_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepSurchargevaluebase"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TdiUnittype -->
+    <many-to-one
+        name="tdiUnittype"
+        class="kyle.leis.hi.TdiUnittype"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="UT_CODE"         
+        </meta>
+        <column name="UT_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiFeekind -->
+    <many-to-one
+        name="tdiFeekind"
+        class="kyle.leis.hi.TdiFeekind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="FK_CODE"         
+        </meta>
+        <column name="FK_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

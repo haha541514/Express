@@ -1,0 +1,224 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TcoShipperconsigneeinfo" 
+    table="T_CO_SHIPPERCONSIGNEEINFO"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_CO_SHIPPERCONSIGNEEINFO"
+    </meta>
+
+    <id
+        name="scCode"
+        type="java.lang.String"
+        column="SC_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="SC_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="scLabelcode"
+        type="java.lang.String"
+        column="SC_LABELCODE"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_LABELCODE"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="scName"
+        type="java.lang.String"
+        column="SC_NAME"
+        not-null="true"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_NAME"
+            length="80"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="scCompanyname"
+        type="java.lang.String"
+        column="SC_COMPANYNAME"
+        not-null="true"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_COMPANYNAME"
+            length="80"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="scAddress1"
+        type="java.lang.String"
+        column="SC_ADDRESS1"
+        not-null="true"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_ADDRESS1"
+            length="80"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="scAddress2"
+        type="java.lang.String"
+        column="SC_ADDRESS2"
+        not-null="true"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_ADDRESS2"
+            length="80"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="scAddress3"
+        type="java.lang.String"
+        column="SC_ADDRESS3"
+        not-null="true"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_ADDRESS3"
+            length="80"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="scPostcode"
+        type="java.lang.String"
+        column="SC_POSTCODE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_POSTCODE"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="scCitycode"
+        type="java.lang.String"
+        column="SC_CITYCODE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_CITYCODE"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="scTelephone"
+        type="java.lang.String"
+        column="SC_TELEPHONE"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_TELEPHONE"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="scFax"
+        type="java.lang.String"
+        column="SC_FAX"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_FAX"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="scShipperconsigneetype"
+        type="java.lang.String"
+        column="SC_SHIPPERCONSIGNEETYPE"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_SHIPPERCONSIGNEETYPE"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TcoCustomer -->
+    <many-to-one
+        name="tcoCustomer"
+        class="kyle.leis.hi.TcoCustomer"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CO_CODE"         
+        </meta>
+        <column name="CO_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TchnChannel -->
+    <many-to-one
+        name="tchnChannel"
+        class="kyle.leis.hi.TchnChannel"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CHN_CODE"         
+        </meta>
+        <column name="CHN_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

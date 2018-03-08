@@ -1,0 +1,279 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfsRole" 
+    table="T_FS_ROLE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FS_ROLE"
+    </meta>
+
+    <id
+        name="rlCode"
+        type="java.lang.String"
+        column="RL_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="RL_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="rlName"
+        type="java.lang.String"
+        column="RL_NAME"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RL_NAME"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="rlEname"
+        type="java.lang.String"
+        column="RL_ENAME"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RL_ENAME"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="rlAdministratorsign"
+        type="java.lang.String"
+        column="RL_ADMINISTRATORSIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RL_ADMINISTRATORSIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="rlOpIdCreator"
+        type="java.lang.Integer"
+        column="RL_OP_ID_CREATOR"
+        length="6"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RL_OP_ID_CREATOR"
+            length="6"
+        </meta>    
+    </property>
+    <property
+        name="rlCreatedate"
+        type="java.sql.Timestamp"
+        column="RL_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RL_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="rlOpIdModifier"
+        type="java.lang.Integer"
+        column="RL_OP_ID_MODIFIER"
+        length="6"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RL_OP_ID_MODIFIER"
+            length="6"
+        </meta>    
+    </property>
+    <property
+        name="rlModifydate"
+        type="java.sql.Timestamp"
+        column="RL_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RL_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="rlStructurecode"
+        type="java.lang.String"
+        column="RL_STRUCTURECODE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RL_STRUCTURECODE"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="rlRemark"
+        type="java.lang.String"
+        column="RL_REMARK"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RL_REMARK"
+            length="128"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiInfomationsystemkind -->
+    <many-to-one
+        name="tdiInfomationsystemkind"
+        class="kyle.leis.hi.TdiInfomationsystemkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="ISK_CODE"         
+        </meta>
+        <column name="ISK_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TfsBranchrole -->
+    <set
+        name="tfsBranchroles"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="RL_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsBranchrole"
+        </meta>
+        <key>
+            <column name="RL_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsBranchrole"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfsRolemenu -->
+    <set
+        name="tfsRolemenus"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="RL_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsRolemenu"
+        </meta>
+        <key>
+            <column name="RL_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsRolemenu"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfsUserrole -->
+    <set
+        name="tfsUserroles"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="RL_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsUserrole"
+        </meta>
+        <key>
+            <column name="RL_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsUserrole"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfsRoleaction -->
+    <set
+        name="tfsRoleactions"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="RL_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsRoleaction"
+        </meta>
+        <key>
+            <column name="RL_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsRoleaction"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

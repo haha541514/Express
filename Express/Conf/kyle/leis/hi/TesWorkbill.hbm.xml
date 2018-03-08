@@ -1,0 +1,291 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TesWorkbill" 
+    table="T_ES_WORKBILL"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_ES_WORKBILL"
+    </meta>
+
+    <id
+        name="wbId"
+        type="java.lang.Long"
+        column="WB_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="WB_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_WB_ID"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_WB_ID</param>
+        </generator>
+    </id>
+
+    <property
+        name="wbCreatedate"
+        type="java.sql.Timestamp"
+        column="WB_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WB_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wbModifydate"
+        type="java.sql.Timestamp"
+        column="WB_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WB_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wbPlanstartdate"
+        type="java.sql.Timestamp"
+        column="WB_PLANSTARTDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WB_PLANSTARTDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wbPlanenddate"
+        type="java.sql.Timestamp"
+        column="WB_PLANENDDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WB_PLANENDDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wbActualstartdate"
+        type="java.sql.Timestamp"
+        column="WB_ACTUALSTARTDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WB_ACTUALSTARTDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wbActualenddate"
+        type="java.sql.Timestamp"
+        column="WB_ACTUALENDDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WB_ACTUALENDDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wbContent"
+        type="java.lang.String"
+        column="WB_CONTENT"
+        not-null="true"
+        length="1024"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WB_CONTENT"
+            length="1024"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wbHeading"
+        type="java.lang.String"
+        column="WB_HEADING"
+        not-null="true"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WB_HEADING"
+            length="100"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiWorkbillkind -->
+    <many-to-one
+        name="tdiWorkbillkind"
+        class="kyle.leis.hi.TdiWorkbillkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="WBK_CODE"         
+        </meta>
+        <column name="WBK_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiWorkbilllevel -->
+    <many-to-one
+        name="tdiWorkbilllevel"
+        class="kyle.leis.hi.TdiWorkbilllevel"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="WBL_CODE"         
+        </meta>
+        <column name="WBL_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByWbOpIdSurveillant"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="WB_OP_ID_SURVEILLANT"         
+        </meta>
+        <column name="WB_OP_ID_SURVEILLANT" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByWbOpIdCreator"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="WB_OP_ID_CREATOR"         
+        </meta>
+        <column name="WB_OP_ID_CREATOR" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByWbOpIdExecutor"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="WB_OP_ID_EXECUTOR"         
+        </meta>
+        <column name="WB_OP_ID_EXECUTOR" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByWbOpIdModifier"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="WB_OP_ID_MODIFIER"         
+        </meta>
+        <column name="WB_OP_ID_MODIFIER" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByWbOpIdPrincipal"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="WB_OP_ID_PRINCIPAL"         
+        </meta>
+        <column name="WB_OP_ID_PRINCIPAL" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiWorkbillstatus -->
+    <many-to-one
+        name="tdiWorkbillstatus"
+        class="kyle.leis.hi.TdiWorkbillstatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="WBS_CODE"         
+        </meta>
+        <column name="WBS_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TesWorkbillaction -->
+    <set
+        name="tesWorkbillactions"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="WB_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TesWorkbillaction"
+        </meta>
+        <key>
+            <column name="WB_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TesWorkbillaction"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TepZonedistrictpostcode" 
+    table="T_EP_ZONEDISTRICTPOSTCODE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_EP_ZONEDISTRICTPOSTCODE"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TepZonedistrictpostcodePK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="znvId" 
+            column="ZNV_ID" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="ZNV_ID"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="znCode" 
+            column="ZN_CODE" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="ZN_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="dtCode" 
+            column="DT_CODE" 
+            type="java.lang.String"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="DT_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="zdpId" 
+            column="ZDP_ID" 
+            type="java.lang.Integer"
+            length="5"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="ZDP_ID"
+                length="5"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="zdpStartpostcode"
+        type="java.lang.String"
+        column="ZDP_STARTPOSTCODE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ZDP_STARTPOSTCODE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="zdpEndpostcode"
+        type="java.lang.String"
+        column="ZDP_ENDPOSTCODE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ZDP_ENDPOSTCODE"
+            length="10"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TepZonevaluedistrict -->
+    <many-to-one
+        name="tepZonevaluedistrict"
+	    class="kyle.leis.hi.TepZonevaluedistrict"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="ZNV_ID"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="ZN_CODE"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="DT_CODE"
+        </meta>
+    	<column name="ZNV_ID" />
+    	<column name="ZN_CODE" />
+    	<column name="DT_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

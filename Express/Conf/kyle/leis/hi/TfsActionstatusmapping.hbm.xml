@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfsActionstatusmapping" 
+    table="T_FS_ACTIONSTATUSMAPPING"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FS_ACTIONSTATUSMAPPING"
+    </meta>
+
+    <id
+        name="asmCode"
+        type="java.lang.String"
+        column="ASM_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="ASM_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="asmBusinesskind"
+        type="java.lang.String"
+        column="ASM_BUSINESSKIND"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ASM_BUSINESSKIND"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="asmOriginstatus"
+        type="java.lang.String"
+        column="ASM_ORIGINSTATUS"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ASM_ORIGINSTATUS"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="asmFinalstatus"
+        type="java.lang.String"
+        column="ASM_FINALSTATUS"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ASM_FINALSTATUS"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiActionkind -->
+    <many-to-one
+        name="tdiActionkind"
+        class="kyle.leis.hi.TdiActionkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="AK_CODE"         
+        </meta>
+        <column name="AK_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

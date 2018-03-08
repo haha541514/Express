@@ -1,0 +1,311 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfiCashrecord" 
+    table="T_FI_CASHRECORD"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FI_CASHRECORD"
+    </meta>
+
+    <id
+        name="crId"
+        type="java.lang.Long"
+        column="CR_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="CR_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_CashRecord_Code"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_CashRecord_Code</param>
+        </generator>
+    </id>
+
+    <property
+        name="crCurrencyrate"
+        type="java.math.BigDecimal"
+        column="CR_CURRENCYRATE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CR_CURRENCYRATE"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="crTotal"
+        type="java.math.BigDecimal"
+        column="CR_TOTAL"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CR_TOTAL"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="crLabelcode"
+        type="java.lang.String"
+        column="CR_LABELCODE"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CR_LABELCODE"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="crOccurdate"
+        type="java.sql.Timestamp"
+        column="CR_OCCURDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CR_OCCURDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="crCreatedate"
+        type="java.sql.Timestamp"
+        column="CR_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CR_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="crModifydate"
+        type="java.sql.Timestamp"
+        column="CR_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CR_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="crAuditdate"
+        type="java.sql.Timestamp"
+        column="CR_AUDITDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CR_AUDITDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="crReceiptlabelcode"
+        type="java.lang.String"
+        column="CR_RECEIPTLABELCODE"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CR_RECEIPTLABELCODE"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="crReceiptprinttime"
+        type="java.lang.Integer"
+        column="CR_RECEIPTPRINTTIME"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CR_RECEIPTPRINTTIME"
+            length="5"
+        </meta>    
+    </property>
+    <property
+        name="crRemark"
+        type="java.lang.String"
+        column="CR_REMARK"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CR_REMARK"
+            length="128"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiCashrecordstatus -->
+    <many-to-one
+        name="tdiCashrecordstatus"
+        class="kyle.leis.hi.TdiCashrecordstatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CRS_CODE"         
+        </meta>
+        <column name="CRS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByCrOpIdCreator"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CR_OP_ID_CREATOR"         
+        </meta>
+        <column name="CR_OP_ID_CREATOR" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByCrOpIdAuditor"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CR_OP_ID_AUDITOR"         
+        </meta>
+        <column name="CR_OP_ID_AUDITOR" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByCrOpIdModifier"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CR_OP_ID_MODIFIER"         
+        </meta>
+        <column name="CR_OP_ID_MODIFIER" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiPaymenttype -->
+    <many-to-one
+        name="tdiPaymenttype"
+        class="kyle.leis.hi.TdiPaymenttype"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PT_CODE"         
+        </meta>
+        <column name="PT_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TcoCorporation -->
+    <many-to-one
+        name="tcoCorporation"
+        class="kyle.leis.hi.TcoCorporation"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CO_CODE"         
+        </meta>
+        <column name="CO_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiCurrencykind -->
+    <many-to-one
+        name="tdiCurrencykind"
+        class="kyle.leis.hi.TdiCurrencykind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CK_CODE"         
+        </meta>
+        <column name="CK_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TfiWriteoff -->
+    <many-to-one
+        name="tfiWriteoff"
+        class="kyle.leis.hi.TfiWriteoff"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="WO_ID"         
+        </meta>
+        <column name="WO_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiCashrecordkind -->
+    <many-to-one
+        name="tdiCashrecordkind"
+        class="kyle.leis.hi.TdiCashrecordkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CRK_CODE"         
+        </meta>
+        <column name="CRK_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiEnterpriseelement -->
+    <many-to-one
+        name="tdiEnterpriseelement"
+        class="kyle.leis.hi.TdiEnterpriseelement"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="EE_CODE"         
+        </meta>
+        <column name="EE_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

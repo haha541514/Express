@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfsRecordprocess" 
+    table="T_FS_RECORDPROCESS"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FS_RECORDPROCESS"
+    </meta>
+
+    <id
+        name="rpCode"
+        type="java.lang.String"
+        column="RP_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="RP_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="rpOriginfieldlist"
+        type="java.lang.String"
+        column="RP_ORIGINFIELDLIST"
+        not-null="true"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RP_ORIGINFIELDLIST"
+            length="256"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="rpTargetfieldlist"
+        type="java.lang.String"
+        column="RP_TARGETFIELDLIST"
+        not-null="true"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RP_TARGETFIELDLIST"
+            length="256"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="rpParameter"
+        type="java.lang.String"
+        column="RP_PARAMETER"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="RP_PARAMETER"
+            length="256"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TfsRecordlabel -->
+    <many-to-one
+        name="tfsRecordlabel"
+        class="kyle.leis.hi.TfsRecordlabel"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="RL_CODE"         
+        </meta>
+        <column name="RL_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiRecordprocesskind -->
+    <many-to-one
+        name="tdiRecordprocesskind"
+        class="kyle.leis.hi.TdiRecordprocesskind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="RPK_CODE"         
+        </meta>
+        <column name="RPK_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,272 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfiWriteoff" 
+    table="T_FI_WRITEOFF"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FI_WRITEOFF"
+    </meta>
+
+    <id
+        name="woId"
+        type="java.lang.Long"
+        column="WO_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="WO_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_WriteOff_Code"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_WriteOff_Code</param>
+        </generator>
+    </id>
+
+    <property
+        name="woTotal"
+        type="java.math.BigDecimal"
+        column="WO_TOTAL"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WO_TOTAL"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="woCreatedate"
+        type="java.sql.Timestamp"
+        column="WO_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WO_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="woLabelcode"
+        type="java.lang.String"
+        column="WO_LABELCODE"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WO_LABELCODE"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="woRemark"
+        type="java.lang.String"
+        column="WO_REMARK"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WO_REMARK"
+            length="128"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiSimplestatus -->
+    <many-to-one
+        name="tdiSimplestatus"
+        class="kyle.leis.hi.TdiSimplestatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SS_CODE"         
+        </meta>
+        <column name="SS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperator"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID"         
+        </meta>
+        <column name="OP_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiCurrencykind -->
+    <many-to-one
+        name="tdiCurrencykind"
+        class="kyle.leis.hi.TdiCurrencykind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CK_CODE"         
+        </meta>
+        <column name="CK_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TfiCashrecord -->
+    <set
+        name="tfiCashrecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="WO_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiCashrecord"
+        </meta>
+        <key>
+            <column name="WO_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiCashrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiServerbillrecord -->
+    <set
+        name="tfiServerbillrecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="WO_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiServerbillrecord"
+        </meta>
+        <key>
+            <column name="WO_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiServerbillrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ThiCashrecord -->
+    <set
+        name="thiCashrecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="WO_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.ThiCashrecord"
+        </meta>
+        <key>
+            <column name="WO_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.ThiCashrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ThiBillrecord -->
+    <set
+        name="thiBillrecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="WO_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.ThiBillrecord"
+        </meta>
+        <key>
+            <column name="WO_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.ThiBillrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiBillrecord -->
+    <set
+        name="tfiBillrecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="WO_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiBillrecord"
+        </meta>
+        <key>
+            <column name="WO_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiBillrecord"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

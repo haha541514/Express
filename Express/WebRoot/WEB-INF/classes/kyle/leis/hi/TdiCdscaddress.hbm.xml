@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiCdscaddress" 
+    table="T_DI_CDSCADDRESS"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_CDSCADDRESS"
+    </meta>
+
+    <id
+        name="cdscaCode"
+        type="java.lang.String"
+        column="CDSCA_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="CDSCA_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="cdscaShipperaddress"
+        type="java.lang.String"
+        column="CDSCA_SHIPPERADDRESS"
+        not-null="true"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CDSCA_SHIPPERADDRESS"
+            length="128"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cdscaConsigneeaddress"
+        type="java.lang.String"
+        column="CDSCA_CONSIGNEEADDRESS"
+        not-null="true"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CDSCA_CONSIGNEEADDRESS"
+            length="128"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

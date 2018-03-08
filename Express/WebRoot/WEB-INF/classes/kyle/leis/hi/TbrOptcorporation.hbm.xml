@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TbrOptcorporation" 
+    table="T_BR_OPTCORPORATION"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_BR_OPTCORPORATION"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TbrOptcorporationPK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="brId" 
+            column="BR_ID" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="BR_ID"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="coCode" 
+            column="CO_CODE" 
+            type="java.lang.String"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="CO_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="optcCssign"
+        type="java.lang.String"
+        column="OPTC_CSSIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OPTC_CSSIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TcoCorporation -->
+    <many-to-one
+        name="tcoCorporation"
+	    class="kyle.leis.hi.TcoCorporation"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="CO_CODE"
+        </meta>
+    	<column name="CO_CODE" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to TbrOperationprompt -->
+    <many-to-one
+        name="tbrOperationprompt"
+	    class="kyle.leis.hi.TbrOperationprompt"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="BR_ID"
+        </meta>
+    	<column name="BR_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

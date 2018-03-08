@@ -1,0 +1,294 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfsGuimenu" 
+    table="T_FS_GUIMENU"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FS_GUIMENU"
+    </meta>
+
+    <id
+        name="gmCode"
+        type="java.lang.String"
+        column="GM_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="GM_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="gmName"
+        type="java.lang.String"
+        column="GM_NAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="GM_NAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="gmParameter"
+        type="java.lang.String"
+        column="GM_PARAMETER"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="GM_PARAMETER"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="gmLink"
+        type="java.lang.String"
+        column="GM_LINK"
+        not-null="true"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="GM_LINK"
+            length="80"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="gmIcon"
+        type="java.lang.String"
+        column="GM_ICON"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="GM_ICON"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="gmLevel"
+        type="int"
+        column="GM_LEVEL"
+        not-null="true"
+        length="4"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="GM_LEVEL"
+            length="4"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="gmStructurecode"
+        type="java.lang.String"
+        column="GM_STRUCTURECODE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="GM_STRUCTURECODE"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="gmShortcutkey"
+        type="java.lang.String"
+        column="GM_SHORTCUTKEY"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="GM_SHORTCUTKEY"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="gmGroupcode"
+        type="java.lang.String"
+        column="GM_GROUPCODE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="GM_GROUPCODE"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="gmMaxusecount"
+        type="int"
+        column="GM_MAXUSECOUNT"
+        not-null="true"
+        length="4"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="GM_MAXUSECOUNT"
+            length="4"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="gmShowtoolbar"
+        type="java.lang.String"
+        column="GM_SHOWTOOLBAR"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="GM_SHOWTOOLBAR"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="gmPinyinname"
+        type="java.lang.String"
+        column="GM_PINYINNAME"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="GM_PINYINNAME"
+            length="50"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TfsGuimenuitem -->
+    <set
+        name="tfsGuimenuitems"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="GM_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsGuimenuitem"
+        </meta>
+        <key>
+            <column name="GM_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsGuimenuitem"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfsRolemenu -->
+    <set
+        name="tfsRolemenus"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="GM_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsRolemenu"
+        </meta>
+        <key>
+            <column name="GM_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsRolemenu"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfsGuiaction -->
+    <set
+        name="tfsGuiactions"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="GM_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsGuiaction"
+        </meta>
+        <key>
+            <column name="GM_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsGuiaction"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TdiGuiopenstyle -->
+    <many-to-one
+        name="tdiGuiopenstyle"
+        class="kyle.leis.hi.TdiGuiopenstyle"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="GOS_CODE"         
+        </meta>
+        <column name="GOS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiInfomationsystemkind -->
+    <many-to-one
+        name="tdiInfomationsystemkind"
+        class="kyle.leis.hi.TdiInfomationsystemkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="ISK_CODE"         
+        </meta>
+        <column name="ISK_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

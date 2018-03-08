@@ -1,0 +1,300 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfiServerbillrecord" 
+    table="T_FI_SERVERBILLRECORD"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FI_SERVERBILLRECORD"
+    </meta>
+
+    <id
+        name="sbrId"
+        type="java.lang.Long"
+        column="SBR_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="SBR_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_SBR_CODE"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_SBR_CODE</param>
+        </generator>
+    </id>
+
+    <property
+        name="sbrLabelcode"
+        type="java.lang.String"
+        column="SBR_LABELCODE"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SBR_LABELCODE"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="sbrTotal"
+        type="java.math.BigDecimal"
+        column="SBR_TOTAL"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SBR_TOTAL"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="sbrOccurdate"
+        type="java.sql.Timestamp"
+        column="SBR_OCCURDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SBR_OCCURDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="sbrCreatedate"
+        type="java.sql.Timestamp"
+        column="SBR_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SBR_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="sbrModifydate"
+        type="java.sql.Timestamp"
+        column="SBR_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SBR_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="sbrRemark"
+        type="java.lang.String"
+        column="SBR_REMARK"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SBR_REMARK"
+            length="256"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiSimplestatus -->
+    <many-to-one
+        name="tdiSimplestatus"
+        class="kyle.leis.hi.TdiSimplestatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SS_CODE"         
+        </meta>
+        <column name="SS_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TfiServerpayable -->
+    <set
+        name="tfiServerpayables"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SBR_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiServerpayable"
+        </meta>
+        <key>
+            <column name="SBR_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiServerpayable"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiServerbilldetail -->
+    <set
+        name="tfiServerbilldetails"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SBR_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiServerbilldetail"
+        </meta>
+        <key>
+            <column name="SBR_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiServerbilldetail"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiBillrecord -->
+    <set
+        name="tfiBillrecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SBR_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiBillrecord"
+        </meta>
+        <key>
+            <column name="SBR_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiBillrecord"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByOpIdCreator"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_CREATOR"         
+        </meta>
+        <column name="OP_ID_CREATOR" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByOpIdModifier"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_MODIFIER"         
+        </meta>
+        <column name="OP_ID_MODIFIER" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiCurrencykind -->
+    <many-to-one
+        name="tdiCurrencykind"
+        class="kyle.leis.hi.TdiCurrencykind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CK_CODE"         
+        </meta>
+        <column name="CK_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TfiWriteoff -->
+    <many-to-one
+        name="tfiWriteoff"
+        class="kyle.leis.hi.TfiWriteoff"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="WO_ID"         
+        </meta>
+        <column name="WO_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TchnChannel -->
+    <many-to-one
+        name="tchnChannel"
+        class="kyle.leis.hi.TchnChannel"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CHN_CODE"         
+        </meta>
+        <column name="CHN_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiEnterpriseelement -->
+    <many-to-one
+        name="tdiEnterpriseelement"
+        class="kyle.leis.hi.TdiEnterpriseelement"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="EE_CODE"         
+        </meta>
+        <column name="EE_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

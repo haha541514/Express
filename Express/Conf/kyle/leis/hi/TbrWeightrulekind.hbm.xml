@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TbrWeightrulekind" 
+    table="T_BR_WEIGHTRULEKIND"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_BR_WEIGHTRULEKIND"
+    </meta>
+
+    <id
+        name="wrkId"
+        type="java.lang.Long"
+        column="WRK_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="WRK_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_WeightRuleKind_Code"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_WeightRuleKind_Code</param>
+        </generator>
+    </id>
+
+    <property
+        name="wrkName"
+        type="java.lang.String"
+        column="WRK_NAME"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WRK_NAME"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wrkEname"
+        type="java.lang.String"
+        column="WRK_ENAME"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WRK_ENAME"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wrkDefaultsign"
+        type="java.lang.String"
+        column="WRK_DEFAULTSIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WRK_DEFAULTSIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiProductkind -->
+    <many-to-one
+        name="tdiProductkind"
+        class="kyle.leis.hi.TdiProductkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PK_CODE"         
+        </meta>
+        <column name="PK_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiSimplestatus -->
+    <many-to-one
+        name="tdiSimplestatus"
+        class="kyle.leis.hi.TdiSimplestatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SS_CODE"         
+        </meta>
+        <column name="SS_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TbrCorweightrule -->
+    <set
+        name="tbrCorweightrules"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="WRK_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrCorweightrule"
+        </meta>
+        <key>
+            <column name="WRK_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrCorweightrule"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrWeightrule -->
+    <set
+        name="tbrWeightrules"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="WRK_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrWeightrule"
+        </meta>
+        <key>
+            <column name="WRK_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrWeightrule"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TdiPricedomain -->
+    <many-to-one
+        name="tdiPricedomain"
+        class="kyle.leis.hi.TdiPricedomain"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PD_CODE"         
+        </meta>
+        <column name="PD_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TesSmsrechargerecord" 
+    table="T_ES_SMSRECHARGERECORD"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_ES_SMSRECHARGERECORD"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TesSmsrechargerecordPK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="srrId" 
+            column="SRR_ID" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="SRR_ID"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="ssId" 
+            column="SS_ID" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="SS_ID"
+                length="10"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="srrAmount"
+        type="java.math.BigDecimal"
+        column="SRR_AMOUNT"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SRR_AMOUNT"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="srrCreatedate"
+        type="java.sql.Timestamp"
+        column="SRR_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SRR_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="srrOpNameCreate"
+        type="java.lang.String"
+        column="SRR_OP_NAME_CREATE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SRR_OP_NAME_CREATE"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="srrRemark"
+        type="java.lang.String"
+        column="SRR_REMARK"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SRR_REMARK"
+            length="256"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TesSmsservice -->
+    <many-to-one
+        name="tesSmsservice"
+	    class="kyle.leis.hi.TesSmsservice"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="SS_ID"
+        </meta>
+    	<column name="SS_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

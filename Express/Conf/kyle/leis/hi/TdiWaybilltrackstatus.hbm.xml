@@ -1,0 +1,216 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiWaybilltrackstatus" 
+    table="T_DI_WAYBILLTRACKSTATUS"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_WAYBILLTRACKSTATUS"
+    </meta>
+
+    <id
+        name="wbtsCode"
+        type="java.lang.String"
+        column="WBTS_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="WBTS_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="wbtsName"
+        type="java.lang.String"
+        column="WBTS_NAME"
+        not-null="true"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBTS_NAME"
+            length="128"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wbtsEname"
+        type="java.lang.String"
+        column="WBTS_ENAME"
+        not-null="true"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBTS_ENAME"
+            length="128"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wbtsAbnormalsign"
+        type="java.lang.String"
+        column="WBTS_ABNORMALSIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBTS_ABNORMALSIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiWaybilltransferphase -->
+    <many-to-one
+        name="tdiWaybilltransferphase"
+        class="kyle.leis.hi.TdiWaybilltransferphase"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="WBTP_CODE"         
+        </meta>
+        <column name="WBTP_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiSimplestatus -->
+    <many-to-one
+        name="tdiSimplestatus"
+        class="kyle.leis.hi.TdiSimplestatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SS_CODE"         
+        </meta>
+        <column name="SS_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TcsWaybillbatchtrack -->
+    <set
+        name="tcsWaybillbatchtracks"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="WBTS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcsWaybillbatchtrack"
+        </meta>
+        <key>
+            <column name="WBTS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcsWaybillbatchtrack"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcsWaybilltrack -->
+    <set
+        name="tcsWaybilltracks"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="WBTS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcsWaybilltrack"
+        </meta>
+        <key>
+            <column name="WBTS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcsWaybilltrack"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrChanneltrackmapping -->
+    <set
+        name="tbrChanneltrackmappings"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CTM_MAPPINGTRACKDESC"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrChanneltrackmapping"
+        </meta>
+        <key>
+            <column name="CTM_MAPPINGTRACKDESC" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrChanneltrackmapping"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiTransporttrackmapping -->
+    <set
+        name="tdiTransporttrackmappings"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="WBTS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiTransporttrackmapping"
+        </meta>
+        <key>
+            <column name="WBTS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiTransporttrackmapping"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

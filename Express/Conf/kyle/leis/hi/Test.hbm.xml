@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.Test" 
+    table="TEST"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="TEST"
+    </meta>
+
+    <id
+        name="stuid"
+        type="java.lang.Long"
+        column="STUID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="STUID"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="userbname"
+        type="java.lang.String"
+        column="USERBNAME"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="USERBNAME"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="pwd"
+        type="java.lang.String"
+        column="PWD"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWD"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="createdate"
+        type="java.sql.Timestamp"
+        column="CREATEDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CREATEDATE"
+            length="7"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to Ttest -->
+    <set
+        name="ttests"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="STUID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.Ttest"
+        </meta>
+        <key>
+            <column name="STUID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.Ttest"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

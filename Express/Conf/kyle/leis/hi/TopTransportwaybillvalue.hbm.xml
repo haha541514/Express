@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TopTransportwaybillvalue" 
+    table="T_OP_TRANSPORTWAYBILLVALUE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_OP_TRANSPORTWAYBILLVALUE"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TopTransportwaybillvaluePK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="twbId" 
+            column="TWB_ID" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="TWB_ID"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="twbvId" 
+            column="TWBV_ID" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="TWBV_ID"
+                length="10"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="twbvBaglabelcode"
+        type="java.lang.String"
+        column="TWBV_BAGLABELCODE"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TWBV_BAGLABELCODE"
+            length="30"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TopTransportwaybill -->
+    <many-to-one
+        name="topTransportwaybill"
+	    class="kyle.leis.hi.TopTransportwaybill"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="TWB_ID"
+        </meta>
+    	<column name="TWB_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to TopBatchwaybill -->
+    <many-to-one
+        name="topBatchwaybill"
+        class="kyle.leis.hi.TopBatchwaybill"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BW_CODE"         
+        </meta>
+        <column name="BW_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TopCorewaybill -->
+    <many-to-one
+        name="topCorewaybill"
+        class="kyle.leis.hi.TopCorewaybill"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CW_CODE"         
+        </meta>
+        <column name="CW_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

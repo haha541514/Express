@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.Ttest" 
+    table="T_TEST"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_TEST"
+    </meta>
+
+    <id
+        name="userid"
+        type="java.lang.Long"
+        column="USERID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="USERID"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="username"
+        type="java.lang.String"
+        column="USERNAME"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="USERNAME"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="address"
+        type="java.lang.String"
+        column="ADDRESS"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ADDRESS"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="hubcode"
+        type="java.lang.String"
+        column="HUBCODE"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HUBCODE"
+            length="50"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to Test -->
+    <many-to-one
+        name="test"
+        class="kyle.leis.hi.Test"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="STUID"         
+        </meta>
+        <column name="STUID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,247 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TesBulletin" 
+    table="T_ES_BULLETIN"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_ES_BULLETIN"
+    </meta>
+
+    <id
+        name="blId"
+        type="java.lang.Long"
+        column="BL_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="BL_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_BULLETIN_ID"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_BULLETIN_ID</param>
+        </generator>
+    </id>
+
+    <property
+        name="blHeading"
+        type="java.lang.String"
+        column="BL_HEADING"
+        not-null="true"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BL_HEADING"
+            length="128"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="blContentindex"
+        type="java.lang.String"
+        column="BL_CONTENTINDEX"
+        not-null="true"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BL_CONTENTINDEX"
+            length="256"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="blLink"
+        type="java.lang.String"
+        column="BL_LINK"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BL_LINK"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="blValiddate"
+        type="java.sql.Timestamp"
+        column="BL_VALIDDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BL_VALIDDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="blSignname"
+        type="java.lang.String"
+        column="BL_SIGNNAME"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BL_SIGNNAME"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="blCreatedate"
+        type="java.sql.Timestamp"
+        column="BL_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BL_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="blModifydate"
+        type="java.sql.Timestamp"
+        column="BL_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BL_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="blContent"
+        type="java.lang.String"
+        column="BL_CONTENT"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BL_CONTENT"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="blWechatsign"
+        type="java.lang.String"
+        column="BL_WECHATSIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BL_WECHATSIGN"
+            length="1"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiBulletinlevel -->
+    <many-to-one
+        name="tdiBulletinlevel"
+        class="kyle.leis.hi.TdiBulletinlevel"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BL_CODE"         
+        </meta>
+        <column name="BL_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByOpIdModifier"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_MODIFIER"         
+        </meta>
+        <column name="OP_ID_MODIFIER" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByOpIdCreator"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_CREATOR"         
+        </meta>
+        <column name="OP_ID_CREATOR" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TesWechatitem -->
+    <set
+        name="tesWechatitems"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BL_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TesWechatitem"
+        </meta>
+        <key>
+            <column name="BL_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TesWechatitem"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TdiBulletinkind -->
+    <many-to-one
+        name="tdiBulletinkind"
+        class="kyle.leis.hi.TdiBulletinkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BK_CODE"         
+        </meta>
+        <column name="BK_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

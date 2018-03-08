@@ -1,0 +1,793 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiEnterpriseelement" 
+    table="T_DI_ENTERPRISEELEMENT"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_ENTERPRISEELEMENT"
+    </meta>
+
+    <id
+        name="eeCode"
+        type="java.lang.String"
+        column="EE_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="EE_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="eeLevel"
+        type="int"
+        column="EE_LEVEL"
+        not-null="true"
+        length="2"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EE_LEVEL"
+            length="2"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="eeStructurecode"
+        type="java.lang.String"
+        column="EE_STRUCTURECODE"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EE_STRUCTURECODE"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="eeName"
+        type="java.lang.String"
+        column="EE_NAME"
+        not-null="true"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EE_NAME"
+            length="100"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="eeEname"
+        type="java.lang.String"
+        column="EE_ENAME"
+        not-null="true"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EE_ENAME"
+            length="100"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="eeSname"
+        type="java.lang.String"
+        column="EE_SNAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EE_SNAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="eeEsname"
+        type="java.lang.String"
+        column="EE_ESNAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EE_ESNAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="eeAddress"
+        type="java.lang.String"
+        column="EE_ADDRESS"
+        not-null="true"
+        length="255"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EE_ADDRESS"
+            length="255"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="eeEaddress"
+        type="java.lang.String"
+        column="EE_EADDRESS"
+        length="255"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EE_EADDRESS"
+            length="255"
+        </meta>    
+    </property>
+    <property
+        name="eePostcode"
+        type="java.lang.String"
+        column="EE_POSTCODE"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EE_POSTCODE"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="eeEmail"
+        type="java.lang.String"
+        column="EE_EMAIL"
+        not-null="true"
+        length="60"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EE_EMAIL"
+            length="60"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="eeTelephone"
+        type="java.lang.String"
+        column="EE_TELEPHONE"
+        not-null="true"
+        length="40"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EE_TELEPHONE"
+            length="40"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="eeFax"
+        type="java.lang.String"
+        column="EE_FAX"
+        not-null="true"
+        length="40"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EE_FAX"
+            length="40"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="eeOpIdCreator"
+        type="long"
+        column="EE_OP_ID_CREATOR"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EE_OP_ID_CREATOR"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="eeCreatedate"
+        type="java.sql.Timestamp"
+        column="EE_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EE_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="eeOpIdModifier"
+        type="long"
+        column="EE_OP_ID_MODIFIER"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EE_OP_ID_MODIFIER"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="eeModifydate"
+        type="java.sql.Timestamp"
+        column="EE_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EE_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiDistrict -->
+    <many-to-one
+        name="tdiDistrict"
+        class="kyle.leis.hi.TdiDistrict"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="DT_CODE"         
+        </meta>
+        <column name="DT_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiEnterpriseelementkind -->
+    <many-to-one
+        name="tdiEnterpriseelementkind"
+        class="kyle.leis.hi.TdiEnterpriseelementkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="EEK_CODE"         
+        </meta>
+        <column name="EEK_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiRegion -->
+    <many-to-one
+        name="tdiRegion"
+        class="kyle.leis.hi.TdiRegion"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="RG_CODE"         
+        </meta>
+        <column name="RG_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiState -->
+    <many-to-one
+        name="tdiState"
+        class="kyle.leis.hi.TdiState"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="ST_CODE"         
+        </meta>
+        <column name="ST_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiCity -->
+    <many-to-one
+        name="tdiCity"
+        class="kyle.leis.hi.TdiCity"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CT_CODE"         
+        </meta>
+        <column name="CT_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TfiCashrecord -->
+    <set
+        name="tfiCashrecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EE_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiCashrecord"
+        </meta>
+        <key>
+            <column name="EE_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiCashrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TchnChannel -->
+    <set
+        name="tchnChannels"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EE_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TchnChannel"
+        </meta>
+        <key>
+            <column name="EE_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TchnChannel"
+        />
+    </set>
+    <!-- bi-directional one-to-one association to TdiBranch -->
+    <one-to-one
+        name="tdiBranch"
+        class="kyle.leis.hi.TdiBranch"
+        outer-join="auto"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            outer-join="auto"
+        </meta>
+    </one-to-one>
+    <!-- bi-directional one-to-many association to TopTransportwaybill -->
+    <set
+        name="topTransportwaybills"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EE_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopTransportwaybill"
+        </meta>
+        <key>
+            <column name="EE_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopTransportwaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopManifest -->
+    <set
+        name="topManifests"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EE_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopManifest"
+        </meta>
+        <key>
+            <column name="EE_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopManifest"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiProductkind -->
+    <set
+        name="tdiProductkinds"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EE_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiProductkind"
+        </meta>
+        <key>
+            <column name="EE_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiProductkind"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ThiBillrecord -->
+    <set
+        name="thiBillrecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EE_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.ThiBillrecord"
+        </meta>
+        <key>
+            <column name="EE_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.ThiBillrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiBillrecord -->
+    <set
+        name="tfiBillrecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EE_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiBillrecord"
+        </meta>
+        <key>
+            <column name="EE_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiBillrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepEnterprise -->
+    <set
+        name="tepEnterprises"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EE_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepEnterprise"
+        </meta>
+        <key>
+            <column name="EE_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepEnterprise"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcoCorporation -->
+    <set
+        name="tcoCorporations"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EE_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoCorporation"
+        </meta>
+        <key>
+            <column name="EE_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoCorporation"
+        />
+    </set>
+    <!-- bi-directional one-to-one association to TdiDistributioncenter -->
+    <one-to-one
+        name="tdiDistributioncenter"
+        class="kyle.leis.hi.TdiDistributioncenter"
+        outer-join="auto"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            outer-join="auto"
+        </meta>
+    </one-to-one>
+    <!-- bi-directional one-to-many association to TdiEecity -->
+    <set
+        name="tdiEecities"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EE_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiEecity"
+        </meta>
+        <key>
+            <column name="EE_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiEecity"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiServerbillrecord -->
+    <set
+        name="tfiServerbillrecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EE_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiServerbillrecord"
+        </meta>
+        <key>
+            <column name="EE_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiServerbillrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ThiCashrecord -->
+    <set
+        name="thiCashrecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EE_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.ThiCashrecord"
+        </meta>
+        <key>
+            <column name="EE_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.ThiCashrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiOperator -->
+    <set
+        name="tdiOperators"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EE_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiOperator"
+        </meta>
+        <key>
+            <column name="EE_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiOperator"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopCorewaybill -->
+    <set
+        name="topCorewaybills"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EE_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopCorewaybill"
+        </meta>
+        <key>
+            <column name="EE_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopCorewaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopBatchwaybill -->
+    <set
+        name="topBatchwaybills"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EE_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopBatchwaybill"
+        </meta>
+        <key>
+            <column name="EE_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopBatchwaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TesSystemproperty -->
+    <set
+        name="tesSystemproperties"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EE_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TesSystemproperty"
+        </meta>
+        <key>
+            <column name="EE_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TesSystemproperty"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepExpressprice -->
+    <set
+        name="tepExpressprices"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EE_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepExpressprice"
+        </meta>
+        <key>
+            <column name="EE_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepExpressprice"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

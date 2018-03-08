@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfsBranchrole" 
+    table="T_FS_BRANCHROLE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FS_BRANCHROLE"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TfsBranchrolePK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="brCode" 
+            column="BR_CODE" 
+            type="java.lang.String"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="BR_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="rlCode" 
+            column="RL_CODE" 
+            type="java.lang.String"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="RL_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="brOwnsign"
+        type="java.lang.String"
+        column="BR_OWNSIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BR_OWNSIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TfsRole -->
+    <many-to-one
+        name="tfsRole"
+	    class="kyle.leis.hi.TfsRole"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="RL_CODE"
+        </meta>
+    	<column name="RL_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to TdiBranch -->
+    <many-to-one
+        name="tdiBranch"
+        class="kyle.leis.hi.TdiBranch"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="EE_CODE"         
+        </meta>
+        <column name="EE_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

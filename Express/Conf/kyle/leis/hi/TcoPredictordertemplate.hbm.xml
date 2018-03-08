@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TcoPredictordertemplate" 
+    table="T_CO_PREDICTORDERTEMPLATE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_CO_PREDICTORDERTEMPLATE"
+    </meta>
+
+    <id
+        name="potId"
+        type="java.lang.Long"
+        column="POT_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="POT_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_POT_ID"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_POT_ID</param>
+        </generator>
+    </id>
+
+    <property
+        name="potName"
+        type="java.lang.String"
+        column="POT_NAME"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="POT_NAME"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="potRemark"
+        type="java.lang.String"
+        column="POT_REMARK"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="POT_REMARK"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="potCreatedate"
+        type="java.sql.Timestamp"
+        column="POT_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="POT_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="potModifydate"
+        type="java.sql.Timestamp"
+        column="POT_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="POT_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TcoCustomer -->
+    <many-to-one
+        name="tcoCustomer"
+        class="kyle.leis.hi.TcoCustomer"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CO_CODE"         
+        </meta>
+        <column name="CO_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByOpIdCreator"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_CREATOR"         
+        </meta>
+        <column name="OP_ID_CREATOR" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByOpIdModifier"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_MODIFIER"         
+        </meta>
+        <column name="OP_ID_MODIFIER" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TcoPredictordertemplatevalue -->
+    <set
+        name="tcoPredictordertemplatevalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="POT_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoPredictordertemplatevalue"
+        </meta>
+        <key>
+            <column name="POT_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoPredictordertemplatevalue"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcoPreictorderdicmapping -->
+    <set
+        name="tcoPreictorderdicmappings"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="POT_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoPreictorderdicmapping"
+        </meta>
+        <key>
+            <column name="POT_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoPreictorderdicmapping"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

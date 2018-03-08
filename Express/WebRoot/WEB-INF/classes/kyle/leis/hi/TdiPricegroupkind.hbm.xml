@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiPricegroupkind" 
+    table="T_DI_PRICEGROUPKIND"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_PRICEGROUPKIND"
+    </meta>
+
+    <id
+        name="pgkCode"
+        type="java.lang.String"
+        column="PGK_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="PGK_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="pgkName"
+        type="java.lang.String"
+        column="PGK_NAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PGK_NAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pgkEname"
+        type="java.lang.String"
+        column="PGK_ENAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PGK_ENAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pgkDefaultsign"
+        type="java.lang.String"
+        column="PGK_DEFAULTSIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PGK_DEFAULTSIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiSimplestatus -->
+    <many-to-one
+        name="tdiSimplestatus"
+        class="kyle.leis.hi.TdiSimplestatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SS_CODE"         
+        </meta>
+        <column name="SS_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TepCustomerpricegroup -->
+    <set
+        name="tepCustomerpricegroups"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PGK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepCustomerpricegroup"
+        </meta>
+        <key>
+            <column name="PGK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepCustomerpricegroup"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

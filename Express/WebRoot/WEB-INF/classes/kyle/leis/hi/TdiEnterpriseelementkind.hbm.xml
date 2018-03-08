@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiEnterpriseelementkind" 
+    table="T_DI_ENTERPRISEELEMENTKIND"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_ENTERPRISEELEMENTKIND"
+    </meta>
+
+    <id
+        name="eekCode"
+        type="java.lang.String"
+        column="EEK_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="EEK_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="eekName"
+        type="java.lang.String"
+        column="EEK_NAME"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EEK_NAME"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="eekEname"
+        type="java.lang.String"
+        column="EEK_ENAME"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EEK_ENAME"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TdiEnterpriseelement -->
+    <set
+        name="tdiEnterpriseelements"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EEK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiEnterpriseelement"
+        </meta>
+        <key>
+            <column name="EEK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiEnterpriseelement"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

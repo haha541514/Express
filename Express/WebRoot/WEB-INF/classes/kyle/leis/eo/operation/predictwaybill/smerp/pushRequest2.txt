@@ -1,0 +1,61 @@
+{
+    "ApiUserName": "001",
+    "ApiToken": "EC55DE27E3FA4C2483FF208A24F3B00F",
+	"AccessToken": "C1z3USN6R9HORBn+TowWL/LlStR0YJJN41gR62Y1wSI5c7JcEaqbCQ==",
+	"CallbackUrl": "http://smtok.smerp.cn/index_v2.aspx",
+	"OrderList": [
+		{
+			"Platform": "aliexpress",
+			"PlatformOrderID": "62279745069150",
+			"CreateTime": "2014-05-23 02:30:56",
+			"WaybillNumber": "201407031737216634",
+			"WaybillCompany": "DHL",
+			"Remark": "【1017230680-AddMagneticcaseWhite】Tablet color: white\r\nCase color: white\r\n",
+			"Receiver": {
+				"Country": "Switzerland",
+				"CountryCode": "CH",
+				"Province": "Vaud",
+				"City": "Corsier-sur-Vevey",
+				"Address": "Rue des Terreaux 4 ",
+				"Name": "Luis Figueira",
+				"Contact": "Luis Figueira",
+				"Tel": "--", 
+				"PostCode": "1804",
+				"Mobile": "0793070854",
+				"Fax": ""
+			},
+			"ProductList": [
+				{
+					"DisplayName": "DHL Freeshipping 7.9\" Chuwi V88 mini pad MID RK3188 Quad Core Tablet PC",
+					"ImagePath": "http://g02.a.alicdn.com/kf/UT8MJKOXmldXXagOFbXu.jpg_50x50.jpg",
+					"SKU": "1017230680-AddMagneticcaseWhite",
+					"Weight": 0,
+					"Length": 0,
+					"Width": 0,
+					"Height": 0,
+					"DisplayName_CN": "中文名称",
+					"ShopName": "sichuangtech",
+					"Platform": "aliexpress",
+					"CustomsName": "Shose",
+					"CustomsCnName": "报关中文名",
+					"Barcode": null,
+					"DeclareValue": 1,
+					"Quantity": 1,
+					"HSCode": "00001"
+				}
+			],
+			"DeliveryExpires": "2014-06-26 14:10:09",
+			"ShopName": "sichuangtech",
+			"SellerName": "sichuangtech",
+			"OrderRemark": "【1017230680-AddMagneticcaseWhite】Tablet color: white\r\nCase color: white\r\n",
+			"ItemCount": 1,
+			"CustomsName": "gift",
+			"CustomsNameCN": "礼品",
+			"CustomsValue":"报关价值",
+			"CurrencyType": "RMB",
+			"Weight":0.1,
+			"MailType":"1", 
+			"Channel":"D0102"
+		}
+	]
+}

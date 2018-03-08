@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TcoSupplier" 
+    table="T_CO_SUPPLIER"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_CO_SUPPLIER"
+    </meta>
+
+    <id
+        name="coCode"
+        type="java.lang.String"
+        column="CO_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="CO_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="spAccount"
+        type="java.lang.String"
+        column="SP_ACCOUNT"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SP_ACCOUNT"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="spManifestseriesnumber"
+        type="java.lang.String"
+        column="SP_MANIFESTSERIESNUMBER"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SP_MANIFESTSERIESNUMBER"
+            length="20"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to TcoCorporation -->
+    <one-to-one
+        name="tcoCorporation"
+        class="kyle.leis.hi.TcoCorporation"
+        outer-join="auto"
+        constrained="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            class="kyle.leis.hi.TcoCorporation"
+            outer-join="auto"
+            constrained="true"
+        </meta>    
+    </one-to-one>
+
+</class>
+</hibernate-mapping>

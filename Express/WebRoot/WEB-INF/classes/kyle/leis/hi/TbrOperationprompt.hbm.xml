@@ -1,0 +1,491 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TbrOperationprompt" 
+    table="T_BR_OPERATIONPROMPT"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_BR_OPERATIONPROMPT"
+    </meta>
+
+    <id
+        name="brId"
+        type="java.lang.Long"
+        column="BR_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="BR_ID"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="ptCode"
+        type="java.lang.String"
+        column="PT_CODE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PT_CODE"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="optName"
+        type="java.lang.String"
+        column="OPT_NAME"
+        not-null="true"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OPT_NAME"
+            length="100"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="optUniversalcustomersign"
+        type="java.lang.String"
+        column="OPT_UNIVERSALCUSTOMERSIGN"
+        not-null="true"
+        length="3"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OPT_UNIVERSALCUSTOMERSIGN"
+            length="3"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="optUniversalservesign"
+        type="java.lang.String"
+        column="OPT_UNIVERSALSERVESIGN"
+        not-null="true"
+        length="3"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OPT_UNIVERSALSERVESIGN"
+            length="3"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="optUniversalachannelsign"
+        type="java.lang.String"
+        column="OPT_UNIVERSALACHANNELSIGN"
+        not-null="true"
+        length="3"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OPT_UNIVERSALACHANNELSIGN"
+            length="3"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="optUniversalschannelsign"
+        type="java.lang.String"
+        column="OPT_UNIVERSALSCHANNELSIGN"
+        not-null="true"
+        length="3"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OPT_UNIVERSALSCHANNELSIGN"
+            length="3"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="optUniversaldeparturesign"
+        type="java.lang.String"
+        column="OPT_UNIVERSALDEPARTURESIGN"
+        not-null="true"
+        length="3"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OPT_UNIVERSALDEPARTURESIGN"
+            length="3"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="optUniversaldestinationsign"
+        type="java.lang.String"
+        column="OPT_UNIVERSALDESTINATIONSIGN"
+        not-null="true"
+        length="3"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OPT_UNIVERSALDESTINATIONSIGN"
+            length="3"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="optUniversaltachesign"
+        type="java.lang.String"
+        column="OPT_UNIVERSALTACHESIGN"
+        not-null="true"
+        length="3"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OPT_UNIVERSALTACHESIGN"
+            length="3"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="optVwgwformular"
+        type="java.lang.String"
+        column="OPT_VWGWFORMULAR"
+        not-null="true"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OPT_VWGWFORMULAR"
+            length="256"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="optChargeweightbegin"
+        type="java.math.BigDecimal"
+        column="OPT_CHARGEWEIGHTBEGIN"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OPT_CHARGEWEIGHTBEGIN"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="optChargeweightend"
+        type="java.math.BigDecimal"
+        column="OPT_CHARGEWEIGHTEND"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OPT_CHARGEWEIGHTEND"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="optPiecegrossweightbegin"
+        type="java.math.BigDecimal"
+        column="OPT_PIECEGROSSWEIGHTBEGIN"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OPT_PIECEGROSSWEIGHTBEGIN"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="optPiecegrossweightend"
+        type="java.math.BigDecimal"
+        column="OPT_PIECEGROSSWEIGHTEND"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OPT_PIECEGROSSWEIGHTEND"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="optDeclarevaluebegin"
+        type="java.math.BigDecimal"
+        column="OPT_DECLAREVALUEBEGIN"
+        not-null="true"
+        length="12"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OPT_DECLAREVALUEBEGIN"
+            length="12"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="optDeclarevalueend"
+        type="java.math.BigDecimal"
+        column="OPT_DECLAREVALUEEND"
+        not-null="true"
+        length="12"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OPT_DECLAREVALUEEND"
+            length="12"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="optContent"
+        type="java.lang.String"
+        column="OPT_CONTENT"
+        not-null="true"
+        length="1024"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OPT_CONTENT"
+            length="1024"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to TbrBusinessrule -->
+    <one-to-one
+        name="tbrBusinessrule"
+        class="kyle.leis.hi.TbrBusinessrule"
+        outer-join="auto"
+        constrained="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            class="kyle.leis.hi.TbrBusinessrule"
+            outer-join="auto"
+            constrained="true"
+        </meta>    
+    </one-to-one>
+    <!-- bi-directional many-to-one association to TdiCargotype -->
+    <many-to-one
+        name="tdiCargotype"
+        class="kyle.leis.hi.TdiCargotype"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CT_CODE"         
+        </meta>
+        <column name="CT_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiProductkind -->
+    <many-to-one
+        name="tdiProductkind"
+        class="kyle.leis.hi.TdiProductkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PK_CODE"         
+        </meta>
+        <column name="PK_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiPaymentmode -->
+    <many-to-one
+        name="tdiPaymentmode"
+        class="kyle.leis.hi.TdiPaymentmode"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PM_CODE"         
+        </meta>
+        <column name="PM_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TbrOptdeparturedistrict -->
+    <set
+        name="tbrOptdeparturedistricts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BR_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrOptdeparturedistrict"
+        </meta>
+        <key>
+            <column name="BR_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrOptdeparturedistrict"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrOptorigindistrict -->
+    <set
+        name="tbrOptorigindistricts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BR_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrOptorigindistrict"
+        </meta>
+        <key>
+            <column name="BR_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrOptorigindistrict"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrOptexpressspecialtype -->
+    <set
+        name="tbrOptexpressspecialtypes"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BR_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrOptexpressspecialtype"
+        </meta>
+        <key>
+            <column name="BR_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrOptexpressspecialtype"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrOptcorporation -->
+    <set
+        name="tbrOptcorporations"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BR_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrOptcorporation"
+        </meta>
+        <key>
+            <column name="BR_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrOptcorporation"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrOptchannel -->
+    <set
+        name="tbrOptchannels"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BR_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrOptchannel"
+        </meta>
+        <key>
+            <column name="BR_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrOptchannel"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrOptoperationtache -->
+    <set
+        name="tbrOptoperationtaches"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BR_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrOptoperationtache"
+        </meta>
+        <key>
+            <column name="BR_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrOptoperationtache"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

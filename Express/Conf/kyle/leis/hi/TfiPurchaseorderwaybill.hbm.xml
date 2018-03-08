@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfiPurchaseorderwaybill" 
+    table="T_FI_PURCHASEORDERWAYBILL"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FI_PURCHASEORDERWAYBILL"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TfiPurchaseorderwaybillPK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="poId" 
+            column="PO_ID" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="PO_ID"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="cwCode" 
+            column="CW_CODE" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="CW_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TfiPurchaseorder -->
+    <many-to-one
+        name="tfiPurchaseorder"
+	    class="kyle.leis.hi.TfiPurchaseorder"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="PO_ID"
+        </meta>
+    	<column name="PO_ID" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to TopCorewaybill -->
+    <many-to-one
+        name="topCorewaybill"
+	    class="kyle.leis.hi.TopCorewaybill"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="CW_CODE"
+        </meta>
+    	<column name="CW_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

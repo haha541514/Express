@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TcoCustomerapiwebtoken" 
+    table="T_CO_CUSTOMERAPIWEBTOKEN"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_CO_CUSTOMERAPIWEBTOKEN"
+    </meta>
+
+    <id
+        name="cawtId"
+        type="java.lang.Integer"
+        column="CAWT_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Integer"
+            column="CAWT_ID"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="cawtUsername"
+        type="java.lang.String"
+        column="CAWT_USERNAME"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CAWT_USERNAME"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="cawtPassword"
+        type="java.lang.String"
+        column="CAWT_PASSWORD"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CAWT_PASSWORD"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="cawtToken"
+        type="java.lang.String"
+        column="CAWT_TOKEN"
+        length="1024"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CAWT_TOKEN"
+            length="1024"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TcoCustomer -->
+    <many-to-one
+        name="tcoCustomer"
+        class="kyle.leis.hi.TcoCustomer"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CO_CODE"         
+        </meta>
+        <column name="CO_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiCustomerapiwebtype -->
+    <many-to-one
+        name="tdiCustomerapiwebtype"
+        class="kyle.leis.hi.TdiCustomerapiwebtype"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CAPWT_CODE"         
+        </meta>
+        <column name="CAPWT_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

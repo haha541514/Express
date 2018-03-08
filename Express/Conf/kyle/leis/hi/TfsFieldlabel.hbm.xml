@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfsFieldlabel" 
+    table="T_FS_FIELDLABEL"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FS_FIELDLABEL"
+    </meta>
+
+    <id
+        name="flCode"
+        type="java.lang.String"
+        column="FL_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="FL_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="flFieldnamelist"
+        type="java.lang.String"
+        column="FL_FIELDNAMELIST"
+        not-null="true"
+        length="1024"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FL_FIELDNAMELIST"
+            length="1024"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="flStart"
+        type="java.lang.String"
+        column="FL_START"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FL_START"
+            length="256"
+        </meta>    
+    </property>
+    <property
+        name="flEnd"
+        type="java.lang.String"
+        column="FL_END"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FL_END"
+            length="256"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TfsRecordlabel -->
+    <many-to-one
+        name="tfsRecordlabel"
+        class="kyle.leis.hi.TfsRecordlabel"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="RL_CODE"         
+        </meta>
+        <column name="RL_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

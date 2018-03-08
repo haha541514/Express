@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TepCurrency" 
+    table="T_EP_CURRENCY"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_EP_CURRENCY"
+    </meta>
+
+    <id
+        name="epCode"
+        type="java.lang.Long"
+        column="EP_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="EP_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to TepExpressprice -->
+    <one-to-one
+        name="tepExpressprice"
+        class="kyle.leis.hi.TepExpressprice"
+        outer-join="auto"
+        constrained="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            class="kyle.leis.hi.TepExpressprice"
+            outer-join="auto"
+            constrained="true"
+        </meta>    
+    </one-to-one>
+    <!-- bi-directional many-to-one association to TdiProductkind -->
+    <many-to-one
+        name="tdiProductkind"
+        class="kyle.leis.hi.TdiProductkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PK_CODE"         
+        </meta>
+        <column name="PK_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TepCurrencyvalue -->
+    <set
+        name="tepCurrencyvalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EP_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepCurrencyvalue"
+        </meta>
+        <key>
+            <column name="EP_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepCurrencyvalue"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TcoCorporation -->
+    <many-to-one
+        name="tcoCorporation"
+        class="kyle.leis.hi.TcoCorporation"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CO_CODE"         
+        </meta>
+        <column name="CO_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiPricegroup -->
+    <many-to-one
+        name="tdiPricegroup"
+        class="kyle.leis.hi.TdiPricegroup"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PG_CODE"         
+        </meta>
+        <column name="PG_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

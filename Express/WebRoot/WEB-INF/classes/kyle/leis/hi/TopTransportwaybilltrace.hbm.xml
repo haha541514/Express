@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TopTransportwaybilltrace" 
+    table="T_OP_TRANSPORTWAYBILLTRACE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_OP_TRANSPORTWAYBILLTRACE"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TopTransportwaybilltracePK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="twbId" 
+            column="TWB_ID" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="TWB_ID"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="twbsCode" 
+            column="TWBS_CODE" 
+            type="java.lang.String"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="TWBS_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="twbtCreatedate"
+        type="java.sql.Timestamp"
+        column="TWBT_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TWBT_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="twbtOccurdate"
+        type="java.sql.Timestamp"
+        column="TWBT_OCCURDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TWBT_OCCURDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TdiTransportwaybillstatus -->
+    <many-to-one
+        name="tdiTransportwaybillstatus"
+	    class="kyle.leis.hi.TdiTransportwaybillstatus"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="TWBS_CODE"
+        </meta>
+    	<column name="TWBS_CODE" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to TopTransportwaybill -->
+    <many-to-one
+        name="topTransportwaybill"
+	    class="kyle.leis.hi.TopTransportwaybill"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="TWB_ID"
+        </meta>
+    	<column name="TWB_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to TdiDistrict -->
+    <many-to-one
+        name="tdiDistrict"
+        class="kyle.leis.hi.TdiDistrict"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="DT_CODE"         
+        </meta>
+        <column name="DT_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperator"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID"         
+        </meta>
+        <column name="OP_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

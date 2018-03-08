@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiTntcountryaddress" 
+    table="T_DI_TNTCOUNTRYADDRESS"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_TNTCOUNTRYADDRESS"
+    </meta>
+
+    <id
+        name="tntcaId"
+        type="java.lang.Integer"
+        column="TNTCA_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Integer"
+            column="TNTCA_ID"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="tntcaCountryhubcode"
+        type="java.lang.String"
+        column="TNTCA_COUNTRYHUBCODE"
+        not-null="true"
+        length="3"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TNTCA_COUNTRYHUBCODE"
+            length="3"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="tntcaCompanyname"
+        type="java.lang.String"
+        column="TNTCA_COMPANYNAME"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TNTCA_COMPANYNAME"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="tntcaAddress1"
+        type="java.lang.String"
+        column="TNTCA_ADDRESS1"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TNTCA_ADDRESS1"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="tntcaAddress2"
+        type="java.lang.String"
+        column="TNTCA_ADDRESS2"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TNTCA_ADDRESS2"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="tntcaPostcode"
+        type="java.lang.String"
+        column="TNTCA_POSTCODE"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TNTCA_POSTCODE"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="tntcaCityname"
+        type="java.lang.String"
+        column="TNTCA_CITYNAME"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TNTCA_CITYNAME"
+            length="50"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TesSystemproperty" 
+    table="T_ES_SYSTEMPROPERTY"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_ES_SYSTEMPROPERTY"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TesSystempropertyPK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="spCode" 
+            column="SP_CODE" 
+            type="java.lang.String"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="SP_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="eeCode" 
+            column="EE_CODE" 
+            type="java.lang.String"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="EE_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="spName"
+        type="java.lang.String"
+        column="SP_NAME"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SP_NAME"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="spValue"
+        type="java.lang.String"
+        column="SP_VALUE"
+        not-null="true"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SP_VALUE"
+            length="256"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TdiEnterpriseelement -->
+    <many-to-one
+        name="tdiEnterpriseelement"
+	    class="kyle.leis.hi.TdiEnterpriseelement"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="EE_CODE"
+        </meta>
+    	<column name="EE_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

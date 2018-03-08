@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TcsWaybilltrack" 
+    table="T_CS_WAYBILLTRACK"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_CS_WAYBILLTRACK"
+    </meta>
+
+    <id
+        name="wbtId"
+        type="java.lang.Long"
+        column="WBT_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="WBT_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_WBT_CODE"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_WBT_CODE</param>
+        </generator>
+    </id>
+
+    <property
+        name="wbtDescription"
+        type="java.lang.String"
+        column="WBT_DESCRIPTION"
+        length="200"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBT_DESCRIPTION"
+            length="200"
+        </meta>    
+    </property>
+    <property
+        name="wbtOrigindescription"
+        type="java.lang.String"
+        column="WBT_ORIGINDESCRIPTION"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBT_ORIGINDESCRIPTION"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="wbtLocation"
+        type="java.lang.String"
+        column="WBT_LOCATION"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBT_LOCATION"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="wbtOccurdate"
+        type="java.sql.Timestamp"
+        column="WBT_OCCURDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBT_OCCURDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wbtCreatedate"
+        type="java.sql.Timestamp"
+        column="WBT_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBT_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wbtModifydate"
+        type="java.sql.Timestamp"
+        column="WBT_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBT_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wbtOpensign"
+        type="java.lang.String"
+        column="WBT_OPENSIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBT_OPENSIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wbtFrom"
+        type="java.lang.String"
+        column="WBT_FROM"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBT_FROM"
+            length="10"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiDistrict -->
+    <many-to-one
+        name="tdiDistrict"
+        class="kyle.leis.hi.TdiDistrict"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="WBT_DISTRICT"         
+        </meta>
+        <column name="WBT_DISTRICT" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByOpIdCreator"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_CREATOR"         
+        </meta>
+        <column name="OP_ID_CREATOR" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByOpIdModifier"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_MODIFIER"         
+        </meta>
+        <column name="OP_ID_MODIFIER" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TcoCorporation -->
+    <many-to-one
+        name="tcoCorporation"
+        class="kyle.leis.hi.TcoCorporation"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CO_CODE"         
+        </meta>
+        <column name="CO_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TcsWaybillbatchtrack -->
+    <many-to-one
+        name="tcsWaybillbatchtrack"
+        class="kyle.leis.hi.TcsWaybillbatchtrack"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CW_CODE"         
+        </meta>
+        <column name="CW_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiWaybilltrackstatus -->
+    <many-to-one
+        name="tdiWaybilltrackstatus"
+        class="kyle.leis.hi.TdiWaybilltrackstatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="WBTS_CODE"         
+        </meta>
+        <column name="WBTS_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

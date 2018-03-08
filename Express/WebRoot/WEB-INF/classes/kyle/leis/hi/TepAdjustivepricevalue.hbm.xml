@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TepAdjustivepricevalue" 
+    table="T_EP_ADJUSTIVEPRICEVALUE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_EP_ADJUSTIVEPRICEVALUE"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TepAdjustivepricevaluePK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="epCode" 
+            column="EP_CODE" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="EP_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="apvId" 
+            column="APV_ID" 
+            type="java.lang.Integer"
+            length="5"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="APV_ID"
+                length="5"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="apvWeekday"
+        type="java.lang.String"
+        column="APV_WEEKDAY"
+        not-null="true"
+        length="6"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="APV_WEEKDAY"
+            length="6"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="apvPricevalue"
+        type="java.math.BigDecimal"
+        column="APV_PRICEVALUE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="APV_PRICEVALUE"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TepAdjustiveprice -->
+    <many-to-one
+        name="tepAdjustiveprice"
+	    class="kyle.leis.hi.TepAdjustiveprice"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="EP_CODE"
+        </meta>
+    	<column name="EP_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to TdiCargotype -->
+    <many-to-one
+        name="tdiCargotype"
+        class="kyle.leis.hi.TdiCargotype"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CT_CODE"         
+        </meta>
+        <column name="CT_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiDistrict -->
+    <many-to-one
+        name="tdiDistrict"
+        class="kyle.leis.hi.TdiDistrict"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="DT_CODE"         
+        </meta>
+        <column name="DT_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiUnittype -->
+    <many-to-one
+        name="tdiUnittype"
+        class="kyle.leis.hi.TdiUnittype"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="UT_CODE"         
+        </meta>
+        <column name="UT_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

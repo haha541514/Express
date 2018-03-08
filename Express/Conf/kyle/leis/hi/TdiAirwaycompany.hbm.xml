@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiAirwaycompany" 
+    table="T_DI_AIRWAYCOMPANY"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_AIRWAYCOMPANY"
+    </meta>
+
+    <id
+        name="acId"
+        type="java.lang.String"
+        column="AC_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="AC_ID"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="acHubcode"
+        type="java.lang.String"
+        column="AC_HUBCODE"
+        not-null="true"
+        length="6"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="AC_HUBCODE"
+            length="6"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="acThreehubcode"
+        type="java.lang.String"
+        column="AC_THREEHUBCODE"
+        not-null="true"
+        length="6"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="AC_THREEHUBCODE"
+            length="6"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="acEname"
+        type="java.lang.String"
+        column="AC_ENAME"
+        not-null="true"
+        length="40"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="AC_ENAME"
+            length="40"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="acCname"
+        type="java.lang.String"
+        column="AC_CNAME"
+        length="40"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="AC_CNAME"
+            length="40"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

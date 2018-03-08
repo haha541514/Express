@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TbrManifestexportformat" 
+    table="T_BR_MANIFESTEXPORTFORMAT"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_BR_MANIFESTEXPORTFORMAT"
+    </meta>
+
+    <id
+        name="mefCode"
+        type="java.lang.Long"
+        column="MEF_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="MEF_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="mefName"
+        type="java.lang.String"
+        column="MEF_NAME"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="MEF_NAME"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="mefEname"
+        type="java.lang.String"
+        column="MEF_ENAME"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="MEF_ENAME"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="mefTemplatepath"
+        type="java.lang.String"
+        column="MEF_TEMPLATEPATH"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="MEF_TEMPLATEPATH"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="mefBeginrow"
+        type="int"
+        column="MEF_BEGINROW"
+        not-null="true"
+        length="3"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="MEF_BEGINROW"
+            length="3"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="mefBegincolumn"
+        type="int"
+        column="MEF_BEGINCOLUMN"
+        not-null="true"
+        length="3"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="MEF_BEGINCOLUMN"
+            length="3"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="mefCreatedate"
+        type="java.sql.Timestamp"
+        column="MEF_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="MEF_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="mefModifydate"
+        type="java.sql.Timestamp"
+        column="MEF_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="MEF_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="mefExportfilesuffix"
+        type="java.lang.String"
+        column="MEF_EXPORTFILESUFFIX"
+        not-null="true"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="MEF_EXPORTFILESUFFIX"
+            length="5"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TbrManifestefcolumn -->
+    <set
+        name="tbrManifestefcolumns"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="MEF_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrManifestefcolumn"
+        </meta>
+        <key>
+            <column name="MEF_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrManifestefcolumn"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TdiSimplestatus -->
+    <many-to-one
+        name="tdiSimplestatus"
+        class="kyle.leis.hi.TdiSimplestatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SS_CODE"         
+        </meta>
+        <column name="SS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByMefCreator"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="MEF_CREATOR"         
+        </meta>
+        <column name="MEF_CREATOR" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByMefModifier"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="MEF_MODIFIER"         
+        </meta>
+        <column name="MEF_MODIFIER" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

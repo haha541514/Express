@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TcoSmsreceiverule" 
+    table="T_CO_SMSRECEIVERULE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_CO_SMSRECEIVERULE"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TcoSmsreceiverulePK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="snkCode" 
+            column="SNK_CODE" 
+            type="java.lang.String"
+            length="20"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="SNK_CODE"
+                length="20"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="srrRecipient" 
+            column="SRR_RECIPIENT" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="SRR_RECIPIENT"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="mnkCode" 
+            column="MNK_CODE" 
+            type="java.lang.String"
+            length="20"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="MNK_CODE"
+                length="20"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperator"
+	    class="kyle.leis.hi.TdiOperator"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="SRR_RECIPIENT"
+        </meta>
+    	<column name="SRR_RECIPIENT" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to TdiMessagenoticekind -->
+    <many-to-one
+        name="tdiMessagenoticekind"
+	    class="kyle.leis.hi.TdiMessagenoticekind"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="MNK_CODE"
+        </meta>
+    	<column name="MNK_CODE" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to TdiSmsnoticekind -->
+    <many-to-one
+        name="tdiSmsnoticekind"
+	    class="kyle.leis.hi.TdiSmsnoticekind"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="SNK_CODE"
+        </meta>
+    	<column name="SNK_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to TdiSmsnoticetimetype -->
+    <many-to-one
+        name="tdiSmsnoticetimetype"
+        class="kyle.leis.hi.TdiSmsnoticetimetype"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SNTT_CODE"         
+        </meta>
+        <column name="SNTT_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

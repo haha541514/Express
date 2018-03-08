@@ -1,0 +1,650 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiProductkind" 
+    table="T_DI_PRODUCTKIND"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_PRODUCTKIND"
+    </meta>
+
+    <id
+        name="pkCode"
+        type="java.lang.String"
+        column="PK_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="PK_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="pkName"
+        type="java.lang.String"
+        column="PK_NAME"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PK_NAME"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pkEname"
+        type="java.lang.String"
+        column="PK_ENAME"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PK_ENAME"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pkSname"
+        type="java.lang.String"
+        column="PK_SNAME"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PK_SNAME"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pkSename"
+        type="java.lang.String"
+        column="PK_SENAME"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PK_SENAME"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pkDescription"
+        type="java.lang.String"
+        column="PK_DESCRIPTION"
+        not-null="true"
+        length="1024"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PK_DESCRIPTION"
+            length="1024"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pkSigninrestrictsign"
+        type="java.lang.String"
+        column="PK_SIGNINRESTRICTSIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PK_SIGNINRESTRICTSIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pkSaletrialsign"
+        type="java.lang.String"
+        column="PK_SALETRIALSIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PK_SALETRIALSIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pkQueryneedlogin"
+        type="java.lang.String"
+        column="PK_QUERYNEEDLOGIN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PK_QUERYNEEDLOGIN"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="pkShowserverewbcode"
+        type="java.lang.String"
+        column="PK_SHOWSERVEREWBCODE"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PK_SHOWSERVEREWBCODE"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="pkBillingbybatchwaysign"
+        type="java.lang.String"
+        column="PK_BILLINGBYBATCHWAYSIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PK_BILLINGBYBATCHWAYSIGN"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="pkSigninneedpostcode"
+        type="java.lang.String"
+        column="PK_SIGNINNEEDPOSTCODE"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PK_SIGNINNEEDPOSTCODE"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="pkPcwrestrictformula"
+        type="java.lang.String"
+        column="PK_PCWRESTRICTFORMULA"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PK_PCWRESTRICTFORMULA"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="pkPdsrestrictformula"
+        type="java.lang.String"
+        column="PK_PDSRESTRICTFORMULA"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PK_PDSRESTRICTFORMULA"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="pkArrearallowsignout"
+        type="java.lang.String"
+        column="PK_ARREARALLOWSIGNOUT"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PK_ARREARALLOWSIGNOUT"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="pkPaybillingbybatchwaysign"
+        type="java.lang.String"
+        column="PK_PAYBILLINGBYBATCHWAYSIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PK_PAYBILLINGBYBATCHWAYSIGN"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="pkSiprintselflabelcodesign"
+        type="java.lang.String"
+        column="PK_SIPRINTSELFLABELCODESIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PK_SIPRINTSELFLABELCODESIGN"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="pkIntroductionlink"
+        type="java.lang.String"
+        column="PK_INTRODUCTIONLINK"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PK_INTRODUCTIONLINK"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="pkWebstructurecode"
+        type="java.lang.String"
+        column="PK_WEBSTRUCTURECODE"
+        length="3"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PK_WEBSTRUCTURECODE"
+            length="3"
+        </meta>    
+    </property>
+    <property
+        name="pkStructurecode"
+        type="java.lang.String"
+        column="PK_STRUCTURECODE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PK_STRUCTURECODE"
+            length="10"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TbrCwdifferencehold -->
+    <set
+        name="tbrCwdifferenceholds"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrCwdifferencehold"
+        </meta>
+        <key>
+            <column name="PK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrCwdifferencehold"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopPredictwaybill -->
+    <set
+        name="topPredictwaybills"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopPredictwaybill"
+        </meta>
+        <key>
+            <column name="PK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopPredictwaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrWeightrulekind -->
+    <set
+        name="tbrWeightrulekinds"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrWeightrulekind"
+        </meta>
+        <key>
+            <column name="PK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrWeightrulekind"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiPkcargokind -->
+    <set
+        name="tdiPkcargokinds"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiPkcargokind"
+        </meta>
+        <key>
+            <column name="PK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiPkcargokind"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepZone -->
+    <set
+        name="tepZones"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepZone"
+        </meta>
+        <key>
+            <column name="PK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepZone"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepFreightprice -->
+    <set
+        name="tepFreightprices"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepFreightprice"
+        </meta>
+        <key>
+            <column name="PK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepFreightprice"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrProductrule -->
+    <set
+        name="tbrProductrules"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrProductrule"
+        </meta>
+        <key>
+            <column name="PK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrProductrule"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrOperationprompt -->
+    <set
+        name="tbrOperationprompts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrOperationprompt"
+        </meta>
+        <key>
+            <column name="PK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrOperationprompt"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopCorewaybill -->
+    <set
+        name="topCorewaybills"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopCorewaybill"
+        </meta>
+        <key>
+            <column name="PK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopCorewaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepIncidentalprice -->
+    <set
+        name="tepIncidentalprices"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepIncidentalprice"
+        </meta>
+        <key>
+            <column name="PK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepIncidentalprice"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepCurrency -->
+    <set
+        name="tepCurrencies"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepCurrency"
+        </meta>
+        <key>
+            <column name="PK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepCurrency"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepCustomerpricegroup -->
+    <set
+        name="tepCustomerpricegroups"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepCustomerpricegroup"
+        </meta>
+        <key>
+            <column name="PK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepCustomerpricegroup"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TdiSimplestatus -->
+    <many-to-one
+        name="tdiSimplestatus"
+        class="kyle.leis.hi.TdiSimplestatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SS_CODE"         
+        </meta>
+        <column name="SS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TchnChannel -->
+    <many-to-one
+        name="tchnChannel"
+        class="kyle.leis.hi.TchnChannel"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CHN_CODE"         
+        </meta>
+        <column name="CHN_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiEnterpriseelement -->
+    <many-to-one
+        name="tdiEnterpriseelement"
+        class="kyle.leis.hi.TdiEnterpriseelement"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="EE_CODE"         
+        </meta>
+        <column name="EE_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiServerstructuregroup -->
+    <many-to-one
+        name="tdiServerstructuregroup"
+        class="kyle.leis.hi.TdiServerstructuregroup"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SSG_CODE"         
+        </meta>
+        <column name="SSG_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

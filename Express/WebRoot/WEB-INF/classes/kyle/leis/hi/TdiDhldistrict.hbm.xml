@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiDhldistrict" 
+    table="T_DI_DHLDISTRICT"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_DHLDISTRICT"
+    </meta>
+
+    <id
+        name="ddCode"
+        type="java.lang.String"
+        column="DD_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="DD_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="ddNationcode"
+        type="java.lang.String"
+        column="DD_NATIONCODE"
+        not-null="true"
+        length="6"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DD_NATIONCODE"
+            length="6"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ddNationname"
+        type="java.lang.String"
+        column="DD_NATIONNAME"
+        length="40"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DD_NATIONNAME"
+            length="40"
+        </meta>    
+    </property>
+    <property
+        name="ddStatecode"
+        type="java.lang.String"
+        column="DD_STATECODE"
+        length="6"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DD_STATECODE"
+            length="6"
+        </meta>    
+    </property>
+    <property
+        name="ddStatename"
+        type="java.lang.String"
+        column="DD_STATENAME"
+        length="40"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DD_STATENAME"
+            length="40"
+        </meta>    
+    </property>
+    <property
+        name="ddCityname"
+        type="java.lang.String"
+        column="DD_CITYNAME"
+        length="40"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DD_CITYNAME"
+            length="40"
+        </meta>    
+    </property>
+    <property
+        name="ddHubcode"
+        type="java.lang.String"
+        column="DD_HUBCODE"
+        not-null="true"
+        length="6"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DD_HUBCODE"
+            length="6"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ddStartpostcode"
+        type="java.lang.String"
+        column="DD_STARTPOSTCODE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DD_STARTPOSTCODE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="ddEndtpostcode"
+        type="java.lang.String"
+        column="DD_ENDTPOSTCODE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DD_ENDTPOSTCODE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="ddLocationcode"
+        type="java.lang.String"
+        column="DD_LOCATIONCODE"
+        length="6"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DD_LOCATIONCODE"
+            length="6"
+        </meta>    
+    </property>
+    <property
+        name="ddCitycname"
+        type="java.lang.String"
+        column="DD_CITYCNAME"
+        length="40"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DD_CITYCNAME"
+            length="40"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

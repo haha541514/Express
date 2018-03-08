@@ -1,0 +1,848 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiDistrict" 
+    table="T_DI_DISTRICT"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_DISTRICT"
+    </meta>
+
+    <id
+        name="dtCode"
+        type="java.lang.String"
+        column="DT_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="DT_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="dtHubcode"
+        type="java.lang.String"
+        column="DT_HUBCODE"
+        not-null="true"
+        length="6"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DT_HUBCODE"
+            length="6"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="dtName"
+        type="java.lang.String"
+        column="DT_NAME"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DT_NAME"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="dtEname"
+        type="java.lang.String"
+        column="DT_ENAME"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DT_ENAME"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="dtStatecode"
+        type="java.lang.String"
+        column="DT_STATECODE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DT_STATECODE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="dtStatename"
+        type="java.lang.String"
+        column="DT_STATENAME"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DT_STATENAME"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="dtGrade"
+        type="java.lang.String"
+        column="DT_GRADE"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DT_GRADE"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="dtStartpostcode"
+        type="java.lang.String"
+        column="DT_STARTPOSTCODE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DT_STARTPOSTCODE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="dtEndpostcode"
+        type="java.lang.String"
+        column="DT_ENDPOSTCODE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DT_ENDPOSTCODE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="dtOpCodeCreator"
+        type="java.lang.String"
+        column="DT_OP_CODE_CREATOR"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DT_OP_CODE_CREATOR"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="dtCreatedate"
+        type="java.sql.Timestamp"
+        column="DT_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DT_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="dtOpCodeModifier"
+        type="java.lang.String"
+        column="DT_OP_CODE_MODIFIER"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DT_OP_CODE_MODIFIER"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="dtModifydate"
+        type="java.sql.Timestamp"
+        column="DT_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DT_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="dtRemark"
+        type="java.lang.String"
+        column="DT_REMARK"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DT_REMARK"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="dtStartcitysign"
+        type="java.lang.String"
+        column="DT_STARTCITYSIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DT_STARTCITYSIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="dtElevatedrisksign"
+        type="java.lang.String"
+        column="DT_ELEVATEDRISKSIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DT_ELEVATEDRISKSIGN"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="dtRestrictedsign"
+        type="java.lang.String"
+        column="DT_RESTRICTEDSIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="DT_RESTRICTEDSIGN"
+            length="1"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TbrOptdeparturedistrict -->
+    <set
+        name="tbrOptdeparturedistricts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="DT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrOptdeparturedistrict"
+        </meta>
+        <key>
+            <column name="DT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrOptdeparturedistrict"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiTrasporttool -->
+    <set
+        name="tdiTrasporttoolsByDtCodeDeparture"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="DT_CODE_DEPARTURE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiTrasporttool"
+        </meta>
+        <key>
+            <column name="DT_CODE_DEPARTURE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiTrasporttool"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiTrasporttool -->
+    <set
+        name="tdiTrasporttoolsByDtCodeArrival"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="DT_CODE_ARRIVAL"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiTrasporttool"
+        </meta>
+        <key>
+            <column name="DT_CODE_ARRIVAL" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiTrasporttool"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopPredictwaybill -->
+    <set
+        name="topPredictwaybills"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PWB_DESTINATION"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopPredictwaybill"
+        </meta>
+        <key>
+            <column name="PWB_DESTINATION" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopPredictwaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopTransportwaybilltrace -->
+    <set
+        name="topTransportwaybilltraces"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="DT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopTransportwaybilltrace"
+        </meta>
+        <key>
+            <column name="DT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopTransportwaybilltrace"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrOptorigindistrict -->
+    <set
+        name="tbrOptorigindistricts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="DT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrOptorigindistrict"
+        </meta>
+        <key>
+            <column name="DT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrOptorigindistrict"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiAirport -->
+    <set
+        name="tdiAirports"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="DT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiAirport"
+        </meta>
+        <key>
+            <column name="DT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiAirport"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcsWaybilltrack -->
+    <set
+        name="tcsWaybilltracks"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="WBT_DISTRICT"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcsWaybilltrack"
+        </meta>
+        <key>
+            <column name="WBT_DISTRICT" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcsWaybilltrack"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiCity -->
+    <set
+        name="tdiCities"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="DT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiCity"
+        </meta>
+        <key>
+            <column name="DT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiCity"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiDistrict -->
+    <set
+        name="tdiDistricts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="DT_COUNTCODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiDistrict"
+        </meta>
+        <key>
+            <column name="DT_COUNTCODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiDistrict"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TdiDistrict -->
+    <many-to-one
+        name="tdiDistrict"
+        class="kyle.leis.hi.TdiDistrict"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="DT_COUNTCODE"         
+        </meta>
+        <column name="DT_COUNTCODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TepFreightprice -->
+    <set
+        name="tepFreightprices"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="DT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepFreightprice"
+        </meta>
+        <key>
+            <column name="DT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepFreightprice"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepZonevaluedistrict -->
+    <set
+        name="tepZonevaluedistricts"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="DT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepZonevaluedistrict"
+        </meta>
+        <key>
+            <column name="DT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepZonevaluedistrict"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopHousewaybill -->
+    <set
+        name="topHousewaybills"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="DT_CODE_SHIPPER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopHousewaybill"
+        </meta>
+        <key>
+            <column name="DT_CODE_SHIPPER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopHousewaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiDistributioncenter -->
+    <set
+        name="tdiDistributioncenters"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="DT_CODE_BILLING"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiDistributioncenter"
+        </meta>
+        <key>
+            <column name="DT_CODE_BILLING" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiDistributioncenter"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepAdjustivepricevalue -->
+    <set
+        name="tepAdjustivepricevalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="DT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepAdjustivepricevalue"
+        </meta>
+        <key>
+            <column name="DT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepAdjustivepricevalue"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiEnterpriseelement -->
+    <set
+        name="tdiEnterpriseelements"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="DT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiEnterpriseelement"
+        </meta>
+        <key>
+            <column name="DT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiEnterpriseelement"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrDistrictproductrule -->
+    <set
+        name="tbrDistrictproductrules"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="DT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrDistrictproductrule"
+        </meta>
+        <key>
+            <column name="DT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrDistrictproductrule"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiState -->
+    <set
+        name="tdiStates"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="DT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiState"
+        </meta>
+        <key>
+            <column name="DT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiState"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopCorewaybill -->
+    <set
+        name="topCorewaybillsByDtCodeDestination"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="DT_CODE_DESTINATION"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopCorewaybill"
+        </meta>
+        <key>
+            <column name="DT_CODE_DESTINATION" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopCorewaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopCorewaybill -->
+    <set
+        name="topCorewaybillsByDtCodeOrigin"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="DT_CODE_ORIGIN"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopCorewaybill"
+        </meta>
+        <key>
+            <column name="DT_CODE_ORIGIN" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopCorewaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopCorewaybill -->
+    <set
+        name="topCorewaybillsByDtCodeSignin"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="DT_CODE_SIGNIN"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopCorewaybill"
+        </meta>
+        <key>
+            <column name="DT_CODE_SIGNIN" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopCorewaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepIncidentalprice -->
+    <set
+        name="tepIncidentalprices"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="DT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepIncidentalprice"
+        </meta>
+        <key>
+            <column name="DT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepIncidentalprice"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TdiDistrictkind -->
+    <many-to-one
+        name="tdiDistrictkind"
+        class="kyle.leis.hi.TdiDistrictkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="DK_CODE"         
+        </meta>
+        <column name="DK_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

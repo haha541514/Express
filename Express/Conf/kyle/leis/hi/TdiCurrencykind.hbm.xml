@@ -1,0 +1,696 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiCurrencykind" 
+    table="T_DI_CURRENCYKIND"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_CURRENCYKIND"
+    </meta>
+
+    <id
+        name="ckCode"
+        type="java.lang.String"
+        column="CK_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="CK_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="ckName"
+        type="java.lang.String"
+        column="CK_NAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CK_NAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ckEname"
+        type="java.lang.String"
+        column="CK_ENAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CK_ENAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TfiCashrecord -->
+    <set
+        name="tfiCashrecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiCashrecord"
+        </meta>
+        <key>
+            <column name="CK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiCashrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopPredictwaybill -->
+    <set
+        name="topPredictwaybills"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopPredictwaybill"
+        </meta>
+        <key>
+            <column name="CK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopPredictwaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TblReceivable -->
+    <set
+        name="tblReceivables"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TblReceivable"
+        </meta>
+        <key>
+            <column name="CK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TblReceivable"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TchnChannel -->
+    <set
+        name="tchnChannels"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE_TRANSFERCHARGE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TchnChannel"
+        </meta>
+        <key>
+            <column name="CK_CODE_TRANSFERCHARGE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TchnChannel"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopTransportwaybill -->
+    <set
+        name="topTransportwaybills"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopTransportwaybill"
+        </meta>
+        <key>
+            <column name="CK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopTransportwaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiServerpayable -->
+    <set
+        name="tfiServerpayables"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiServerpayable"
+        </meta>
+        <key>
+            <column name="CK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiServerpayable"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepIncidentalpricevalue -->
+    <set
+        name="tepIncidentalpricevalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepIncidentalpricevalue"
+        </meta>
+        <key>
+            <column name="CK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepIncidentalpricevalue"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ThiBillrecord -->
+    <set
+        name="thiBillrecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.ThiBillrecord"
+        </meta>
+        <key>
+            <column name="CK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.ThiBillrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepFreightprice -->
+    <set
+        name="tepFreightprices"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepFreightprice"
+        </meta>
+        <key>
+            <column name="CK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepFreightprice"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiBillrecord -->
+    <set
+        name="tfiBillrecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiBillrecord"
+        </meta>
+        <key>
+            <column name="CK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiBillrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ThiPayable -->
+    <set
+        name="thiPayables"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.ThiPayable"
+        </meta>
+        <key>
+            <column name="CK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.ThiPayable"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiWriteoff -->
+    <set
+        name="tfiWriteoffs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiWriteoff"
+        </meta>
+        <key>
+            <column name="CK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiWriteoff"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepCurrencyvalue -->
+    <set
+        name="tepCurrencyvaluesByCkCodeChange"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE_CHANGE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepCurrencyvalue"
+        </meta>
+        <key>
+            <column name="CK_CODE_CHANGE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepCurrencyvalue"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepCurrencyvalue -->
+    <set
+        name="tepCurrencyvaluesByCkCodeBase"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE_BASE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepCurrencyvalue"
+        </meta>
+        <key>
+            <column name="CK_CODE_BASE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepCurrencyvalue"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopHousewaybill -->
+    <set
+        name="topHousewaybills"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="HW_INSURANCECURRENCY"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopHousewaybill"
+        </meta>
+        <key>
+            <column name="HW_INSURANCECURRENCY" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopHousewaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ThiWriteoff -->
+    <set
+        name="thiWriteoffs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.ThiWriteoff"
+        </meta>
+        <key>
+            <column name="CK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.ThiWriteoff"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TblIncidentalfee -->
+    <set
+        name="tblIncidentalfees"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TblIncidentalfee"
+        </meta>
+        <key>
+            <column name="CK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TblIncidentalfee"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiServerbillrecord -->
+    <set
+        name="tfiServerbillrecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiServerbillrecord"
+        </meta>
+        <key>
+            <column name="CK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiServerbillrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TblPayable -->
+    <set
+        name="tblPayables"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TblPayable"
+        </meta>
+        <key>
+            <column name="CK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TblPayable"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ThiReceivable -->
+    <set
+        name="thiReceivables"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.ThiReceivable"
+        </meta>
+        <key>
+            <column name="CK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.ThiReceivable"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ThiCashrecord -->
+    <set
+        name="thiCashrecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.ThiCashrecord"
+        </meta>
+        <key>
+            <column name="CK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.ThiCashrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrProductrule -->
+    <set
+        name="tbrProductrules"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE_COLLECT"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrProductrule"
+        </meta>
+        <key>
+            <column name="CK_CODE_COLLECT" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrProductrule"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcoFinancialstatistic -->
+    <set
+        name="tcoFinancialstatistics"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoFinancialstatistic"
+        </meta>
+        <key>
+            <column name="CK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoFinancialstatistic"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopHwbcargoinfo -->
+    <set
+        name="topHwbcargoinfos"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopHwbcargoinfo"
+        </meta>
+        <key>
+            <column name="CK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopHwbcargoinfo"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

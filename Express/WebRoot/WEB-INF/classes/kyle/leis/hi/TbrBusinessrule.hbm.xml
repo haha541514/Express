@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TbrBusinessrule" 
+    table="T_BR_BUSINESSRULE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_BR_BUSINESSRULE"
+    </meta>
+
+    <id
+        name="brId"
+        type="java.lang.Long"
+        column="BR_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="BR_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_BR_Code"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_BR_Code</param>
+        </generator>
+    </id>
+
+    <property
+        name="brName"
+        type="java.lang.String"
+        column="BR_NAME"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BR_NAME"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="brEname"
+        type="java.lang.String"
+        column="BR_ENAME"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BR_ENAME"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="brStartdate"
+        type="java.sql.Timestamp"
+        column="BR_STARTDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BR_STARTDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="brEnddate"
+        type="java.sql.Timestamp"
+        column="BR_ENDDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BR_ENDDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="brCreatedate"
+        type="java.sql.Timestamp"
+        column="BR_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BR_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="brModifydate"
+        type="java.sql.Timestamp"
+        column="BR_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BR_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="brRemark"
+        type="java.lang.String"
+        column="BR_REMARK"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BR_REMARK"
+            length="128"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiSimplestatus -->
+    <many-to-one
+        name="tdiSimplestatus"
+        class="kyle.leis.hi.TdiSimplestatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SS_CODE"         
+        </meta>
+        <column name="SS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByBrOpIdCreate"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BR_OP_ID_CREATE"         
+        </meta>
+        <column name="BR_OP_ID_CREATE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByBrOpIdModifier"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BR_OP_ID_MODIFIER"         
+        </meta>
+        <column name="BR_OP_ID_MODIFIER" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiBusinessrulekind -->
+    <many-to-one
+        name="tdiBusinessrulekind"
+        class="kyle.leis.hi.TdiBusinessrulekind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BRK_CODE"         
+        </meta>
+        <column name="BRK_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-one association to TbrCwdifferencehold -->
+    <one-to-one
+        name="tbrCwdifferencehold"
+        class="kyle.leis.hi.TbrCwdifferencehold"
+        outer-join="auto"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            outer-join="auto"
+        </meta>
+    </one-to-one>
+    <!-- bi-directional one-to-one association to TbrCorweightrule -->
+    <one-to-one
+        name="tbrCorweightrule"
+        class="kyle.leis.hi.TbrCorweightrule"
+        outer-join="auto"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            outer-join="auto"
+        </meta>
+    </one-to-one>
+    <!-- bi-directional one-to-one association to TbrWeightrule -->
+    <one-to-one
+        name="tbrWeightrule"
+        class="kyle.leis.hi.TbrWeightrule"
+        outer-join="auto"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            outer-join="auto"
+        </meta>
+    </one-to-one>
+    <!-- bi-directional one-to-one association to TbrProductrule -->
+    <one-to-one
+        name="tbrProductrule"
+        class="kyle.leis.hi.TbrProductrule"
+        outer-join="auto"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            outer-join="auto"
+        </meta>
+    </one-to-one>
+    <!-- bi-directional one-to-one association to TbrOperationprompt -->
+    <one-to-one
+        name="tbrOperationprompt"
+        class="kyle.leis.hi.TbrOperationprompt"
+        outer-join="auto"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            outer-join="auto"
+        </meta>
+    </one-to-one>
+
+</class>
+</hibernate-mapping>

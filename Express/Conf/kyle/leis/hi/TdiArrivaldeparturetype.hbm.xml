@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiArrivaldeparturetype" 
+    table="T_DI_ARRIVALDEPARTURETYPE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_ARRIVALDEPARTURETYPE"
+    </meta>
+
+    <id
+        name="adtCode"
+        type="java.lang.String"
+        column="ADT_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="ADT_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="adtName"
+        type="java.lang.String"
+        column="ADT_NAME"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ADT_NAME"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="adtEname"
+        type="java.lang.String"
+        column="ADT_ENAME"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ADT_ENAME"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TopBatchwaybill -->
+    <set
+        name="topBatchwaybills"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="ADT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopBatchwaybill"
+        </meta>
+        <key>
+            <column name="ADT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopBatchwaybill"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

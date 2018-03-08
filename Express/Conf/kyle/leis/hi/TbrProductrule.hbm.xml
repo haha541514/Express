@@ -1,0 +1,230 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TbrProductrule" 
+    table="T_BR_PRODUCTRULE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_BR_PRODUCTRULE"
+    </meta>
+
+    <id
+        name="brId"
+        type="java.lang.Long"
+        column="BR_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="BR_ID"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="prInsurancesign"
+        type="java.lang.String"
+        column="PR_INSURANCESIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PR_INSURANCESIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="prDoxtransfergw"
+        type="java.math.BigDecimal"
+        column="PR_DOXTRANSFERGW"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PR_DOXTRANSFERGW"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="prSimpleinputsign"
+        type="java.lang.String"
+        column="PR_SIMPLEINPUTSIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PR_SIMPLEINPUTSIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="prCollectsign"
+        type="java.lang.String"
+        column="PR_COLLECTSIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PR_COLLECTSIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="prAllcussignoutbyoriginwbsign"
+        type="java.lang.String"
+        column="PR_ALLCUSSIGNOUTBYORIGINWBSIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PR_ALLCUSSIGNOUTBYORIGINWBSIGN"
+            length="1"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to TbrBusinessrule -->
+    <one-to-one
+        name="tbrBusinessrule"
+        class="kyle.leis.hi.TbrBusinessrule"
+        outer-join="auto"
+        constrained="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            class="kyle.leis.hi.TbrBusinessrule"
+            outer-join="auto"
+            constrained="true"
+        </meta>    
+    </one-to-one>
+    <!-- bi-directional many-to-one association to TdiProductkind -->
+    <many-to-one
+        name="tdiProductkind"
+        class="kyle.leis.hi.TdiProductkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PK_CODE"         
+        </meta>
+        <column name="PK_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TbrCussignoutbyoriginwb -->
+    <set
+        name="tbrCussignoutbyoriginwbs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BR_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrCussignoutbyoriginwb"
+        </meta>
+        <key>
+            <column name="BR_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrCussignoutbyoriginwb"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrChannelproductrule -->
+    <set
+        name="tbrChannelproductrules"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BR_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrChannelproductrule"
+        </meta>
+        <key>
+            <column name="BR_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrChannelproductrule"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrDistrictproductrule -->
+    <set
+        name="tbrDistrictproductrules"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BR_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrDistrictproductrule"
+        </meta>
+        <key>
+            <column name="BR_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrDistrictproductrule"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TdiCurrencykind -->
+    <many-to-one
+        name="tdiCurrencykind"
+        class="kyle.leis.hi.TdiCurrencykind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CK_CODE_COLLECT"         
+        </meta>
+        <column name="CK_CODE_COLLECT" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

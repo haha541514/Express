@@ -1,0 +1,1000 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TopCorewaybill" 
+    table="T_OP_COREWAYBILL"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_OP_COREWAYBILL"
+    </meta>
+
+    <id
+        name="cwCode"
+        type="java.lang.Long"
+        column="CW_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="CW_CODE"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_CW_Code"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_CW_Code</param>
+        </generator>
+    </id>
+
+    <property
+        name="cwPostcodeDestination"
+        type="java.lang.String"
+        column="CW_POSTCODE_DESTINATION"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_POSTCODE_DESTINATION"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="cwPieces"
+        type="int"
+        column="CW_PIECES"
+        not-null="true"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_PIECES"
+            length="5"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cwGrossweight"
+        type="java.math.BigDecimal"
+        column="CW_GROSSWEIGHT"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_GROSSWEIGHT"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cwChargeweight"
+        type="java.math.BigDecimal"
+        column="CW_CHARGEWEIGHT"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_CHARGEWEIGHT"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cwTransferpieces"
+        type="java.math.BigDecimal"
+        column="CW_TRANSFERPIECES"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_TRANSFERPIECES"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cwTransfergrossweight"
+        type="java.math.BigDecimal"
+        column="CW_TRANSFERGROSSWEIGHT"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_TRANSFERGROSSWEIGHT"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cwTransferchargeweight"
+        type="java.math.BigDecimal"
+        column="CW_TRANSFERCHARGEWEIGHT"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_TRANSFERCHARGEWEIGHT"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cwServerchargeweight"
+        type="java.math.BigDecimal"
+        column="CW_SERVERCHARGEWEIGHT"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_SERVERCHARGEWEIGHT"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cwCustomerewbcode"
+        type="java.lang.String"
+        column="CW_CUSTOMEREWBCODE"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_CUSTOMEREWBCODE"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cwServerewbcode"
+        type="java.lang.String"
+        column="CW_SERVEREWBCODE"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_SERVEREWBCODE"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cwChannelewbcode"
+        type="java.lang.String"
+        column="CW_CHANNELEWBCODE"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_CHANNELEWBCODE"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="cwEwbcode"
+        type="java.lang.String"
+        column="CW_EWBCODE"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_EWBCODE"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cwOpIdCreator"
+        type="java.math.BigDecimal"
+        column="CW_OP_ID_CREATOR"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_OP_ID_CREATOR"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cwCreatedate"
+        type="java.sql.Timestamp"
+        column="CW_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cwOpIdModifier"
+        type="java.math.BigDecimal"
+        column="CW_OP_ID_MODIFIER"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_OP_ID_MODIFIER"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="cwModifydate"
+        type="java.sql.Timestamp"
+        column="CW_MODIFYDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_MODIFYDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="cwTransfervolumeweight"
+        type="java.math.BigDecimal"
+        column="CW_TRANSFERVOLUMEWEIGHT"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_TRANSFERVOLUMEWEIGHT"
+            length="8"
+        </meta>    
+    </property>
+    <property
+        name="cwCustomerchargeweight"
+        type="java.math.BigDecimal"
+        column="CW_CUSTOMERCHARGEWEIGHT"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_CUSTOMERCHARGEWEIGHT"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cwVolumerate"
+        type="int"
+        column="CW_VOLUMERATE"
+        not-null="true"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_VOLUMERATE"
+            length="5"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cwTransfervolumerate"
+        type="int"
+        column="CW_TRANSFERVOLUMERATE"
+        not-null="true"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_TRANSFERVOLUMERATE"
+            length="5"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="znvName"
+        type="java.lang.String"
+        column="ZNV_NAME"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ZNV_NAME"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="cwBillcounts"
+        type="java.lang.Integer"
+        column="CW_BILLCOUNTS"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_BILLCOUNTS"
+            length="5"
+        </meta>    
+    </property>
+    <property
+        name="cwBagcounts"
+        type="java.lang.Integer"
+        column="CW_BAGCOUNTS"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_BAGCOUNTS"
+            length="5"
+        </meta>    
+    </property>
+    <property
+        name="cwBatchwaybillsign"
+        type="java.lang.String"
+        column="CW_BATCHWAYBILLSIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CW_BATCHWAYBILLSIGN"
+            length="1"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiCargotype -->
+    <many-to-one
+        name="tdiCargotype"
+        class="kyle.leis.hi.TdiCargotype"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CT_CODE"         
+        </meta>
+        <column name="CT_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiIssueholdstatus -->
+    <many-to-one
+        name="tdiIssueholdstatus"
+        class="kyle.leis.hi.TdiIssueholdstatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="IHS_CODE"         
+        </meta>
+        <column name="IHS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiProductkind -->
+    <many-to-one
+        name="tdiProductkind"
+        class="kyle.leis.hi.TdiProductkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PK_CODE"         
+        </meta>
+        <column name="PK_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiDistrict -->
+    <many-to-one
+        name="tdiDistrictByDtCodeDestination"
+        class="kyle.leis.hi.TdiDistrict"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="DT_CODE_DESTINATION"         
+        </meta>
+        <column name="DT_CODE_DESTINATION" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiDistrict -->
+    <many-to-one
+        name="tdiDistrictByDtCodeOrigin"
+        class="kyle.leis.hi.TdiDistrict"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="DT_CODE_ORIGIN"         
+        </meta>
+        <column name="DT_CODE_ORIGIN" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiDistrict -->
+    <many-to-one
+        name="tdiDistrictByDtCodeSignin"
+        class="kyle.leis.hi.TdiDistrict"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="DT_CODE_SIGNIN"         
+        </meta>
+        <column name="DT_CODE_SIGNIN" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TcoCorporation -->
+    <many-to-one
+        name="tcoCorporationByCoCodeCustomer"
+        class="kyle.leis.hi.TcoCorporation"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CO_CODE_CUSTOMER"         
+        </meta>
+        <column name="CO_CODE_CUSTOMER" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TcoCorporation -->
+    <many-to-one
+        name="tcoCorporationByCoCodeSupplier"
+        class="kyle.leis.hi.TcoCorporation"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CO_CODE_SUPPLIER"         
+        </meta>
+        <column name="CO_CODE_SUPPLIER" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiPaymentmode -->
+    <many-to-one
+        name="tdiPaymentmode"
+        class="kyle.leis.hi.TdiPaymentmode"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PM_CODE"         
+        </meta>
+        <column name="PM_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TchnChannel -->
+    <many-to-one
+        name="tchnChannelByChnCodeSupplier"
+        class="kyle.leis.hi.TchnChannel"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CHN_CODE_SUPPLIER"         
+        </meta>
+        <column name="CHN_CODE_SUPPLIER" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TchnChannel -->
+    <many-to-one
+        name="tchnChannelByChnCodeCustomer"
+        class="kyle.leis.hi.TchnChannel"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CHN_CODE_CUSTOMER"         
+        </meta>
+        <column name="CHN_CODE_CUSTOMER" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TopBatchwaybill -->
+    <many-to-one
+        name="topBatchwaybillByBwCodeDeparture"
+        class="kyle.leis.hi.TopBatchwaybill"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BW_CODE_DEPARTURE"         
+        </meta>
+        <column name="BW_CODE_DEPARTURE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TopBatchwaybill -->
+    <many-to-one
+        name="topBatchwaybillByBwCodeWeightcheck"
+        class="kyle.leis.hi.TopBatchwaybill"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BW_CODE_WEIGHTCHECK"         
+        </meta>
+        <column name="BW_CODE_WEIGHTCHECK" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TopBatchwaybill -->
+    <many-to-one
+        name="topBatchwaybillByBwCodeArrival"
+        class="kyle.leis.hi.TopBatchwaybill"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BW_CODE_ARRIVAL"         
+        </meta>
+        <column name="BW_CODE_ARRIVAL" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TopManifestvalue -->
+    <set
+        name="topManifestvalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CW_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopManifestvalue"
+        </meta>
+        <key>
+            <column name="CW_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopManifestvalue"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopPredictwaybill -->
+    <set
+        name="topPredictwaybills"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CW_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopPredictwaybill"
+        </meta>
+        <key>
+            <column name="CW_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopPredictwaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TblReceivable -->
+    <set
+        name="tblReceivables"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CW_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TblReceivable"
+        </meta>
+        <key>
+            <column name="CW_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TblReceivable"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopCorewaybillpiece -->
+    <set
+        name="topCorewaybillpieces"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CW_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopCorewaybillpiece"
+        </meta>
+        <key>
+            <column name="CW_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopCorewaybillpiece"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopWaybillspecialtype -->
+    <set
+        name="topWaybillspecialtypes"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CW_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopWaybillspecialtype"
+        </meta>
+        <key>
+            <column name="CW_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopWaybillspecialtype"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiPurchaseorderwaybill -->
+    <set
+        name="tfiPurchaseorderwaybills"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CW_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiPurchaseorderwaybill"
+        </meta>
+        <key>
+            <column name="CW_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiPurchaseorderwaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopCorewaybillcode -->
+    <set
+        name="topCorewaybillcodes"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CW_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopCorewaybillcode"
+        </meta>
+        <key>
+            <column name="CW_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopCorewaybillcode"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ThiPayable -->
+    <set
+        name="thiPayables"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CW_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.ThiPayable"
+        </meta>
+        <key>
+            <column name="CW_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.ThiPayable"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfsCorewaybillauditlog -->
+    <set
+        name="tfsCorewaybillauditlogs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CW_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsCorewaybillauditlog"
+        </meta>
+        <key>
+            <column name="CW_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsCorewaybillauditlog"
+        />
+    </set>
+    <!-- bi-directional one-to-one association to TcsWaybillbatchtrack -->
+    <one-to-one
+        name="tcsWaybillbatchtrack"
+        class="kyle.leis.hi.TcsWaybillbatchtrack"
+        outer-join="auto"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            outer-join="auto"
+        </meta>
+    </one-to-one>
+    <!-- bi-directional one-to-one association to TopHousewaybill -->
+    <one-to-one
+        name="topHousewaybill"
+        class="kyle.leis.hi.TopHousewaybill"
+        outer-join="auto"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            outer-join="auto"
+        </meta>
+    </one-to-one>
+    <!-- bi-directional one-to-many association to TopTransportwaybillvalue -->
+    <set
+        name="topTransportwaybillvalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CW_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopTransportwaybillvalue"
+        </meta>
+        <key>
+            <column name="CW_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopTransportwaybillvalue"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TblPayable -->
+    <set
+        name="tblPayables"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CW_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TblPayable"
+        </meta>
+        <key>
+            <column name="CW_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TblPayable"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ThiReceivable -->
+    <set
+        name="thiReceivables"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CW_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.ThiReceivable"
+        </meta>
+        <key>
+            <column name="CW_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.ThiReceivable"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopBatchwaybillvalue -->
+    <set
+        name="topBatchwaybillvalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CW_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopBatchwaybillvalue"
+        </meta>
+        <key>
+            <column name="CW_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopBatchwaybillvalue"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcsIssue -->
+    <set
+        name="tcsIssues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CW_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcsIssue"
+        </meta>
+        <key>
+            <column name="CW_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcsIssue"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TopBatchwaybillvalue -->
+    <many-to-one
+        name="topBatchwaybillvalueByBwbvIdArrival"
+        class="kyle.leis.hi.TopBatchwaybillvalue"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BWBV_ID_ARRIVAL"         
+        </meta>
+        <column name="BWBV_ID_ARRIVAL" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TopBatchwaybillvalue -->
+    <many-to-one
+        name="topBatchwaybillvalueByBwbvIdDeparture"
+        class="kyle.leis.hi.TopBatchwaybillvalue"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BWBV_ID__DEPARTURE"         
+        </meta>
+        <column name="BWBV_ID__DEPARTURE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiCorewaybillstatus -->
+    <many-to-one
+        name="tdiCorewaybillstatus"
+        class="kyle.leis.hi.TdiCorewaybillstatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CWS_CODE"         
+        </meta>
+        <column name="CWS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiFinanceauditstatus -->
+    <many-to-one
+        name="tdiFinanceauditstatus"
+        class="kyle.leis.hi.TdiFinanceauditstatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="FAS_CODE"         
+        </meta>
+        <column name="FAS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiEnterpriseelement -->
+    <many-to-one
+        name="tdiEnterpriseelement"
+        class="kyle.leis.hi.TdiEnterpriseelement"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="EE_CODE"         
+        </meta>
+        <column name="EE_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

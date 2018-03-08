@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TopPredictcargoinfo" 
+    table="T_OP_PREDICTCARGOINFO"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_OP_PREDICTCARGOINFO"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TopPredictcargoinfoPK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="pciId" 
+            column="PCI_ID" 
+            type="java.lang.Integer"
+            length="5"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="PCI_ID"
+                length="5"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="pwbCode" 
+            column="PWB_CODE" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="PWB_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="ckCode"
+        type="java.lang.String"
+        column="CK_CODE"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CK_CODE"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pciName"
+        type="java.lang.String"
+        column="PCI_NAME"
+        not-null="true"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PCI_NAME"
+            length="128"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pciEname"
+        type="java.lang.String"
+        column="PCI_ENAME"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PCI_ENAME"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="pciPieces"
+        type="int"
+        column="PCI_PIECES"
+        not-null="true"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PCI_PIECES"
+            length="5"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pciWeight"
+        type="java.math.BigDecimal"
+        column="PCI_WEIGHT"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PCI_WEIGHT"
+            length="8"
+        </meta>    
+    </property>
+    <property
+        name="pciUnitprice"
+        type="java.math.BigDecimal"
+        column="PCI_UNITPRICE"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PCI_UNITPRICE"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pciTotalprice"
+        type="java.math.BigDecimal"
+        column="PCI_TOTALPRICE"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PCI_TOTALPRICE"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pciHscode"
+        type="java.lang.String"
+        column="PCI_HSCODE"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PCI_HSCODE"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="pciAttacheinfo"
+        type="java.lang.String"
+        column="PCI_ATTACHEINFO"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PCI_ATTACHEINFO"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="pciRemark"
+        type="java.lang.String"
+        column="PCI_REMARK"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PCI_REMARK"
+            length="128"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TopPredictwaybill -->
+    <many-to-one
+        name="topPredictwaybill"
+	    class="kyle.leis.hi.TopPredictwaybill"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="PWB_CODE"
+        </meta>
+    	<column name="PWB_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

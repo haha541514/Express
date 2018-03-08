@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TepIncidentalprice" 
+    table="T_EP_INCIDENTALPRICE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_EP_INCIDENTALPRICE"
+    </meta>
+
+    <id
+        name="epCode"
+        type="java.lang.Long"
+        column="EP_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="EP_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to TepExpressprice -->
+    <one-to-one
+        name="tepExpressprice"
+        class="kyle.leis.hi.TepExpressprice"
+        outer-join="auto"
+        constrained="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            class="kyle.leis.hi.TepExpressprice"
+            outer-join="auto"
+            constrained="true"
+        </meta>    
+    </one-to-one>
+    <!-- bi-directional many-to-one association to TdiProductkind -->
+    <many-to-one
+        name="tdiProductkind"
+        class="kyle.leis.hi.TdiProductkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PK_CODE"         
+        </meta>
+        <column name="PK_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiDistrict -->
+    <many-to-one
+        name="tdiDistrict"
+        class="kyle.leis.hi.TdiDistrict"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="DT_CODE"         
+        </meta>
+        <column name="DT_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TcoCorporation -->
+    <many-to-one
+        name="tcoCorporation"
+        class="kyle.leis.hi.TcoCorporation"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CO_CODE"         
+        </meta>
+        <column name="CO_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiPricedomain -->
+    <many-to-one
+        name="tdiPricedomain"
+        class="kyle.leis.hi.TdiPricedomain"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PD_CODE"         
+        </meta>
+        <column name="PD_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TepIncidentalpricevalue -->
+    <set
+        name="tepIncidentalpricevalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EP_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepIncidentalpricevalue"
+        </meta>
+        <key>
+            <column name="EP_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepIncidentalpricevalue"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TchnChannel -->
+    <many-to-one
+        name="tchnChannel"
+        class="kyle.leis.hi.TchnChannel"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CHN_CODE"         
+        </meta>
+        <column name="CHN_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiPricegroup -->
+    <many-to-one
+        name="tdiPricegroup"
+        class="kyle.leis.hi.TdiPricegroup"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PG_CODE"         
+        </meta>
+        <column name="PG_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

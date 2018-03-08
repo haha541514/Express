@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TopCustomsdeclaration" 
+    table="T_OP_CUSTOMSDECLARATION"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_OP_CUSTOMSDECLARATION"
+    </meta>
+
+    <id
+        name="cdId"
+        type="java.lang.Long"
+        column="CD_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="CD_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_CD_CODE"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_CD_CODE</param>
+        </generator>
+    </id>
+
+    <property
+        name="cdLabelcode"
+        type="java.lang.String"
+        column="CD_LABELCODE"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CD_LABELCODE"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cdEname"
+        type="java.lang.String"
+        column="CD_ENAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CD_ENAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cdName"
+        type="java.lang.String"
+        column="CD_NAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CD_NAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cdGrossweight"
+        type="java.math.BigDecimal"
+        column="CD_GROSSWEIGHT"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CD_GROSSWEIGHT"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cdPieces"
+        type="int"
+        column="CD_PIECES"
+        not-null="true"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CD_PIECES"
+            length="5"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cdUnitprice"
+        type="java.math.BigDecimal"
+        column="CD_UNITPRICE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CD_UNITPRICE"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cdTotalprice"
+        type="java.math.BigDecimal"
+        column="CD_TOTALPRICE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CD_TOTALPRICE"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cdAmount"
+        type="java.math.BigDecimal"
+        column="CD_AMOUNT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CD_AMOUNT"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="cdUnitname"
+        type="java.lang.String"
+        column="CD_UNITNAME"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CD_UNITNAME"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="cdGoodslabelcode"
+        type="java.lang.String"
+        column="CD_GOODSLABELCODE"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CD_GOODSLABELCODE"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="cdShipperaddress"
+        type="java.lang.String"
+        column="CD_SHIPPERADDRESS"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CD_SHIPPERADDRESS"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="cdConsigneeaddress"
+        type="java.lang.String"
+        column="CD_CONSIGNEEADDRESS"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CD_CONSIGNEEADDRESS"
+            length="128"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TopHousewaybill -->
+    <many-to-one
+        name="topHousewaybill"
+        class="kyle.leis.hi.TopHousewaybill"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CW_CODE"         
+        </meta>
+        <column name="CW_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiExpresspricekind" 
+    table="T_DI_EXPRESSPRICEKIND"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_EXPRESSPRICEKIND"
+    </meta>
+
+    <id
+        name="epkCode"
+        type="java.lang.String"
+        column="EPK_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="EPK_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="epkName"
+        type="java.lang.String"
+        column="EPK_NAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EPK_NAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="epkEname"
+        type="java.lang.String"
+        column="EPK_ENAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EPK_ENAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TepExpressprice -->
+    <set
+        name="tepExpressprices"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EPK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepExpressprice"
+        </meta>
+        <key>
+            <column name="EPK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepExpressprice"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

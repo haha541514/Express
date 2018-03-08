@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiUnittype" 
+    table="T_DI_UNITTYPE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_UNITTYPE"
+    </meta>
+
+    <id
+        name="utCode"
+        type="java.lang.String"
+        column="UT_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="UT_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="utName"
+        type="java.lang.String"
+        column="UT_NAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="UT_NAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="utEname"
+        type="java.lang.String"
+        column="UT_ENAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="UT_ENAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TbrWeightrule -->
+    <set
+        name="tbrWeightrules"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="UT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrWeightrule"
+        </meta>
+        <key>
+            <column name="UT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrWeightrule"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepSurchargevalue -->
+    <set
+        name="tepSurchargevalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="UT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepSurchargevalue"
+        </meta>
+        <key>
+            <column name="UT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepSurchargevalue"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepAdjustivepricevalue -->
+    <set
+        name="tepAdjustivepricevalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="UT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepAdjustivepricevalue"
+        </meta>
+        <key>
+            <column name="UT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepAdjustivepricevalue"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepIncidentalpricevalue -->
+    <set
+        name="tepIncidentalpricevalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="UT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepIncidentalpricevalue"
+        </meta>
+        <key>
+            <column name="UT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepIncidentalpricevalue"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepFreightprice -->
+    <set
+        name="tepFreightprices"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="UT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepFreightprice"
+        </meta>
+        <key>
+            <column name="UT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepFreightprice"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

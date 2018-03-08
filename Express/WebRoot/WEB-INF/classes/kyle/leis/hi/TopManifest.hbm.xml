@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TopManifest" 
+    table="T_OP_MANIFEST"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_OP_MANIFEST"
+    </meta>
+
+    <id
+        name="mfCode"
+        type="java.lang.Long"
+        column="MF_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="MF_CODE"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_Manifest_Code"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_Manifest_Code</param>
+        </generator>
+    </id>
+
+    <property
+        name="mfCreatedate"
+        type="java.sql.Timestamp"
+        column="MF_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="MF_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="mfModifydate"
+        type="java.sql.Timestamp"
+        column="MF_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="MF_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="mfRemark"
+        type="java.lang.String"
+        column="MF_REMARK"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="MF_REMARK"
+            length="128"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiSimplestatus -->
+    <many-to-one
+        name="tdiSimplestatus"
+        class="kyle.leis.hi.TdiSimplestatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SS_CODE"         
+        </meta>
+        <column name="SS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByMfOpIdModify"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="MF_OP_ID_MODIFY"         
+        </meta>
+        <column name="MF_OP_ID_MODIFY" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByMfOpIdCreate"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="MF_OP_ID_CREATE"         
+        </meta>
+        <column name="MF_OP_ID_CREATE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TopManifestvalue -->
+    <set
+        name="topManifestvalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="MF_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopManifestvalue"
+        </meta>
+        <key>
+            <column name="MF_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopManifestvalue"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TdiEnterpriseelement -->
+    <many-to-one
+        name="tdiEnterpriseelement"
+        class="kyle.leis.hi.TdiEnterpriseelement"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="EE_CODE"         
+        </meta>
+        <column name="EE_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,2536 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiOperator" 
+    table="T_DI_OPERATOR"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_OPERATOR"
+    </meta>
+
+    <id
+        name="opId"
+        type="java.lang.Long"
+        column="OP_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="OP_ID"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="opCode"
+        type="java.lang.String"
+        column="OP_CODE"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_CODE"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="opName"
+        type="java.lang.String"
+        column="OP_NAME"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_NAME"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="opSex"
+        type="java.lang.String"
+        column="OP_SEX"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_SEX"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="opPassword"
+        type="java.lang.String"
+        column="OP_PASSWORD"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_PASSWORD"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="opEname"
+        type="java.lang.String"
+        column="OP_ENAME"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_ENAME"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="opSname"
+        type="java.lang.String"
+        column="OP_SNAME"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_SNAME"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="opIdnumber"
+        type="java.lang.String"
+        column="OP_IDNUMBER"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_IDNUMBER"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="opEmail"
+        type="java.lang.String"
+        column="OP_EMAIL"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_EMAIL"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="opIdCreator"
+        type="long"
+        column="OP_ID_CREATOR"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_ID_CREATOR"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="opCreatedate"
+        type="java.sql.Timestamp"
+        column="OP_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="opIdModifier"
+        type="long"
+        column="OP_ID_MODIFIER"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_ID_MODIFIER"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="opModifydate"
+        type="java.sql.Timestamp"
+        column="OP_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="opAddress"
+        type="java.lang.String"
+        column="OP_ADDRESS"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_ADDRESS"
+            length="100"
+        </meta>    
+    </property>
+    <property
+        name="opTelephone"
+        type="java.lang.String"
+        column="OP_TELEPHONE"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_TELEPHONE"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="opMobile"
+        type="java.lang.String"
+        column="OP_MOBILE"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_MOBILE"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="opConfirmdate"
+        type="java.sql.Timestamp"
+        column="OP_CONFIRMDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_CONFIRMDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="opDimissiondate"
+        type="java.sql.Timestamp"
+        column="OP_DIMISSIONDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_DIMISSIONDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="opFaxnumber"
+        type="java.lang.String"
+        column="OP_FAXNUMBER"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_FAXNUMBER"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="opMsnname"
+        type="java.lang.String"
+        column="OP_MSNNAME"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_MSNNAME"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="opQqnumber"
+        type="java.lang.String"
+        column="OP_QQNUMBER"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_QQNUMBER"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="opIssuecontactpersonsign"
+        type="java.lang.String"
+        column="OP_ISSUECONTACTPERSONSIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="OP_ISSUECONTACTPERSONSIGN"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="ccBatchnumber"
+        type="java.lang.String"
+        column="CC_BATCHNUMBER"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CC_BATCHNUMBER"
+            length="20"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiDepartment -->
+    <many-to-one
+        name="tdiDepartment"
+        class="kyle.leis.hi.TdiDepartment"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="DP_CODE"         
+        </meta>
+        <column name="DP_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TfiCashrecord -->
+    <set
+        name="tfiCashrecordsByCrOpIdCreator"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CR_OP_ID_CREATOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiCashrecord"
+        </meta>
+        <key>
+            <column name="CR_OP_ID_CREATOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiCashrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiCashrecord -->
+    <set
+        name="tfiCashrecordsByCrOpIdAuditor"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CR_OP_ID_AUDITOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiCashrecord"
+        </meta>
+        <key>
+            <column name="CR_OP_ID_AUDITOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiCashrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiCashrecord -->
+    <set
+        name="tfiCashrecordsByCrOpIdModifier"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CR_OP_ID_MODIFIER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiCashrecord"
+        </meta>
+        <key>
+            <column name="CR_OP_ID_MODIFIER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiCashrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TesBulletin -->
+    <set
+        name="tesBulletinsByOpIdModifier"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_MODIFIER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TesBulletin"
+        </meta>
+        <key>
+            <column name="OP_ID_MODIFIER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TesBulletin"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TesBulletin -->
+    <set
+        name="tesBulletinsByOpIdCreator"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_CREATOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TesBulletin"
+        </meta>
+        <key>
+            <column name="OP_ID_CREATOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TesBulletin"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopPredictwaybill -->
+    <set
+        name="topPredictwaybillsByOpIdPrinter"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_PRINTER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopPredictwaybill"
+        </meta>
+        <key>
+            <column name="OP_ID_PRINTER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopPredictwaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopPredictwaybill -->
+    <set
+        name="topPredictwaybillsByOpIdCreator"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_CREATOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopPredictwaybill"
+        </meta>
+        <key>
+            <column name="OP_ID_CREATOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopPredictwaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopPredictwaybill -->
+    <set
+        name="topPredictwaybillsByOpIdModifier"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_MODIFIER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopPredictwaybill"
+        </meta>
+        <key>
+            <column name="OP_ID_MODIFIER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopPredictwaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopPredictwaybill -->
+    <set
+        name="topPredictwaybillsByOpIdDeclarer"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_DECLARER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopPredictwaybill"
+        </meta>
+        <key>
+            <column name="OP_ID_DECLARER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopPredictwaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TchnChannel -->
+    <set
+        name="tchnChannelsByChnOpIdModify"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CHN_OP_ID_MODIFY"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TchnChannel"
+        </meta>
+        <key>
+            <column name="CHN_OP_ID_MODIFY" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TchnChannel"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TchnChannel -->
+    <set
+        name="tchnChannelsByChnOpIdCreate"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CHN_OP_ID_CREATE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TchnChannel"
+        </meta>
+        <key>
+            <column name="CHN_OP_ID_CREATE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TchnChannel"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TblReceivable -->
+    <set
+        name="tblReceivablesByRvOpIdAuditor"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="RV_OP_ID_AUDITOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TblReceivable"
+        </meta>
+        <key>
+            <column name="RV_OP_ID_AUDITOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TblReceivable"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TblReceivable -->
+    <set
+        name="tblReceivablesByRvOpIdCreator"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="RV_OP_ID_CREATOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TblReceivable"
+        </meta>
+        <key>
+            <column name="RV_OP_ID_CREATOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TblReceivable"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TblReceivable -->
+    <set
+        name="tblReceivablesByRvOpIdModifier"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="RV_OP_ID_MODIFIER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TblReceivable"
+        </meta>
+        <key>
+            <column name="RV_OP_ID_MODIFIER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TblReceivable"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopTransportwaybilltrace -->
+    <set
+        name="topTransportwaybilltraces"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopTransportwaybilltrace"
+        </meta>
+        <key>
+            <column name="OP_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopTransportwaybilltrace"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopTransportwaybill -->
+    <set
+        name="topTransportwaybillsByOpIdCreator"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_CREATOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopTransportwaybill"
+        </meta>
+        <key>
+            <column name="OP_ID_CREATOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopTransportwaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopTransportwaybill -->
+    <set
+        name="topTransportwaybillsByOpIdModifier"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_MODIFIER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopTransportwaybill"
+        </meta>
+        <key>
+            <column name="OP_ID_MODIFIER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopTransportwaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopWaybillspecialtype -->
+    <set
+        name="topWaybillspecialtypes"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_CREATE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopWaybillspecialtype"
+        </meta>
+        <key>
+            <column name="OP_ID_CREATE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopWaybillspecialtype"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfsBusinesslog -->
+    <set
+        name="tfsBusinesslogs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_CREATE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsBusinesslog"
+        </meta>
+        <key>
+            <column name="OP_ID_CREATE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsBusinesslog"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcoPredictordertemplate -->
+    <set
+        name="tcoPredictordertemplatesByOpIdCreator"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_CREATOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoPredictordertemplate"
+        </meta>
+        <key>
+            <column name="OP_ID_CREATOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoPredictordertemplate"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcoPredictordertemplate -->
+    <set
+        name="tcoPredictordertemplatesByOpIdModifier"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_MODIFIER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoPredictordertemplate"
+        </meta>
+        <key>
+            <column name="OP_ID_MODIFIER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoPredictordertemplate"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiPurchaseorder -->
+    <set
+        name="tfiPurchaseordersByPoOpIdCreator"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PO_OP_ID_CREATOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiPurchaseorder"
+        </meta>
+        <key>
+            <column name="PO_OP_ID_CREATOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiPurchaseorder"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiPurchaseorder -->
+    <set
+        name="tfiPurchaseordersByPoOpIdModifier"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PO_OP_ID_MODIFIER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiPurchaseorder"
+        </meta>
+        <key>
+            <column name="PO_OP_ID_MODIFIER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiPurchaseorder"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopManifest -->
+    <set
+        name="topManifestsByMfOpIdModify"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="MF_OP_ID_MODIFY"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopManifest"
+        </meta>
+        <key>
+            <column name="MF_OP_ID_MODIFY" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopManifest"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopManifest -->
+    <set
+        name="topManifestsByMfOpIdCreate"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="MF_OP_ID_CREATE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopManifest"
+        </meta>
+        <key>
+            <column name="MF_OP_ID_CREATE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopManifest"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcsWaybilltrack -->
+    <set
+        name="tcsWaybilltracksByOpIdCreator"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_CREATOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcsWaybilltrack"
+        </meta>
+        <key>
+            <column name="OP_ID_CREATOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcsWaybilltrack"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcsWaybilltrack -->
+    <set
+        name="tcsWaybilltracksByOpIdModifier"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_MODIFIER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcsWaybilltrack"
+        </meta>
+        <key>
+            <column name="OP_ID_MODIFIER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcsWaybilltrack"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepZone -->
+    <set
+        name="tepZonesByZnOpIdModify"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="ZN_OP_ID_MODIFY"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepZone"
+        </meta>
+        <key>
+            <column name="ZN_OP_ID_MODIFY" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepZone"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepZone -->
+    <set
+        name="tepZonesByZnOpIdCreate"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="ZN_OP_ID_CREATE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepZone"
+        </meta>
+        <key>
+            <column name="ZN_OP_ID_CREATE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepZone"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TesSystemcertification -->
+    <set
+        name="tesSystemcertificationsByScOpIdApply"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SC_OP_ID_APPLY"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TesSystemcertification"
+        </meta>
+        <key>
+            <column name="SC_OP_ID_APPLY" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TesSystemcertification"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TesSystemcertification -->
+    <set
+        name="tesSystemcertificationsByScOpIdConfirm"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SC_OP_ID_CONFIRM"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TesSystemcertification"
+        </meta>
+        <key>
+            <column name="SC_OP_ID_CONFIRM" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TesSystemcertification"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TesSystemcertification -->
+    <set
+        name="tesSystemcertificationsByScOpIdModify"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SC_OP_ID_MODIFY"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TesSystemcertification"
+        </meta>
+        <key>
+            <column name="SC_OP_ID_MODIFY" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TesSystemcertification"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiWriteoff -->
+    <set
+        name="tfiWriteoffs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiWriteoff"
+        </meta>
+        <key>
+            <column name="OP_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiWriteoff"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcoSmsreceiverule -->
+    <set
+        name="tcoSmsreceiverules"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SRR_RECIPIENT"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoSmsreceiverule"
+        </meta>
+        <key>
+            <column name="SRR_RECIPIENT" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoSmsreceiverule"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TesWorkbillaction -->
+    <set
+        name="tesWorkbillactions"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_CREATOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TesWorkbillaction"
+        </meta>
+        <key>
+            <column name="OP_ID_CREATOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TesWorkbillaction"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcoCorporation -->
+    <set
+        name="tcoCorporationsByCoOpIdCreate"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CO_OP_ID_CREATE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoCorporation"
+        </meta>
+        <key>
+            <column name="CO_OP_ID_CREATE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoCorporation"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcoCorporation -->
+    <set
+        name="tcoCorporationsByCoOpIdModify"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CO_OP_ID_MODIFY"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoCorporation"
+        </meta>
+        <key>
+            <column name="CO_OP_ID_MODIFY" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoCorporation"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcoCorporation -->
+    <set
+        name="tcoCorporationsByCoOpIdAudit"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CO_OP_ID_AUDIT"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoCorporation"
+        </meta>
+        <key>
+            <column name="CO_OP_ID_AUDIT" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoCorporation"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to ThiWriteoff -->
+    <set
+        name="thiWriteoffs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.ThiWriteoff"
+        </meta>
+        <key>
+            <column name="OP_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.ThiWriteoff"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrBusinessrule -->
+    <set
+        name="tbrBusinessrulesByBrOpIdCreate"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BR_OP_ID_CREATE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrBusinessrule"
+        </meta>
+        <key>
+            <column name="BR_OP_ID_CREATE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrBusinessrule"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrBusinessrule -->
+    <set
+        name="tbrBusinessrulesByBrOpIdModifier"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BR_OP_ID_MODIFIER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrBusinessrule"
+        </meta>
+        <key>
+            <column name="BR_OP_ID_MODIFIER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrBusinessrule"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcsIssueaction -->
+    <set
+        name="tcsIssueactions"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_CREATOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcsIssueaction"
+        </meta>
+        <key>
+            <column name="OP_ID_CREATOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcsIssueaction"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcoCustomer -->
+    <set
+        name="tcoCustomersByCmOpIdCservice"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CM_OP_ID_CSERVICE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoCustomer"
+        </meta>
+        <key>
+            <column name="CM_OP_ID_CSERVICE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoCustomer"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcoCustomer -->
+    <set
+        name="tcoCustomersByCmOpIdSale"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CM_OP_ID_SALE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoCustomer"
+        </meta>
+        <key>
+            <column name="CM_OP_ID_SALE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoCustomer"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcoCustomer -->
+    <set
+        name="tcoCustomersByCmOpIdDun"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CM_OP_ID_DUN"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoCustomer"
+        </meta>
+        <key>
+            <column name="CM_OP_ID_DUN" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoCustomer"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcsIssue -->
+    <set
+        name="tcsIssuesByOpIdExecutor"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_EXECUTOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcsIssue"
+        </meta>
+        <key>
+            <column name="OP_ID_EXECUTOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcsIssue"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcsIssue -->
+    <set
+        name="tcsIssuesByOpIdModifier"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_MODIFIER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcsIssue"
+        </meta>
+        <key>
+            <column name="OP_ID_MODIFIER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcsIssue"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcsIssue -->
+    <set
+        name="tcsIssuesByOpIdCreator"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_CREATOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcsIssue"
+        </meta>
+        <key>
+            <column name="OP_ID_CREATOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcsIssue"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepExpressprice -->
+    <set
+        name="tepExpresspricesByEpOpIdCreate"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EP_OP_ID_CREATE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepExpressprice"
+        </meta>
+        <key>
+            <column name="EP_OP_ID_CREATE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepExpressprice"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepExpressprice -->
+    <set
+        name="tepExpresspricesByEpOpIdModify"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EP_OP_ID_MODIFY"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepExpressprice"
+        </meta>
+        <key>
+            <column name="EP_OP_ID_MODIFY" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepExpressprice"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfsWaybillcode -->
+    <set
+        name="tfsWaybillcodesByOpIdCreator"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_CREATOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsWaybillcode"
+        </meta>
+        <key>
+            <column name="OP_ID_CREATOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsWaybillcode"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfsWaybillcode -->
+    <set
+        name="tfsWaybillcodesByOpIdModifier"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_MODIFIER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsWaybillcode"
+        </meta>
+        <key>
+            <column name="OP_ID_MODIFIER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsWaybillcode"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcoShipperblacklist -->
+    <set
+        name="tcoShipperblacklistsByOpIdCreator"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_CREATOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoShipperblacklist"
+        </meta>
+        <key>
+            <column name="OP_ID_CREATOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoShipperblacklist"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TcoShipperblacklist -->
+    <set
+        name="tcoShipperblacklistsByOpIdModifier"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_MODIFIER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoShipperblacklist"
+        </meta>
+        <key>
+            <column name="OP_ID_MODIFIER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoShipperblacklist"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrManifestexportformat -->
+    <set
+        name="tbrManifestexportformatsByMefCreator"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="MEF_CREATOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrManifestexportformat"
+        </meta>
+        <key>
+            <column name="MEF_CREATOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrManifestexportformat"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrManifestexportformat -->
+    <set
+        name="tbrManifestexportformatsByMefModifier"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="MEF_MODIFIER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrManifestexportformat"
+        </meta>
+        <key>
+            <column name="MEF_MODIFIER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrManifestexportformat"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TesWorkbill -->
+    <set
+        name="tesWorkbillsByWbOpIdSurveillant"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="WB_OP_ID_SURVEILLANT"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TesWorkbill"
+        </meta>
+        <key>
+            <column name="WB_OP_ID_SURVEILLANT" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TesWorkbill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TesWorkbill -->
+    <set
+        name="tesWorkbillsByWbOpIdCreator"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="WB_OP_ID_CREATOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TesWorkbill"
+        </meta>
+        <key>
+            <column name="WB_OP_ID_CREATOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TesWorkbill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TesWorkbill -->
+    <set
+        name="tesWorkbillsByWbOpIdExecutor"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="WB_OP_ID_EXECUTOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TesWorkbill"
+        </meta>
+        <key>
+            <column name="WB_OP_ID_EXECUTOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TesWorkbill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TesWorkbill -->
+    <set
+        name="tesWorkbillsByWbOpIdModifier"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="WB_OP_ID_MODIFIER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TesWorkbill"
+        </meta>
+        <key>
+            <column name="WB_OP_ID_MODIFIER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TesWorkbill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TesWorkbill -->
+    <set
+        name="tesWorkbillsByWbOpIdPrincipal"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="WB_OP_ID_PRINCIPAL"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TesWorkbill"
+        </meta>
+        <key>
+            <column name="WB_OP_ID_PRINCIPAL" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TesWorkbill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiBillrecord -->
+    <set
+        name="tfiBillrecordsByBrOpIdCreator"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BR_OP_ID_CREATOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiBillrecord"
+        </meta>
+        <key>
+            <column name="BR_OP_ID_CREATOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiBillrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiBillrecord -->
+    <set
+        name="tfiBillrecordsByBrOpIdModifier"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BR_OP_ID_MODIFIER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiBillrecord"
+        </meta>
+        <key>
+            <column name="BR_OP_ID_MODIFIER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiBillrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiBillrecord -->
+    <set
+        name="tfiBillrecordsByBrOpIdAuditor"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BR_OP_ID_AUDITOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiBillrecord"
+        </meta>
+        <key>
+            <column name="BR_OP_ID_AUDITOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiBillrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfsCorewaybillauditlog -->
+    <set
+        name="tfsCorewaybillauditlogs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CWAL_OP_ID_CREATE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsCorewaybillauditlog"
+        </meta>
+        <key>
+            <column name="CWAL_OP_ID_CREATE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsCorewaybillauditlog"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopCwbimportlog -->
+    <set
+        name="topCwbimportlogs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_CREATOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopCwbimportlog"
+        </meta>
+        <key>
+            <column name="OP_ID_CREATOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopCwbimportlog"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TblIncidentalfee -->
+    <set
+        name="tblIncidentalfeesByOpIdConfirm"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_CONFIRM"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TblIncidentalfee"
+        </meta>
+        <key>
+            <column name="OP_ID_CONFIRM" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TblIncidentalfee"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TblIncidentalfee -->
+    <set
+        name="tblIncidentalfeesByOpIdCreate"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_CREATE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TblIncidentalfee"
+        </meta>
+        <key>
+            <column name="OP_ID_CREATE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TblIncidentalfee"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TblIncidentalfee -->
+    <set
+        name="tblIncidentalfeesByOpIdModify"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_MODIFY"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TblIncidentalfee"
+        </meta>
+        <key>
+            <column name="OP_ID_MODIFY" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TblIncidentalfee"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiServerbillrecord -->
+    <set
+        name="tfiServerbillrecordsByOpIdCreator"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_CREATOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiServerbillrecord"
+        </meta>
+        <key>
+            <column name="OP_ID_CREATOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiServerbillrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiServerbillrecord -->
+    <set
+        name="tfiServerbillrecordsByOpIdModifier"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_MODIFIER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiServerbillrecord"
+        </meta>
+        <key>
+            <column name="OP_ID_MODIFIER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiServerbillrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TblPayable -->
+    <set
+        name="tblPayablesByPyOpIdModifier"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PY_OP_ID_MODIFIER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TblPayable"
+        </meta>
+        <key>
+            <column name="PY_OP_ID_MODIFIER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TblPayable"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TblPayable -->
+    <set
+        name="tblPayablesByPyOpIdAuditor"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PY_OP_ID_AUDITOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TblPayable"
+        </meta>
+        <key>
+            <column name="PY_OP_ID_AUDITOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TblPayable"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TblPayable -->
+    <set
+        name="tblPayablesByPyOpIdCreator"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PY_OP_ID_CREATOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TblPayable"
+        </meta>
+        <key>
+            <column name="PY_OP_ID_CREATOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TblPayable"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrChanneltrackmapping -->
+    <set
+        name="tbrChanneltrackmappingsByOpIdCreator"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_CREATOR"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrChanneltrackmapping"
+        </meta>
+        <key>
+            <column name="OP_ID_CREATOR" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrChanneltrackmapping"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrChanneltrackmapping -->
+    <set
+        name="tbrChanneltrackmappingsByOpIdModifier"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="OP_ID_MODIFIER"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrChanneltrackmapping"
+        </meta>
+        <key>
+            <column name="OP_ID_MODIFIER" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrChanneltrackmapping"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopBatchwaybill -->
+    <set
+        name="topBatchwaybillsByBwOpIdApprove"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BW_OP_ID_APPROVE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopBatchwaybill"
+        </meta>
+        <key>
+            <column name="BW_OP_ID_APPROVE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopBatchwaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopBatchwaybill -->
+    <set
+        name="topBatchwaybillsByBwOpIdCreate"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BW_OP_ID_CREATE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopBatchwaybill"
+        </meta>
+        <key>
+            <column name="BW_OP_ID_CREATE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopBatchwaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopBatchwaybill -->
+    <set
+        name="topBatchwaybillsByBwOpIdAudit"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BW_OP_ID_AUDIT"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopBatchwaybill"
+        </meta>
+        <key>
+            <column name="BW_OP_ID_AUDIT" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopBatchwaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopBatchwaybill -->
+    <set
+        name="topBatchwaybillsByBwOpIdComplete"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BW_OP_ID_COMPLETE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopBatchwaybill"
+        </meta>
+        <key>
+            <column name="BW_OP_ID_COMPLETE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopBatchwaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopBatchwaybill -->
+    <set
+        name="topBatchwaybillsByBwOpIdModify"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BW_OP_ID_MODIFY"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopBatchwaybill"
+        </meta>
+        <key>
+            <column name="BW_OP_ID_MODIFY" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopBatchwaybill"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TdiOperatorstatus -->
+    <many-to-one
+        name="tdiOperatorstatus"
+        class="kyle.leis.hi.TdiOperatorstatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OS_CODE"         
+        </meta>
+        <column name="OS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TcoCorporation -->
+    <many-to-one
+        name="tcoCorporation"
+        class="kyle.leis.hi.TcoCorporation"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CO_CODE"         
+        </meta>
+        <column name="CO_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiFunction -->
+    <many-to-one
+        name="tdiFunction"
+        class="kyle.leis.hi.TdiFunction"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="FC_CODE"         
+        </meta>
+        <column name="FC_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiPosition -->
+    <many-to-one
+        name="tdiPosition"
+        class="kyle.leis.hi.TdiPosition"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PS_CODE"         
+        </meta>
+        <column name="PS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiState -->
+    <many-to-one
+        name="tdiState"
+        class="kyle.leis.hi.TdiState"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="ST_CODE"         
+        </meta>
+        <column name="ST_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiCity -->
+    <many-to-one
+        name="tdiCity"
+        class="kyle.leis.hi.TdiCity"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CT_CODE"         
+        </meta>
+        <column name="CT_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiEnterpriseelement -->
+    <many-to-one
+        name="tdiEnterpriseelement"
+        class="kyle.leis.hi.TdiEnterpriseelement"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="EE_CODE"         
+        </meta>
+        <column name="EE_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

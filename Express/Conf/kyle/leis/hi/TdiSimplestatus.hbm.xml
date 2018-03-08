@@ -1,0 +1,578 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiSimplestatus" 
+    table="T_DI_SIMPLESTATUS"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_SIMPLESTATUS"
+    </meta>
+
+    <id
+        name="ssCode"
+        type="java.lang.String"
+        column="SS_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="SS_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="ssName"
+        type="java.lang.String"
+        column="SS_NAME"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SS_NAME"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TdiCargokind -->
+    <set
+        name="tdiCargokinds"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiCargokind"
+        </meta>
+        <key>
+            <column name="SS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiCargokind"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiPaymentmode -->
+    <set
+        name="tdiPaymentmodes"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiPaymentmode"
+        </meta>
+        <key>
+            <column name="SS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiPaymentmode"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiFeekind -->
+    <set
+        name="tdiFeekinds"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiFeekind"
+        </meta>
+        <key>
+            <column name="SS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiFeekind"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrManifestexportformat -->
+    <set
+        name="tbrManifestexportformats"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrManifestexportformat"
+        </meta>
+        <key>
+            <column name="SS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrManifestexportformat"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiPurchaseorder -->
+    <set
+        name="tfiPurchaseorders"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiPurchaseorder"
+        </meta>
+        <key>
+            <column name="SS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiPurchaseorder"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopManifest -->
+    <set
+        name="topManifests"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopManifest"
+        </meta>
+        <key>
+            <column name="SS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopManifest"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiProductkind -->
+    <set
+        name="tdiProductkinds"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiProductkind"
+        </meta>
+        <key>
+            <column name="SS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiProductkind"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TesSystemcertification -->
+    <set
+        name="tesSystemcertifications"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TesSystemcertification"
+        </meta>
+        <key>
+            <column name="SS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TesSystemcertification"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepZone -->
+    <set
+        name="tepZones"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepZone"
+        </meta>
+        <key>
+            <column name="SS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepZone"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiExpressspecialtype -->
+    <set
+        name="tdiExpressspecialtypes"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiExpressspecialtype"
+        </meta>
+        <key>
+            <column name="SS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiExpressspecialtype"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiWriteoff -->
+    <set
+        name="tfiWriteoffs"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiWriteoff"
+        </meta>
+        <key>
+            <column name="SS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiWriteoff"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiWaybilltrackstatus -->
+    <set
+        name="tdiWaybilltrackstatuses"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiWaybilltrackstatus"
+        </meta>
+        <key>
+            <column name="SS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiWaybilltrackstatus"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrWeightrulekind -->
+    <set
+        name="tbrWeightrulekinds"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrWeightrulekind"
+        </meta>
+        <key>
+            <column name="SS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrWeightrulekind"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiIssuetype -->
+    <set
+        name="tdiIssuetypes"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiIssuetype"
+        </meta>
+        <key>
+            <column name="SS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiIssuetype"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfiServerbillrecord -->
+    <set
+        name="tfiServerbillrecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiServerbillrecord"
+        </meta>
+        <key>
+            <column name="SS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiServerbillrecord"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrBusinessrule -->
+    <set
+        name="tbrBusinessrules"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrBusinessrule"
+        </meta>
+        <key>
+            <column name="SS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrBusinessrule"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiPricegroupkind -->
+    <set
+        name="tdiPricegroupkinds"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiPricegroupkind"
+        </meta>
+        <key>
+            <column name="SS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiPricegroupkind"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiCargotype -->
+    <set
+        name="tdiCargotypes"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiCargotype"
+        </meta>
+        <key>
+            <column name="SS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiCargotype"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TbrChanneltrackmapping -->
+    <set
+        name="tbrChanneltrackmappings"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TbrChanneltrackmapping"
+        </meta>
+        <key>
+            <column name="SS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TbrChanneltrackmapping"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiBatterykind -->
+    <set
+        name="tdiBatterykinds"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiBatterykind"
+        </meta>
+        <key>
+            <column name="SS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiBatterykind"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

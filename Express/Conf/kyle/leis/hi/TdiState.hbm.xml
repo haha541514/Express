@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiState" 
+    table="T_DI_STATE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_STATE"
+    </meta>
+
+    <id
+        name="stCode"
+        type="java.lang.String"
+        column="ST_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="ST_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="stSname"
+        type="java.lang.String"
+        column="ST_SNAME"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ST_SNAME"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="stName"
+        type="java.lang.String"
+        column="ST_NAME"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ST_NAME"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="stEname"
+        type="java.lang.String"
+        column="ST_ENAME"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ST_ENAME"
+            length="20"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiDistrict -->
+    <many-to-one
+        name="tdiDistrict"
+        class="kyle.leis.hi.TdiDistrict"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="DT_CODE"         
+        </meta>
+        <column name="DT_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TdiEecity -->
+    <set
+        name="tdiEecities"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="ST_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiEecity"
+        </meta>
+        <key>
+            <column name="ST_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiEecity"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiEnterpriseelement -->
+    <set
+        name="tdiEnterpriseelements"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="ST_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiEnterpriseelement"
+        </meta>
+        <key>
+            <column name="ST_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiEnterpriseelement"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiCity -->
+    <set
+        name="tdiCities"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="ST_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiCity"
+        </meta>
+        <key>
+            <column name="ST_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiCity"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiOperator -->
+    <set
+        name="tdiOperators"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="ST_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiOperator"
+        </meta>
+        <key>
+            <column name="ST_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiOperator"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfiServerwaybill" 
+    table="T_FI_SERVERWAYBILL"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FI_SERVERWAYBILL"
+    </meta>
+
+    <id
+        name="swbCode"
+        type="java.lang.Long"
+        column="SWB_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="SWB_CODE"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_SWB_CODE"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_SWB_CODE</param>
+        </generator>
+    </id>
+
+    <property
+        name="swbServerewbcode"
+        type="java.lang.String"
+        column="SWB_SERVEREWBCODE"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SWB_SERVEREWBCODE"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="swbCustomerewbcode"
+        type="java.lang.String"
+        column="SWB_CUSTOMEREWBCODE"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SWB_CUSTOMEREWBCODE"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="swbPieces"
+        type="int"
+        column="SWB_PIECES"
+        not-null="true"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SWB_PIECES"
+            length="5"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="swbChargeweight"
+        type="java.math.BigDecimal"
+        column="SWB_CHARGEWEIGHT"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SWB_CHARGEWEIGHT"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="swbReferencecode"
+        type="java.lang.Long"
+        column="SWB_REFERENCECODE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SWB_REFERENCECODE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="swbTotalfreightcharge"
+        type="java.math.BigDecimal"
+        column="SWB_TOTALFREIGHTCHARGE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SWB_TOTALFREIGHTCHARGE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="swbTotalincidentalcharge"
+        type="java.math.BigDecimal"
+        column="SWB_TOTALINCIDENTALCHARGE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SWB_TOTALINCIDENTALCHARGE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="swbTotalsurcharge"
+        type="java.math.BigDecimal"
+        column="SWB_TOTALSURCHARGE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SWB_TOTALSURCHARGE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="cwsCode"
+        type="java.lang.String"
+        column="CWS_CODE"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CWS_CODE"
+            length="5"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TchnChannel -->
+    <many-to-one
+        name="tchnChannel"
+        class="kyle.leis.hi.TchnChannel"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CHN_CODE"         
+        </meta>
+        <column name="CHN_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TfiServerpayable -->
+    <set
+        name="tfiServerpayables"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SWB_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfiServerpayable"
+        </meta>
+        <key>
+            <column name="SWB_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfiServerpayable"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TepFreightpricevalue" 
+    table="T_EP_FREIGHTPRICEVALUE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_EP_FREIGHTPRICEVALUE"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TepFreightpricevaluePK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="epCode" 
+            column="EP_CODE" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="EP_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="fpvId" 
+            column="FPV_ID" 
+            type="java.lang.Integer"
+            length="5"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="FPV_ID"
+                length="5"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="znvId"
+        type="long"
+        column="ZNV_ID"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ZNV_ID"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="fpvWeightgrade"
+        type="java.math.BigDecimal"
+        column="FPV_WEIGHTGRADE"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FPV_WEIGHTGRADE"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="fpvWeightunit"
+        type="java.math.BigDecimal"
+        column="FPV_WEIGHTUNIT"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FPV_WEIGHTUNIT"
+            length="8"
+        </meta>    
+    </property>
+    <property
+        name="fpvCarryweight"
+        type="java.math.BigDecimal"
+        column="FPV_CARRYWEIGHT"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FPV_CARRYWEIGHT"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="fpvPricevalue"
+        type="java.math.BigDecimal"
+        column="FPV_PRICEVALUE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FPV_PRICEVALUE"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TepFreightprice -->
+    <many-to-one
+        name="tepFreightprice"
+	    class="kyle.leis.hi.TepFreightprice"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="EP_CODE"
+        </meta>
+    	<column name="EP_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to TdiFreightvaluetype -->
+    <many-to-one
+        name="tdiFreightvaluetype"
+        class="kyle.leis.hi.TdiFreightvaluetype"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="FVT_CODE"         
+        </meta>
+        <column name="FVT_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

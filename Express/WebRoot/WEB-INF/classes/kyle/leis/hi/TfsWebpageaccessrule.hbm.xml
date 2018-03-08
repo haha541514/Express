@@ -1,0 +1,280 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfsWebpageaccessrule" 
+    table="T_FS_WEBPAGEACCESSRULE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FS_WEBPAGEACCESSRULE"
+    </meta>
+
+    <id
+        name="wparCode"
+        type="java.lang.String"
+        column="WPAR_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="WPAR_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="wparName"
+        type="java.lang.String"
+        column="WPAR_NAME"
+        not-null="true"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPAR_NAME"
+            length="100"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wparFirstaddress"
+        type="java.lang.String"
+        column="WPAR_FIRSTADDRESS"
+        not-null="true"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPAR_FIRSTADDRESS"
+            length="256"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wparFirstparameter"
+        type="java.lang.String"
+        column="WPAR_FIRSTPARAMETER"
+        length="1024"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPAR_FIRSTPARAMETER"
+            length="1024"
+        </meta>    
+    </property>
+    <property
+        name="wparFirstreferer"
+        type="java.lang.String"
+        column="WPAR_FIRSTREFERER"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPAR_FIRSTREFERER"
+            length="256"
+        </meta>    
+    </property>
+    <property
+        name="wparFirstcharset"
+        type="java.lang.String"
+        column="WPAR_FIRSTCHARSET"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPAR_FIRSTCHARSET"
+            length="100"
+        </meta>    
+    </property>
+    <property
+        name="wparNextaddress"
+        type="java.lang.String"
+        column="WPAR_NEXTADDRESS"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPAR_NEXTADDRESS"
+            length="256"
+        </meta>    
+    </property>
+    <property
+        name="wparNextparameter"
+        type="java.lang.String"
+        column="WPAR_NEXTPARAMETER"
+        length="1024"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPAR_NEXTPARAMETER"
+            length="1024"
+        </meta>    
+    </property>
+    <property
+        name="wparNextcharset"
+        type="java.lang.String"
+        column="WPAR_NEXTCHARSET"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPAR_NEXTCHARSET"
+            length="100"
+        </meta>    
+    </property>
+    <property
+        name="wparNextnumbersign"
+        type="java.lang.String"
+        column="WPAR_NEXTNUMBERSIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPAR_NEXTNUMBERSIGN"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="wparCheckstatesign"
+        type="java.lang.String"
+        column="WPAR_CHECKSTATESIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPAR_CHECKSTATESIGN"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="wparClueinterval"
+        type="java.lang.Long"
+        column="WPAR_CLUEINTERVAL"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPAR_CLUEINTERVAL"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="wparPageinterval"
+        type="java.lang.Long"
+        column="WPAR_PAGEINTERVAL"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPAR_PAGEINTERVAL"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="wparNote"
+        type="java.lang.String"
+        column="WPAR_NOTE"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPAR_NOTE"
+            length="256"
+        </meta>    
+    </property>
+    <property
+        name="wparLatestinterval"
+        type="java.lang.Integer"
+        column="WPAR_LATESTINTERVAL"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPAR_LATESTINTERVAL"
+            length="5"
+        </meta>    
+    </property>
+    <property
+        name="wparNullinterval"
+        type="java.lang.Integer"
+        column="WPAR_NULLINTERVAL"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WPAR_NULLINTERVAL"
+            length="5"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiFormsubmitmethod -->
+    <many-to-one
+        name="tdiFormsubmitmethodByFsmCodeFirst"
+        class="kyle.leis.hi.TdiFormsubmitmethod"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="FSM_CODE_FIRST"         
+        </meta>
+        <column name="FSM_CODE_FIRST" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiFormsubmitmethod -->
+    <many-to-one
+        name="tdiFormsubmitmethodByFsmCodeNext"
+        class="kyle.leis.hi.TdiFormsubmitmethod"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="FSM_CODE_NEXT"         
+        </meta>
+        <column name="FSM_CODE_NEXT" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TfsWebpageaccess -->
+    <set
+        name="tfsWebpageaccesses"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="WPAR_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsWebpageaccess"
+        </meta>
+        <key>
+            <column name="WPAR_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsWebpageaccess"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

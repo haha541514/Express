@@ -1,0 +1,511 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TopPredictwaybill" 
+    table="T_OP_PREDICTWAYBILL"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_OP_PREDICTWAYBILL"
+    </meta>
+
+    <id
+        name="pwbCode"
+        type="java.lang.Long"
+        column="PWB_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="PWB_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="pwbConsigneename"
+        type="java.lang.String"
+        column="PWB_CONSIGNEENAME"
+        not-null="true"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_CONSIGNEENAME"
+            length="80"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pwbConsigneetel"
+        type="java.lang.String"
+        column="PWB_CONSIGNEETEL"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_CONSIGNEETEL"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pwbConsigneeaddress1"
+        type="java.lang.String"
+        column="PWB_CONSIGNEEADDRESS1"
+        not-null="true"
+        length="120"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_CONSIGNEEADDRESS1"
+            length="120"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pwbConsigneeaddress2"
+        type="java.lang.String"
+        column="PWB_CONSIGNEEADDRESS2"
+        length="120"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_CONSIGNEEADDRESS2"
+            length="120"
+        </meta>    
+    </property>
+    <property
+        name="pwbConsigneecity"
+        type="java.lang.String"
+        column="PWB_CONSIGNEECITY"
+        not-null="true"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_CONSIGNEECITY"
+            length="80"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pwbConsigneestate"
+        type="java.lang.String"
+        column="PWB_CONSIGNEESTATE"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_CONSIGNEESTATE"
+            length="80"
+        </meta>    
+    </property>
+    <property
+        name="pwbConsigneepostcode"
+        type="java.lang.String"
+        column="PWB_CONSIGNEEPOSTCODE"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_CONSIGNEEPOSTCODE"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pwbCargoename"
+        type="java.lang.String"
+        column="PWB_CARGOENAME"
+        not-null="true"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_CARGOENAME"
+            length="128"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pwbCargopieces"
+        type="int"
+        column="PWB_CARGOPIECES"
+        not-null="true"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_CARGOPIECES"
+            length="5"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pwbCargoamount"
+        type="java.math.BigDecimal"
+        column="PWB_CARGOAMOUNT"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_CARGOAMOUNT"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pwbTransactionid"
+        type="java.lang.String"
+        column="PWB_TRANSACTIONID"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_TRANSACTIONID"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="pwbOrderid"
+        type="java.lang.String"
+        column="PWB_ORDERID"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_ORDERID"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="pwbServerewbcode"
+        type="java.lang.String"
+        column="PWB_SERVEREWBCODE"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_SERVEREWBCODE"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="pwbChargeweight"
+        type="java.math.BigDecimal"
+        column="PWB_CHARGEWEIGHT"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_CHARGEWEIGHT"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pwbCustomremark"
+        type="java.lang.String"
+        column="PWB_CUSTOMREMARK"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_CUSTOMREMARK"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="pwbConsigneenameex"
+        type="java.lang.String"
+        column="PWB_CONSIGNEENAMEEX"
+        length="512"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_CONSIGNEENAMEEX"
+            length="512"
+        </meta>    
+    </property>
+    <property
+        name="pwbConsigneeaddressex"
+        type="java.lang.String"
+        column="PWB_CONSIGNEEADDRESSEX"
+        length="1024"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_CONSIGNEEADDRESSEX"
+            length="1024"
+        </meta>    
+    </property>
+    <property
+        name="pwbConsigneecityex"
+        type="java.lang.String"
+        column="PWB_CONSIGNEECITYEX"
+        length="512"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_CONSIGNEECITYEX"
+            length="512"
+        </meta>    
+    </property>
+    <property
+        name="pwbCreatedate"
+        type="java.sql.Timestamp"
+        column="PWB_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pwbModifydate"
+        type="java.sql.Timestamp"
+        column="PWB_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="pwbDeclaredate"
+        type="java.sql.Timestamp"
+        column="PWB_DECLAREDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_DECLAREDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="pwbPrintdate"
+        type="java.sql.Timestamp"
+        column="PWB_PRINTDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_PRINTDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="pwbBuyerid"
+        type="java.lang.String"
+        column="PWB_BUYERID"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PWB_BUYERID"
+            length="30"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiPredictwaybillstatus -->
+    <many-to-one
+        name="tdiPredictwaybillstatus"
+        class="kyle.leis.hi.TdiPredictwaybillstatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PWBS_CODE"         
+        </meta>
+        <column name="PWBS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiProductkind -->
+    <many-to-one
+        name="tdiProductkind"
+        class="kyle.leis.hi.TdiProductkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PK_CODE"         
+        </meta>
+        <column name="PK_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiDistrict -->
+    <many-to-one
+        name="tdiDistrict"
+        class="kyle.leis.hi.TdiDistrict"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PWB_DESTINATION"         
+        </meta>
+        <column name="PWB_DESTINATION" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByOpIdPrinter"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_PRINTER"         
+        </meta>
+        <column name="OP_ID_PRINTER" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByOpIdCreator"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_CREATOR"         
+        </meta>
+        <column name="OP_ID_CREATOR" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByOpIdModifier"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_MODIFIER"         
+        </meta>
+        <column name="OP_ID_MODIFIER" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByOpIdDeclarer"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_DECLARER"         
+        </meta>
+        <column name="OP_ID_DECLARER" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TcoCorporation -->
+    <many-to-one
+        name="tcoCorporation"
+        class="kyle.leis.hi.TcoCorporation"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CO_CODE_CUSTOMER"         
+        </meta>
+        <column name="CO_CODE_CUSTOMER" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiCurrencykind -->
+    <many-to-one
+        name="tdiCurrencykind"
+        class="kyle.leis.hi.TdiCurrencykind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CK_CODE"         
+        </meta>
+        <column name="CK_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TchnChannel -->
+    <many-to-one
+        name="tchnChannel"
+        class="kyle.leis.hi.TchnChannel"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CHN_CODE"         
+        </meta>
+        <column name="CHN_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TopCorewaybill -->
+    <many-to-one
+        name="topCorewaybill"
+        class="kyle.leis.hi.TopCorewaybill"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CW_CODE"         
+        </meta>
+        <column name="CW_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TopPredictcargoinfo -->
+    <set
+        name="topPredictcargoinfos"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="PWB_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopPredictcargoinfo"
+        </meta>
+        <key>
+            <column name="PWB_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopPredictcargoinfo"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfsGuiaction" 
+    table="T_FS_GUIACTION"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FS_GUIACTION"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TfsGuiactionPK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="akCode" 
+            column="AK_CODE" 
+            type="java.lang.String"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="AK_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="gmCode" 
+            column="GM_CODE" 
+            type="java.lang.String"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="GM_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="gaEnabled"
+        type="java.lang.String"
+        column="GA_ENABLED"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="GA_ENABLED"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TfsGuimenu -->
+    <many-to-one
+        name="tfsGuimenu"
+	    class="kyle.leis.hi.TfsGuimenu"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="GM_CODE"
+        </meta>
+    	<column name="GM_CODE" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to TdiActionkind -->
+    <many-to-one
+        name="tdiActionkind"
+	    class="kyle.leis.hi.TdiActionkind"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="AK_CODE"
+        </meta>
+    	<column name="AK_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional one-to-many association to TfsRoleaction -->
+    <set
+        name="tfsRoleactions"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="AK_CODE"
+           @hibernate.collection-key
+            column="GM_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsRoleaction"
+        </meta>
+        <key>
+            <column name="AK_CODE" />
+            <column name="GM_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsRoleaction"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

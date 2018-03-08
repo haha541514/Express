@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TcoFinancialstatistic" 
+    table="T_CO_FINANCIALSTATISTICS"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_CO_FINANCIALSTATISTICS"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TcoFinancialstatisticPK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="coCode" 
+            column="CO_CODE" 
+            type="java.lang.String"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="CO_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="fsCarryoverenterprise" 
+            column="FS_CARRYOVERENTERPRISE" 
+            type="java.lang.String"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="FS_CARRYOVERENTERPRISE"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="ckCode" 
+            column="CK_CODE" 
+            type="java.lang.String"
+            length="20"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="CK_CODE"
+                length="20"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="fsReceivableamount"
+        type="java.math.BigDecimal"
+        column="FS_RECEIVABLEAMOUNT"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FS_RECEIVABLEAMOUNT"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="fsReceivableso"
+        type="java.math.BigDecimal"
+        column="FS_RECEIVABLESO"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FS_RECEIVABLESO"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="fsReceivableunsohold"
+        type="java.math.BigDecimal"
+        column="FS_RECEIVABLEUNSOHOLD"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FS_RECEIVABLEUNSOHOLD"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="fsPayableso"
+        type="java.math.BigDecimal"
+        column="FS_PAYABLESO"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FS_PAYABLESO"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="fsPayableunsohold"
+        type="java.math.BigDecimal"
+        column="FS_PAYABLEUNSOHOLD"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FS_PAYABLEUNSOHOLD"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="fsPayableamount"
+        type="java.math.BigDecimal"
+        column="FS_PAYABLEAMOUNT"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FS_PAYABLEAMOUNT"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="fsBalanceamount"
+        type="java.math.BigDecimal"
+        column="FS_BALANCEAMOUNT"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FS_BALANCEAMOUNT"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="fsLatesthawbcreatedate"
+        type="java.sql.Timestamp"
+        column="FS_LATESTHAWBCREATEDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FS_LATESTHAWBCREATEDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="fsBybalanceamount"
+        type="java.math.BigDecimal"
+        column="FS_BYBALANCEAMOUNT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FS_BYBALANCEAMOUNT"
+            length="10"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TcoCorporation -->
+    <many-to-one
+        name="tcoCorporation"
+	    class="kyle.leis.hi.TcoCorporation"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="CO_CODE"
+        </meta>
+    	<column name="CO_CODE" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to TdiCurrencykind -->
+    <many-to-one
+        name="tdiCurrencykind"
+	    class="kyle.leis.hi.TdiCurrencykind"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="CK_CODE"
+        </meta>
+    	<column name="CK_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

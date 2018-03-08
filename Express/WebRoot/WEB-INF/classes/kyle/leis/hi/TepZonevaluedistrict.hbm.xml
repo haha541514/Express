@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TepZonevaluedistrict" 
+    table="T_EP_ZONEVALUEDISTRICT"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_EP_ZONEVALUEDISTRICT"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TepZonevaluedistrictPK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="znvId" 
+            column="ZNV_ID" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="ZNV_ID"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="znCode" 
+            column="ZN_CODE" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="ZN_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="dtCode" 
+            column="DT_CODE" 
+            type="java.lang.String"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="DT_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TdiDistrict -->
+    <many-to-one
+        name="tdiDistrict"
+	    class="kyle.leis.hi.TdiDistrict"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="DT_CODE"
+        </meta>
+    	<column name="DT_CODE" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to TepZonevalue -->
+    <many-to-one
+        name="tepZonevalue"
+	    class="kyle.leis.hi.TepZonevalue"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="ZNV_ID"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="ZN_CODE"
+        </meta>
+    	<column name="ZNV_ID" />
+    	<column name="ZN_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional one-to-many association to TepZonedistrictpostcode -->
+    <set
+        name="tepZonedistrictpostcodes"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="ZNV_ID"
+           @hibernate.collection-key
+            column="ZN_CODE"
+           @hibernate.collection-key
+            column="DT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepZonedistrictpostcode"
+        </meta>
+        <key>
+            <column name="ZNV_ID" />
+            <column name="ZN_CODE" />
+            <column name="DT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepZonedistrictpostcode"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

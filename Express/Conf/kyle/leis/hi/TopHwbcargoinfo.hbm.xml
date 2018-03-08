@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TopHwbcargoinfo" 
+    table="T_OP_HWBCARGOINFO"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_OP_HWBCARGOINFO"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TopHwbcargoinfoPK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="ciId" 
+            column="CI_ID" 
+            type="java.lang.Integer"
+            length="5"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="CI_ID"
+                length="5"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="cwCode" 
+            column="CW_CODE" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="CW_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="ciName"
+        type="java.lang.String"
+        column="CI_NAME"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CI_NAME"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="ciEname"
+        type="java.lang.String"
+        column="CI_ENAME"
+        not-null="true"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CI_ENAME"
+            length="128"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ciPieces"
+        type="int"
+        column="CI_PIECES"
+        not-null="true"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CI_PIECES"
+            length="5"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ciUnitprice"
+        type="java.math.BigDecimal"
+        column="CI_UNITPRICE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CI_UNITPRICE"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ciTotalprice"
+        type="java.math.BigDecimal"
+        column="CI_TOTALPRICE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CI_TOTALPRICE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="ciHscode"
+        type="java.lang.String"
+        column="CI_HSCODE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CI_HSCODE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="ciAttacheinfo"
+        type="java.lang.String"
+        column="CI_ATTACHEINFO"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CI_ATTACHEINFO"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="ciRemark"
+        type="java.lang.String"
+        column="CI_REMARK"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CI_REMARK"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="ciWeight"
+        type="java.math.BigDecimal"
+        column="CI_WEIGHT"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CI_WEIGHT"
+            length="8"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TopHousewaybill -->
+    <many-to-one
+        name="topHousewaybill"
+	    class="kyle.leis.hi.TopHousewaybill"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="CW_CODE"
+        </meta>
+    	<column name="CW_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to TdiCurrencykind -->
+    <many-to-one
+        name="tdiCurrencykind"
+        class="kyle.leis.hi.TdiCurrencykind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CK_CODE"         
+        </meta>
+        <column name="CK_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

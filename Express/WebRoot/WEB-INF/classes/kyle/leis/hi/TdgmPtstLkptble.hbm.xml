@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdgmPtstLkptble" 
+    table="T_DGM_PTST_LKPTBLE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DGM_PTST_LKPTBLE"
+    </meta>
+
+    <id
+        name="id"
+        type="java.lang.Long"
+        column="ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="ID"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="lcn"
+        type="java.lang.String"
+        column="LCN"
+        length="15"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="LCN"
+            length="15"
+        </meta>    
+    </property>
+    <property
+        name="product"
+        type="java.lang.String"
+        column="PRODUCT"
+        length="15"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PRODUCT"
+            length="15"
+        </meta>    
+    </property>
+    <property
+        name="mailtype"
+        type="java.lang.String"
+        column="MAILTYPE"
+        length="15"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="MAILTYPE"
+            length="15"
+        </meta>    
+    </property>
+    <property
+        name="zipcode"
+        type="java.lang.String"
+        column="ZIPCODE"
+        length="15"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ZIPCODE"
+            length="15"
+        </meta>    
+    </property>
+    <property
+        name="e1"
+        type="java.lang.String"
+        column="E1"
+        length="15"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="E1"
+            length="15"
+        </meta>    
+    </property>
+    <property
+        name="e2"
+        type="java.lang.String"
+        column="E2"
+        length="15"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="E2"
+            length="15"
+        </meta>    
+    </property>
+    <property
+        name="e3"
+        type="java.lang.String"
+        column="E3"
+        length="15"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="E3"
+            length="15"
+        </meta>    
+    </property>
+    <property
+        name="e4"
+        type="java.lang.String"
+        column="E4"
+        length="15"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="E4"
+            length="15"
+        </meta>    
+    </property>
+    <property
+        name="e5"
+        type="java.lang.String"
+        column="E5"
+        length="15"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="E5"
+            length="15"
+        </meta>    
+    </property>
+    <property
+        name="e6"
+        type="java.lang.String"
+        column="E6"
+        length="15"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="E6"
+            length="15"
+        </meta>    
+    </property>
+    <property
+        name="e7"
+        type="java.lang.String"
+        column="E7"
+        length="15"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="E7"
+            length="15"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

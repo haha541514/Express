@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TopCorewaybillpiece" 
+    table="T_OP_COREWAYBILLPIECES"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_OP_COREWAYBILLPIECES"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TopCorewaybillpiecePK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="cpId" 
+            column="CP_ID" 
+            type="java.lang.Integer"
+            length="5"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="CP_ID"
+                length="5"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="cwCode" 
+            column="CW_CODE" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="CW_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="cpGrossweight"
+        type="java.math.BigDecimal"
+        column="CP_GROSSWEIGHT"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CP_GROSSWEIGHT"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cpLength"
+        type="java.math.BigDecimal"
+        column="CP_LENGTH"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CP_LENGTH"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cpWidth"
+        type="java.math.BigDecimal"
+        column="CP_WIDTH"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CP_WIDTH"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cpHeight"
+        type="java.math.BigDecimal"
+        column="CP_HEIGHT"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CP_HEIGHT"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="cpLabelcode"
+        type="java.lang.String"
+        column="CP_LABELCODE"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CP_LABELCODE"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="cpBaglabelcode"
+        type="java.lang.String"
+        column="CP_BAGLABELCODE"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CP_BAGLABELCODE"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="cpSibaglabelcode"
+        type="java.lang.String"
+        column="CP_SIBAGLABELCODE"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CP_SIBAGLABELCODE"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="cpBarcodelabelcode"
+        type="java.lang.String"
+        column="CP_BARCODELABELCODE"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CP_BARCODELABELCODE"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="cpSelflabelcode"
+        type="java.lang.String"
+        column="CP_SELFLABELCODE"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CP_SELFLABELCODE"
+            length="30"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TopCorewaybill -->
+    <many-to-one
+        name="topCorewaybill"
+	    class="kyle.leis.hi.TopCorewaybill"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="CW_CODE"
+        </meta>
+    	<column name="CW_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to TdiCorewaybillstatus -->
+    <many-to-one
+        name="tdiCorewaybillstatus"
+        class="kyle.leis.hi.TdiCorewaybillstatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CWS_CODE"         
+        </meta>
+        <column name="CWS_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

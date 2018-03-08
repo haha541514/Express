@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiSmsnoticekind" 
+    table="T_DI_SMSNOTICEKIND"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_SMSNOTICEKIND"
+    </meta>
+
+    <id
+        name="snkCode"
+        type="java.lang.String"
+        column="SNK_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="SNK_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="snkName"
+        type="java.lang.String"
+        column="SNK_NAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SNK_NAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="snkEname"
+        type="java.lang.String"
+        column="SNK_ENAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SNK_ENAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TcoSmsreceiverule -->
+    <set
+        name="tcoSmsreceiverules"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SNK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcoSmsreceiverule"
+        </meta>
+        <key>
+            <column name="SNK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcoSmsreceiverule"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

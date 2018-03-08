@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfsWaybillcodevalue" 
+    table="T_FS_WAYBILLCODEVALUE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FS_WAYBILLCODEVALUE"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TfsWaybillcodevaluePK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="bcvId" 
+            column="BCV_ID" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="BCV_ID"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="bcId" 
+            column="BC_ID" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="BC_ID"
+                length="10"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="bcvLabelcode"
+        type="java.lang.String"
+        column="BCV_LABELCODE"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BCV_LABELCODE"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="bcvPrefix"
+        type="java.lang.String"
+        column="BCV_PREFIX"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BCV_PREFIX"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="bcvSuffix"
+        type="java.lang.String"
+        column="BCV_SUFFIX"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BCV_SUFFIX"
+            length="20"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TfsWaybillcode -->
+    <many-to-one
+        name="tfsWaybillcode"
+	    class="kyle.leis.hi.TfsWaybillcode"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="BC_ID"
+        </meta>
+    	<column name="BC_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to TdiWaybillcodekind -->
+    <many-to-one
+        name="tdiWaybillcodekind"
+        class="kyle.leis.hi.TdiWaybillcodekind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BCK_CODE"         
+        </meta>
+        <column name="BCK_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiWaybillcodestatus -->
+    <many-to-one
+        name="tdiWaybillcodestatus"
+        class="kyle.leis.hi.TdiWaybillcodestatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CS_CODE"         
+        </meta>
+        <column name="CS_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TfsWaybillcodeaction -->
+    <set
+        name="tfsWaybillcodeactions"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BCV_ID"
+           @hibernate.collection-key
+            column="BC_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsWaybillcodeaction"
+        </meta>
+        <key>
+            <column name="BCV_ID" />
+            <column name="BC_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsWaybillcodeaction"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

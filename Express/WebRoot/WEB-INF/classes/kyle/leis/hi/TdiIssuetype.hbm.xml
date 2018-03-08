@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiIssuetype" 
+    table="T_DI_ISSUETYPE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_ISSUETYPE"
+    </meta>
+
+    <id
+        name="isutCode"
+        type="java.lang.String"
+        column="ISUT_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="ISUT_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="isutName"
+        type="java.lang.String"
+        column="ISUT_NAME"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ISUT_NAME"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="isutEname"
+        type="java.lang.String"
+        column="ISUT_ENAME"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ISUT_ENAME"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="isutNoticeinfo"
+        type="java.lang.String"
+        column="ISUT_NOTICEINFO"
+        length="1024"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ISUT_NOTICEINFO"
+            length="1024"
+        </meta>    
+    </property>
+    <property
+        name="isutGroup"
+        type="java.lang.String"
+        column="ISUT_GROUP"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ISUT_GROUP"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="isutCustomervisiblesign"
+        type="java.lang.String"
+        column="ISUT_CUSTOMERVISIBLESIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ISUT_CUSTOMERVISIBLESIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiSimplestatus -->
+    <many-to-one
+        name="tdiSimplestatus"
+        class="kyle.leis.hi.TdiSimplestatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SS_CODE"         
+        </meta>
+        <column name="SS_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TcsIssue -->
+    <set
+        name="tcsIssues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="ISUT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TcsIssue"
+        </meta>
+        <key>
+            <column name="ISUT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TcsIssue"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

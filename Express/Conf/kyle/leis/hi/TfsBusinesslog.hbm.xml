@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfsBusinesslog" 
+    table="T_FS_BUSINESSLOG"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FS_BUSINESSLOG"
+    </meta>
+
+    <id
+        name="blId"
+        type="java.lang.Long"
+        column="BL_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="BL_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_BL_CODE"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_BL_CODE</param>
+        </generator>
+    </id>
+
+    <property
+        name="blCreatedate"
+        type="java.sql.Timestamp"
+        column="BL_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BL_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="blBusinesscode"
+        type="java.lang.String"
+        column="BL_BUSINESSCODE"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BL_BUSINESSCODE"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="blContent"
+        type="java.lang.String"
+        column="BL_CONTENT"
+        not-null="true"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BL_CONTENT"
+            length="256"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperator"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_CREATE"         
+        </meta>
+        <column name="OP_ID_CREATE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiActionkind -->
+    <many-to-one
+        name="tdiActionkind"
+        class="kyle.leis.hi.TdiActionkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="AK_CODE"         
+        </meta>
+        <column name="AK_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiBusinesslogkind -->
+    <many-to-one
+        name="tdiBusinesslogkind"
+        class="kyle.leis.hi.TdiBusinesslogkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BLK_CODE"         
+        </meta>
+        <column name="BLK_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

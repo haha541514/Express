@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TbrWeightrulevalue" 
+    table="T_BR_WEIGHTRULEVALUE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_BR_WEIGHTRULEVALUE"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TbrWeightrulevaluePK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="brId" 
+            column="BR_ID" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="BR_ID"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="brvId" 
+            column="BRV_ID" 
+            type="java.lang.Integer"
+            length="5"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="BRV_ID"
+                length="5"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="znId"
+        type="java.lang.Long"
+        column="ZN_ID"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ZN_ID"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="znvId"
+        type="java.lang.Integer"
+        column="ZNV_ID"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ZNV_ID"
+            length="5"
+        </meta>    
+    </property>
+    <property
+        name="znvCondition"
+        type="java.lang.String"
+        column="ZNV_CONDITION"
+        not-null="true"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ZNV_CONDITION"
+            length="128"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="znvExpression"
+        type="java.lang.String"
+        column="ZNV_EXPRESSION"
+        not-null="true"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ZNV_EXPRESSION"
+            length="128"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TbrWeightrule -->
+    <many-to-one
+        name="tbrWeightrule"
+	    class="kyle.leis.hi.TbrWeightrule"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="BR_ID"
+        </meta>
+    	<column name="BR_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

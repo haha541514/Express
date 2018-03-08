@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiCncustomtax" 
+    table="T_DI_CNCUSTOMTAX"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_CNCUSTOMTAX"
+    </meta>
+
+    <id
+        name="cctCode"
+        type="java.lang.Integer"
+        column="CCT_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Integer"
+            column="CCT_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="cctTaxlabelcode"
+        type="java.lang.String"
+        column="CCT_TAXLABELCODE"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CCT_TAXLABELCODE"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="cctName"
+        type="java.lang.String"
+        column="CCT_NAME"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CCT_NAME"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="cctUnitname"
+        type="java.lang.String"
+        column="CCT_UNITNAME"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CCT_UNITNAME"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="cctTaxbaseunitprice"
+        type="java.lang.String"
+        column="CCT_TAXBASEUNITPRICE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CCT_TAXBASEUNITPRICE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="cctTaxrate"
+        type="java.lang.String"
+        column="CCT_TAXRATE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CCT_TAXRATE"
+            length="10"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

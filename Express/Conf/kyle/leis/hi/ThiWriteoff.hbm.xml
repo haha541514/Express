@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.ThiWriteoff" 
+    table="T_HI_WRITEOFF"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_HI_WRITEOFF"
+    </meta>
+
+    <id
+        name="woId"
+        type="java.lang.Long"
+        column="WO_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="WO_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_WriteOff_Code"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_WriteOff_Code</param>
+        </generator>
+    </id>
+
+    <property
+        name="woTotal"
+        type="java.math.BigDecimal"
+        column="WO_TOTAL"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WO_TOTAL"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="woCreatedate"
+        type="java.sql.Timestamp"
+        column="WO_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WO_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="woLabelcode"
+        type="java.lang.String"
+        column="WO_LABELCODE"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WO_LABELCODE"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="woRemark"
+        type="java.lang.String"
+        column="WO_REMARK"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WO_REMARK"
+            length="128"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperator"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID"         
+        </meta>
+        <column name="OP_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiCurrencykind -->
+    <many-to-one
+        name="tdiCurrencykind"
+        class="kyle.leis.hi.TdiCurrencykind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CK_CODE"         
+        </meta>
+        <column name="CK_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

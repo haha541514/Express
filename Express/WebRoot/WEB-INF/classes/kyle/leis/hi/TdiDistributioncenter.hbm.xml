@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiDistributioncenter" 
+    table="T_DI_DISTRIBUTIONCENTER"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_DISTRIBUTIONCENTER"
+    </meta>
+
+    <id
+        name="eeCode"
+        type="java.lang.String"
+        column="EE_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="EE_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to TdiEnterpriseelement -->
+    <one-to-one
+        name="tdiEnterpriseelement"
+        class="kyle.leis.hi.TdiEnterpriseelement"
+        outer-join="auto"
+        constrained="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            class="kyle.leis.hi.TdiEnterpriseelement"
+            outer-join="auto"
+            constrained="true"
+        </meta>    
+    </one-to-one>
+    <!-- bi-directional many-to-one association to TdiDistrict -->
+    <many-to-one
+        name="tdiDistrict"
+        class="kyle.leis.hi.TdiDistrict"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="DT_CODE_BILLING"         
+        </meta>
+        <column name="DT_CODE_BILLING" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiBranch -->
+    <many-to-one
+        name="tdiBranch"
+        class="kyle.leis.hi.TdiBranch"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BR_CODE"         
+        </meta>
+        <column name="BR_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

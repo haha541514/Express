@@ -1,0 +1,161 @@
+<ServiceConfig>
+
+    <!--Server Name="Default" Location="203.86.8.146:80" Serviceroot="Track" Urlsuffix=".asx"/-->
+	<!--Server Name="Default" Location="203.86.8.146:37001" Serviceroot="Track" Urlsuffix=".tcx"/-->
+	<!--Server Name="Default" Location="203.86.8.146:37004" Serviceroot="Track" Urlsuffix=".asx"/-->
+	<Server Name="Default" Location="211.154.135.204:9002"/>
+	<Server Name="Waybillcode" Location="211.162.119.216:9002"/>
+	<Waybillcode WaybillFilePath="/usr/local/tomcatxleis/webapps/Express" WaybillPrintURL="http://211.154.135.204:9002/Express"/>
+
+	<SMTP Host="smtp.exmail.qq.com" Port="25" UserName="kf@cbxl.cn" Password="cbxl123" Authenticate="true"/>
+
+	<Service Name="OperatorService" Class="kyle.leis.fs.dictionary.operator.sv.OperatorService"/>	
+
+	<Service Name="HouseWayBillService" Class="kyle.leis.eo.operation.housewaybill.sv.HousewaybillService"/>
+
+	<Service Name="CacheContainerService" Class="kyle.leis.fs.cachecontainer.sv.CacheContainerService"/>
+
+	<Service Name="ManifestService" Class="kyle.leis.eo.operation.manifest.sv.ManifestService"/>
+
+	<Service Name="SupplierService" Class="kyle.leis.es.supplier.sv.SupplierService"/>
+
+	<Service Name="ZoneService" Class="kyle.leis.es.price.zone.sv.ZoneService"/>
+
+	<Service Name="FreightPriceService" Class="kyle.leis.es.price.freightprice.sv.FreightPriceService"/>
+
+	<Service Name="IncidentalPriceService" Class="kyle.leis.es.price.incidentalprice.sv.IncidentalPriceService"/>
+
+	<Service Name="CustomerService" Class="kyle.leis.es.company.customer.sv.CustomerService"/>
+
+	<Service Name="CustomerPricegroupService" Class="kyle.leis.es.price.pricegroup.sv.CustomerPricegroupService"/>
+
+	<Service Name="ReceivableService" Class="kyle.leis.eo.billing.receivable.sv.ReceivableService"/>
+
+	<Service Name="PayableService" Class="kyle.leis.eo.billing.payable.sv.PayableService"/>
+
+	<Service Name="WeightRuleKindService" Class="kyle.leis.es.businessrule.weightrulekind.sv.WeightRuleKindService"/>
+	<Service Name="WeightRuleKindServiceService" Class="kyle.leis.es.businessrule.weightrulekind.sv.WeightRuleKindService"/>
+
+	<Service Name="CorewaybillpiecesService" Class="kyle.leis.eo.operation.corewaybillpieces.sv.CorewaybillpiecesService"/>
+
+	<Service Name="ChannelService" Class="kyle.leis.es.company.channel.sv.ChannelService"/>
+
+	<Service Name="ProductruleService" Class="kyle.leis.es.businessrule.productrule.sv.ProductruleService"/>
+	<Service Name="CwdifferenceholdService" Class="kyle.leis.es.businessrule.cwdifferencehold.sv.CwdifferenceholdService"/>
+	<Service Name="ArrivalBWService" Class="kyle.leis.eo.operation.batchwaybill.sv.ArrivalBWService"/>
+
+	<Service Name="DepartureBWService" Class="kyle.leis.eo.operation.batchwaybill.sv.DepartureBWService"/>
+
+	<Service Name="BillRecordService" Class="kyle.leis.eo.finance.billrecord.sv.BillRecordService"/>
+
+	<Service Name="CashRecordService" Class="kyle.leis.eo.finance.cashrecord.sv.CashRecordService"/>
+
+	<Service Name="CorWeightRuleService" Class="kyle.leis.es.businessrule.corweightrule.sv.CorWeightRuleService"/>
+
+	<Service Name="WeightRuleService" Class="kyle.leis.es.businessrule.weightrule.sv.WeightRuleService"/>
+
+	<Service Name="FinancereportService" Class="kyle.leis.ds.report.finance.sv.FinancereportService"/>
+
+	<Service Name="DunningService" Class="kyle.leis.eo.finance.dunning.sv.DunningService"/>
+
+	<Service Name="IssueService" Class="kyle.leis.eo.customerservice.issue.sv.IssueService"/>
+
+	<Service Name="SupplierService" Class="kyle.leis.es.company.supplier.sv.SupplierService"/>
+
+	<Service Name="CalculateCWService" Class="kyle.leis.eo.billing.calculate.chargeweight.sv.CalculateCWService"/>
+
+	<Service Name="ChannelsearchService" Class="kyle.leis.eo.operation.channelsearch.sv.ChannelsearchService"/>
+
+	<Service Name="CurrencyService" Class="kyle.leis.eo.billing.calculate.currency.sv.CurrencyService"/>
+
+	<Service Name="CurrencyManageService" Class="kyle.leis.es.price.currency.sv.CurrencyService"/>
+
+	<Service Name="FeeCalculateService" Class="kyle.leis.eo.billing.calculate.feecalculate.sv.FeeCalculateService"/>
+
+	<Service Name="BusinessLogService" Class="kyle.leis.fs.businesslog.sv.BusinesslogService"/>
+
+	<Service Name="TrackService" Class="kyle.leis.eo.customerservice.track.sv.TrackService"/>
+
+	<Service Name="SpecialtypeService" Class="kyle.leis.eo.operation.specialtype.sv.SpecialtypeService"/>
+
+	<Service Name="DistrictService" Class="kyle.leis.fs.dictionary.district.sv.DistrictService"/>
+
+	<Service Name="FetcherService" Class="kyle.fetcher.FetcherService"/>
+
+	<Service Name="TransportWaybillService" Class="kyle.leis.eo.operation.transportwaybill.sv.TransportWaybillService"/>
+
+	<Service Name="ServerBillRecordService" Class="kyle.leis.eo.finance.serverbillrecord.sv.ServerBillRecordService"/>
+
+	<Service Name="SyncService" Class="kyle.leis.fs.sync.sv.SyncService"/>
+
+	<Service Name="CustomsDeclarationService" Class="kyle.leis.eo.operation.customsdeclaration.sv.CustomsDeclarationService"/>
+
+	<Service Name="UserService" Class="kyle.leis.fs.authoritys.user.sv.UserService"/>
+
+	<Service Name="BulletinService" Class="kyle.leis.es.bulletin.sv.BulletinService"/>
+
+	<Service Name="RoleService" Class="kyle.leis.fs.authoritys.role.sv.RoleService"/>
+
+	<Service Name="RoleGmenusService" Class="kyle.leis.fs.authoritys.rolegmenus.sv.RoleGmenusService"/>
+
+	<Service Name="UserRoleService" Class="kyle.leis.fs.authoritys.userrole.sv.UserRoleService"/>
+
+	<Service Name="GmenusService" Class="kyle.leis.fs.authoritys.gmenus.sv.GmenusService"/>
+
+	<Service Name="ShipperconsigneeService" Class="kyle.leis.es.company.shipperconsignee.sv.ShipperconsigneeService"/>
+
+	<Service Name="WriteOffService" Class="kyle.leis.eo.finance.writeoff.sv.WriteOffService"/>
+
+	<Service Name="ProductkindService" Class="kyle.leis.fs.dictionary.productkind.sv.ProductkindService"/>
+
+	<Service Name="SystemcertificationService" Class="kyle.leis.es.systemcertification.sv.SystemcertificationService"/>
+
+	<Service Name="AuditService" Class="kyle.leis.eo.finance.audit.sv.AuditService"/>
+
+	<Service Name="AuditlogService" Class="kyle.leis.fs.corewaybillauditlog.sv.AuditlogService"/>
+
+	<Service Name="BranchService" Class="kyle.leis.fs.dictionary.enterpriseelement.sv.BranchService"/>
+
+	<Service Name="DistributioncenterService" Class="kyle.leis.fs.dictionary.enterpriseelement.sv.DistributioncenterService"/>
+
+	<Service Name="IncidentalfeeService" Class="kyle.leis.eo.billing.incidentalfee.sv.IncidentalfeeService"/>
+
+	<Service Name="AdjustivepriceService" Class="kyle.leis.es.price.adjustiveprice.sv.AdjustivepriceService"/>
+
+	<Service Name="ExpressPriceService" Class="kyle.leis.es.price.expressprice.sv.ExpressPriceService"/>
+
+	<Service Name="TransporttoolService" Class="kyle.leis.fs.dictionary.transporttool.sv.TransporttoolService"/>
+
+	<Service Name="SMSService" Class="kyle.leis.es.smsservice.sv.SMSService"/>
+
+	<Service Name="CargoinfoService" Class="kyle.leis.eo.operation.cargoinfo.sv.CargoinfoService"/>
+
+	<Service Name="ShipperblacklistService" Class="kyle.leis.es.company.shipperblacklist.sv.ShipperblacklistService"/>
+
+	<Service Name="OperationpromptService" Class="kyle.leis.es.businessrule.operationprompt.sv.OperationpromptService"/>
+
+	<Service Name="SystempropertyService" Class="kyle.leis.es.systemproperty.sv.SystempropertyService"/>
+
+	<Service Name="DhlremotedistrictService" Class="kyle.leis.fs.dictionary.district.sv.DhlremotedistrictService"/>
+
+	<Service Name="WaybillcodeService" Class="kyle.leis.fs.waybillcode.sv.WaybillcodeService"/>
+
+	<Service Name="PurchaseOrderService" Class="kyle.leis.eo.finance.purchaseorder.sv.PurchaseOrderService"/>
+
+	<Service Name="WeightCheckBWService" Class="kyle.leis.eo.operation.batchwaybill.sv.WeightCheckBWService"/>
+
+	<Service Name="ChanneltrackmappingService" Class="kyle.leis.es.businessrule.channeltrackmapping.sv.ChanneltrackmappingService"/>
+
+	<Service Name="PackageWaybillService" Class="kyle.leis.eo.operation.housewaybill.sv.PackageWaybillService"/>
+
+	<Service Name="WorkBillService" Class="kyle.leis.es.workbill.sv.WorkBillService"/>
+	<Service Name="CustomscargoService" Class="kyle.leis.fs.dictionary.customscargo.sv.CustomscargoService"/>
+	<Service Name="PredictwaybillService" Class="kyle.leis.eo.operation.predictwaybill.sv.PredictwaybillService"/>
+	
+<Service Name="PredicttemplateService" Class="kyle.leis.es.company.predicttemplate.sv.PredicttemplateService"/>
+    <Service Name="WaybillCKService" Class="kyle.leis.fs.dictionary.waybillcodekind.sv.WaybillCKService"/>
+	<Service Name="OperatorServiceTest" Class="kyle.leis.fs.dictionary.operator.sv.OperatorServiceTest"/>
+	<Service Name="TrackfortestService" Class="kyle.tracks.eo.sv.TrackfortestService"/>
+	<Service Name="CorewaybillService" Class="kyle.leis.eo.operation.corewaybill.sv.CorewaybillService"/>
+</ServiceConfig>
+

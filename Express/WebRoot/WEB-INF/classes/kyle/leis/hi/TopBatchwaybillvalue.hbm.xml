@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TopBatchwaybillvalue" 
+    table="T_OP_BATCHWAYBILLVALUE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_OP_BATCHWAYBILLVALUE"
+    </meta>
+
+    <id
+        name="bwbvId"
+        type="java.lang.Long"
+        column="BWBV_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="BWBV_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_BWBV_ID"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_BWBV_ID</param>
+        </generator>
+    </id>
+
+    <property
+        name="bwbvSerialno"
+        type="java.lang.String"
+        column="BWBV_SERIALNO"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BWBV_SERIALNO"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="bwbvBaglabelcode"
+        type="java.lang.String"
+        column="BWBV_BAGLABELCODE"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BWBV_BAGLABELCODE"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="bwbvZonename"
+        type="java.lang.String"
+        column="BWBV_ZONENAME"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BWBV_ZONENAME"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="bwbvIssuecontent"
+        type="java.lang.String"
+        column="BWBV_ISSUECONTENT"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BWBV_ISSUECONTENT"
+            length="256"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TopBatchwaybill -->
+    <many-to-one
+        name="topBatchwaybill"
+        class="kyle.leis.hi.TopBatchwaybill"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BW_CODE"         
+        </meta>
+        <column name="BW_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TopCorewaybill -->
+    <many-to-one
+        name="topCorewaybill"
+        class="kyle.leis.hi.TopCorewaybill"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CW_CODE"         
+        </meta>
+        <column name="CW_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TopCorewaybill -->
+    <set
+        name="topCorewaybillsByBwbvIdArrival"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BWBV_ID_ARRIVAL"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopCorewaybill"
+        </meta>
+        <key>
+            <column name="BWBV_ID_ARRIVAL" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopCorewaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopCorewaybill -->
+    <set
+        name="topCorewaybillsByBwbvIdDeparture"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BWBV_ID__DEPARTURE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopCorewaybill"
+        </meta>
+        <key>
+            <column name="BWBV_ID__DEPARTURE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopCorewaybill"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiCity" 
+    table="T_DI_CITY"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_CITY"
+    </meta>
+
+    <id
+        name="ctCode"
+        type="java.lang.String"
+        column="CT_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="CT_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="ctSname"
+        type="java.lang.String"
+        column="CT_SNAME"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CT_SNAME"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ctName"
+        type="java.lang.String"
+        column="CT_NAME"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CT_NAME"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ctEname"
+        type="java.lang.String"
+        column="CT_ENAME"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CT_ENAME"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="ctStartpostcode"
+        type="java.lang.String"
+        column="CT_STARTPOSTCODE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CT_STARTPOSTCODE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="ctEndpostcode"
+        type="java.lang.String"
+        column="CT_ENDPOSTCODE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CT_ENDPOSTCODE"
+            length="10"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiDistrict -->
+    <many-to-one
+        name="tdiDistrict"
+        class="kyle.leis.hi.TdiDistrict"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="DT_CODE"         
+        </meta>
+        <column name="DT_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiState -->
+    <many-to-one
+        name="tdiState"
+        class="kyle.leis.hi.TdiState"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="ST_CODE"         
+        </meta>
+        <column name="ST_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TdiRegion -->
+    <set
+        name="tdiRegions"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiRegion"
+        </meta>
+        <key>
+            <column name="CT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiRegion"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiEecity -->
+    <set
+        name="tdiEecities"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiEecity"
+        </meta>
+        <key>
+            <column name="CT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiEecity"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiEnterpriseelement -->
+    <set
+        name="tdiEnterpriseelements"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiEnterpriseelement"
+        </meta>
+        <key>
+            <column name="CT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiEnterpriseelement"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiOperator -->
+    <set
+        name="tdiOperators"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiOperator"
+        </meta>
+        <key>
+            <column name="CT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiOperator"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

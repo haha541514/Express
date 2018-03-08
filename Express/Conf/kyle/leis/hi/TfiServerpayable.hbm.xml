@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfiServerpayable" 
+    table="T_FI_SERVERPAYABLE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FI_SERVERPAYABLE"
+    </meta>
+
+    <id
+        name="spyId"
+        type="java.lang.Long"
+        column="SPY_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="SPY_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_SPY_CODE"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_SPY_CODE</param>
+        </generator>
+    </id>
+
+    <property
+        name="spyCurrencyrate"
+        type="java.math.BigDecimal"
+        column="SPY_CURRENCYRATE"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SPY_CURRENCYRATE"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="spyTotalcharge"
+        type="java.math.BigDecimal"
+        column="SPY_TOTALCHARGE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SPY_TOTALCHARGE"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="spyRemark"
+        type="java.lang.String"
+        column="SPY_REMARK"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SPY_REMARK"
+            length="256"
+        </meta>    
+    </property>
+    <property
+        name="spyOccurdate"
+        type="java.sql.Timestamp"
+        column="SPY_OCCURDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SPY_OCCURDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TfiServerbillrecord -->
+    <many-to-one
+        name="tfiServerbillrecord"
+        class="kyle.leis.hi.TfiServerbillrecord"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SBR_ID"         
+        </meta>
+        <column name="SBR_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiCurrencykind -->
+    <many-to-one
+        name="tdiCurrencykind"
+        class="kyle.leis.hi.TdiCurrencykind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CK_CODE"         
+        </meta>
+        <column name="CK_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TblPayable -->
+    <set
+        name="tblPayables"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SPY_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TblPayable"
+        </meta>
+        <key>
+            <column name="SPY_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TblPayable"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TfiServerwaybill -->
+    <many-to-one
+        name="tfiServerwaybill"
+        class="kyle.leis.hi.TfiServerwaybill"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SWB_CODE"         
+        </meta>
+        <column name="SWB_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiFeekind -->
+    <many-to-one
+        name="tdiFeekind"
+        class="kyle.leis.hi.TdiFeekind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="FK_CODE"         
+        </meta>
+        <column name="FK_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

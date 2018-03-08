@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfsWaybillcode" 
+    table="T_FS_WAYBILLCODE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FS_WAYBILLCODE"
+    </meta>
+
+    <id
+        name="bcId"
+        type="java.lang.Long"
+        column="BC_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="BC_ID"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="bcStartcode"
+        type="java.lang.String"
+        column="BC_STARTCODE"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BC_STARTCODE"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="bcEndcode"
+        type="java.lang.String"
+        column="BC_ENDCODE"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BC_ENDCODE"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="bcPrefix"
+        type="java.lang.String"
+        column="BC_PREFIX"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BC_PREFIX"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="bcSuffix"
+        type="java.lang.String"
+        column="BC_SUFFIX"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BC_SUFFIX"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="bcCreatedate"
+        type="java.sql.Timestamp"
+        column="BC_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BC_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="bcModifydate"
+        type="java.sql.Timestamp"
+        column="BC_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BC_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="bcCurrentlabelcode"
+        type="java.lang.String"
+        column="BC_CURRENTLABELCODE"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BC_CURRENTLABELCODE"
+            length="50"
+        </meta>    
+    </property>
+    <property
+        name="bcRemark"
+        type="java.lang.String"
+        column="BC_REMARK"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BC_REMARK"
+            length="128"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByOpIdCreator"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_CREATOR"         
+        </meta>
+        <column name="OP_ID_CREATOR" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByOpIdModifier"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_MODIFIER"         
+        </meta>
+        <column name="OP_ID_MODIFIER" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiWaybillcodekind -->
+    <many-to-one
+        name="tdiWaybillcodekind"
+        class="kyle.leis.hi.TdiWaybillcodekind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="BCK_CODE"         
+        </meta>
+        <column name="BCK_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiWaybillcodestatus -->
+    <many-to-one
+        name="tdiWaybillcodestatus"
+        class="kyle.leis.hi.TdiWaybillcodestatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CS_CODE"         
+        </meta>
+        <column name="CS_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TfsWaybillcodevalue -->
+    <set
+        name="tfsWaybillcodevalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BC_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsWaybillcodevalue"
+        </meta>
+        <key>
+            <column name="BC_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsWaybillcodevalue"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiEparceldistrict" 
+    table="T_DI_EPARCELDISTRICT"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_EPARCELDISTRICT"
+    </meta>
+
+    <id
+        name="epdCode"
+        type="java.lang.String"
+        column="EPD_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="EPD_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="epdZonecode"
+        type="java.lang.String"
+        column="EPD_ZONECODE"
+        not-null="true"
+        length="6"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EPD_ZONECODE"
+            length="6"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="epdHubcode"
+        type="java.lang.String"
+        column="EPD_HUBCODE"
+        not-null="true"
+        length="6"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EPD_HUBCODE"
+            length="6"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="epdStartpostcode"
+        type="java.lang.String"
+        column="EPD_STARTPOSTCODE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EPD_STARTPOSTCODE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="epdEndtpostcode"
+        type="java.lang.String"
+        column="EPD_ENDTPOSTCODE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EPD_ENDTPOSTCODE"
+            length="10"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

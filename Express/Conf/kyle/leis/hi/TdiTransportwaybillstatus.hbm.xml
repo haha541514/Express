@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiTransportwaybillstatus" 
+    table="T_DI_TRANSPORTWAYBILLSTATUS"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_TRANSPORTWAYBILLSTATUS"
+    </meta>
+
+    <id
+        name="twbsCode"
+        type="java.lang.String"
+        column="TWBS_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="TWBS_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="twbsName"
+        type="java.lang.String"
+        column="TWBS_NAME"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TWBS_NAME"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="twbsEname"
+        type="java.lang.String"
+        column="TWBS_ENAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TWBS_ENAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TopTransportwaybilltrace -->
+    <set
+        name="topTransportwaybilltraces"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="TWBS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopTransportwaybilltrace"
+        </meta>
+        <key>
+            <column name="TWBS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopTransportwaybilltrace"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopTransportwaybill -->
+    <set
+        name="topTransportwaybills"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="TWBS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopTransportwaybill"
+        </meta>
+        <key>
+            <column name="TWBS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopTransportwaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TdiTransporttrackmapping -->
+    <set
+        name="tdiTransporttrackmappings"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="TWBS_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TdiTransporttrackmapping"
+        </meta>
+        <key>
+            <column name="TWBS_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TdiTransporttrackmapping"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

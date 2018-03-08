@@ -1,0 +1,281 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiWaybillcodekind" 
+    table="T_DI_WAYBILLCODEKIND"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_WAYBILLCODEKIND"
+    </meta>
+
+    <id
+        name="bckCode"
+        type="java.lang.String"
+        column="BCK_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="BCK_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="bckName"
+        type="java.lang.String"
+        column="BCK_NAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BCK_NAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="bckEname"
+        type="java.lang.String"
+        column="BCK_ENAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BCK_ENAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="bckGroupcode"
+        type="java.lang.String"
+        column="BCK_GROUPCODE"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BCK_GROUPCODE"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="bckBuildvaluesign"
+        type="java.lang.String"
+        column="BCK_BUILDVALUESIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BCK_BUILDVALUESIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="bckFromwebservicesign"
+        type="java.lang.String"
+        column="BCK_FROMWEBSERVICESIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BCK_FROMWEBSERVICESIGN"
+            length="1"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiLabelformat -->
+    <many-to-one
+        name="tdiLabelformat"
+        class="kyle.leis.hi.TdiLabelformat"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="LF_CODE"         
+        </meta>
+        <column name="LF_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TfsWaybillcode -->
+    <set
+        name="tfsWaybillcodes"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BCK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsWaybillcode"
+        </meta>
+        <key>
+            <column name="BCK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsWaybillcode"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopHousewaybill -->
+    <set
+        name="topHousewaybillsByHwServerewbkind"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="HW_SERVEREWBKIND"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopHousewaybill"
+        </meta>
+        <key>
+            <column name="HW_SERVEREWBKIND" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopHousewaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopHousewaybill -->
+    <set
+        name="topHousewaybillsByHwSubchildewbkind"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="HW_SUBCHILDEWBKIND"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopHousewaybill"
+        </meta>
+        <key>
+            <column name="HW_SUBCHILDEWBKIND" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopHousewaybill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TchnChannel -->
+    <set
+        name="tchnChannelsByChnSubbillcodekind"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CHN_SUBBILLCODEKIND"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TchnChannel"
+        </meta>
+        <key>
+            <column name="CHN_SUBBILLCODEKIND" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TchnChannel"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TchnChannel -->
+    <set
+        name="tchnChannelsByChnMainbillcodekind"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CHN_MAINBILLCODEKIND"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TchnChannel"
+        </meta>
+        <key>
+            <column name="CHN_MAINBILLCODEKIND" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TchnChannel"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfsWaybillcodevalue -->
+    <set
+        name="tfsWaybillcodevalues"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BCK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsWaybillcodevalue"
+        </meta>
+        <key>
+            <column name="BCK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsWaybillcodevalue"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

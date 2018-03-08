@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TcoPreictorderdicmapping" 
+    table="T_CO_PREICTORDERDICMAPPING"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_CO_PREICTORDERDICMAPPING"
+    </meta>
+
+    <id
+        name="podmId"
+        type="java.lang.Long"
+        column="PODM_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="PODM_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_PODM_ID"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_PODM_ID</param>
+        </generator>
+    </id>
+
+    <property
+        name="podmOriginvalue"
+        type="java.lang.String"
+        column="PODM_ORIGINVALUE"
+        not-null="true"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PODM_ORIGINVALUE"
+            length="128"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="podmStandardvalue"
+        type="java.lang.String"
+        column="PODM_STANDARDVALUE"
+        not-null="true"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="PODM_STANDARDVALUE"
+            length="128"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TcoPredictordertemplate -->
+    <many-to-one
+        name="tcoPredictordertemplate"
+        class="kyle.leis.hi.TcoPredictordertemplate"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="POT_ID"         
+        </meta>
+        <column name="POT_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiDictionarymappingkind -->
+    <many-to-one
+        name="tdiDictionarymappingkind"
+        class="kyle.leis.hi.TdiDictionarymappingkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="DMK_CODE"         
+        </meta>
+        <column name="DMK_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TesSmsmessage" 
+    table="T_ES_SMSMESSAGE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_ES_SMSMESSAGE"
+    </meta>
+
+    <id
+        name="smsId"
+        type="java.lang.Long"
+        column="SMS_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="SMS_ID"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="smsContent"
+        type="java.lang.String"
+        column="SMS_CONTENT"
+        not-null="true"
+        length="512"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SMS_CONTENT"
+            length="512"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="smsMobilenumber"
+        type="java.lang.String"
+        column="SMS_MOBILENUMBER"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SMS_MOBILENUMBER"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="smsReceivecocode"
+        type="java.lang.String"
+        column="SMS_RECEIVECOCODE"
+        not-null="true"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SMS_RECEIVECOCODE"
+            length="20"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="smsCreatedate"
+        type="java.sql.Timestamp"
+        column="SMS_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SMS_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="smsStatus"
+        type="java.lang.String"
+        column="SMS_STATUS"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SMS_STATUS"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TcoCustomer -->
+    <many-to-one
+        name="tcoCustomer"
+        class="kyle.leis.hi.TcoCustomer"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CO_CODE"         
+        </meta>
+        <column name="CO_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

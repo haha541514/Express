@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfsUserrole" 
+    table="T_FS_USERROLE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FS_USERROLE"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TfsUserrolePK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="rlCode" 
+            column="RL_CODE" 
+            type="java.lang.String"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="RL_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="urUsercode" 
+            column="UR_USERCODE" 
+            type="java.lang.String"
+            length="20"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="UR_USERCODE"
+                length="20"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="iskCode" 
+            column="ISK_CODE" 
+            type="java.lang.String"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="ISK_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TdiInfomationsystemkind -->
+    <many-to-one
+        name="tdiInfomationsystemkind"
+	    class="kyle.leis.hi.TdiInfomationsystemkind"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="ISK_CODE"
+        </meta>
+    	<column name="ISK_CODE" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to TfsRole -->
+    <many-to-one
+        name="tfsRole"
+	    class="kyle.leis.hi.TfsRole"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="RL_CODE"
+        </meta>
+    	<column name="RL_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

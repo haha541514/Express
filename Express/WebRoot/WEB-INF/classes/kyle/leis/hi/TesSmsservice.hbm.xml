@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TesSmsservice" 
+    table="T_ES_SMSSERVICE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_ES_SMSSERVICE"
+    </meta>
+
+    <id
+        name="ssId"
+        type="java.lang.Long"
+        column="SS_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="SS_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_SS_ID"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_SS_ID</param>
+        </generator>
+    </id>
+
+    <property
+        name="ssStartdate"
+        type="java.sql.Timestamp"
+        column="SS_STARTDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SS_STARTDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ssEnddate"
+        type="java.sql.Timestamp"
+        column="SS_ENDDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SS_ENDDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ssCreatedate"
+        type="java.sql.Timestamp"
+        column="SS_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SS_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ssModifydate"
+        type="java.sql.Timestamp"
+        column="SS_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SS_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ssOpNameCreate"
+        type="java.lang.String"
+        column="SS_OP_NAME_CREATE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SS_OP_NAME_CREATE"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ssOpNameModify"
+        type="java.lang.String"
+        column="SS_OP_NAME_MODIFY"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SS_OP_NAME_MODIFY"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ssBalanceamount"
+        type="java.math.BigDecimal"
+        column="SS_BALANCEAMOUNT"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SS_BALANCEAMOUNT"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ssUnitprice"
+        type="java.math.BigDecimal"
+        column="SS_UNITPRICE"
+        not-null="true"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SS_UNITPRICE"
+            length="5"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ssSendtotal"
+        type="long"
+        column="SS_SENDTOTAL"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SS_SENDTOTAL"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TcoCustomer -->
+    <many-to-one
+        name="tcoCustomer"
+        class="kyle.leis.hi.TcoCustomer"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CO_CODE"         
+        </meta>
+        <column name="CO_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TesSmsrechargerecord -->
+    <set
+        name="tesSmsrechargerecords"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="SS_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TesSmsrechargerecord"
+        </meta>
+        <key>
+            <column name="SS_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TesSmsrechargerecord"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

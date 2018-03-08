@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiBulletinlevel" 
+    table="T_DI_BULLETINLEVEL"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_BULLETINLEVEL"
+    </meta>
+
+    <id
+        name="blCode"
+        type="java.lang.String"
+        column="BL_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="BL_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="blName"
+        type="java.lang.String"
+        column="BL_NAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BL_NAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="blEname"
+        type="java.lang.String"
+        column="BL_ENAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BL_ENAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TesBulletin -->
+    <set
+        name="tesBulletins"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BL_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TesBulletin"
+        </meta>
+        <key>
+            <column name="BL_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TesBulletin"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TesWechatitem" 
+    table="T_ES_WECHATITEM"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_ES_WECHATITEM"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TesWechatitemPK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="wciId" 
+            column="WCI_ID" 
+            type="java.lang.Integer"
+            length="3"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="WCI_ID"
+                length="3"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="blId" 
+            column="BL_ID" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="BL_ID"
+                length="10"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="wciTitle"
+        type="java.lang.String"
+        column="WCI_TITLE"
+        not-null="true"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WCI_TITLE"
+            length="256"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wciDescription"
+        type="java.lang.String"
+        column="WCI_DESCRIPTION"
+        length="1024"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WCI_DESCRIPTION"
+            length="1024"
+        </meta>    
+    </property>
+    <property
+        name="wciPicurl"
+        type="java.lang.String"
+        column="WCI_PICURL"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WCI_PICURL"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="wciUrl"
+        type="java.lang.String"
+        column="WCI_URL"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WCI_URL"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="wciContent"
+        type="java.lang.String"
+        column="WCI_CONTENT"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WCI_CONTENT"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TesBulletin -->
+    <many-to-one
+        name="tesBulletin"
+	    class="kyle.leis.hi.TesBulletin"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="BL_ID"
+        </meta>
+    	<column name="BL_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

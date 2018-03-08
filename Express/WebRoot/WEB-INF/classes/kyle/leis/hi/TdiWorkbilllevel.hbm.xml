@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiWorkbilllevel" 
+    table="T_DI_WORKBILLLEVEL"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_WORKBILLLEVEL"
+    </meta>
+
+    <id
+        name="wblCode"
+        type="java.lang.String"
+        column="WBL_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="WBL_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="wblName"
+        type="java.lang.String"
+        column="WBL_NAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBL_NAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wblEname"
+        type="java.lang.String"
+        column="WBL_ENAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBL_ENAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TesWorkbill -->
+    <set
+        name="tesWorkbills"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="WBL_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TesWorkbill"
+        </meta>
+        <key>
+            <column name="WBL_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TesWorkbill"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

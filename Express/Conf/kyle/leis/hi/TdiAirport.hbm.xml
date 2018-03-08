@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiAirport" 
+    table="T_DI_AIRPORT"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_AIRPORT"
+    </meta>
+
+    <id
+        name="apCode"
+        type="java.lang.String"
+        column="AP_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="AP_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="apHubcode"
+        type="java.lang.String"
+        column="AP_HUBCODE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="AP_HUBCODE"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="apEname"
+        type="java.lang.String"
+        column="AP_ENAME"
+        not-null="true"
+        length="40"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="AP_ENAME"
+            length="40"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="apCname"
+        type="java.lang.String"
+        column="AP_CNAME"
+        not-null="true"
+        length="40"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="AP_CNAME"
+            length="40"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiDistrict -->
+    <many-to-one
+        name="tdiDistrict"
+        class="kyle.leis.hi.TdiDistrict"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="DT_CODE"         
+        </meta>
+        <column name="DT_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

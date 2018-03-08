@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TbrManifestefcolumn" 
+    table="T_BR_MANIFESTEFCOLUMNS"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_BR_MANIFESTEFCOLUMNS"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TbrManifestefcolumnPK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="mefCode" 
+            column="MEF_CODE" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="MEF_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="mefcId" 
+            column="MEFC_ID" 
+            type="java.lang.Integer"
+            length="3"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="MEFC_ID"
+                length="3"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="mefcCaptionname"
+        type="java.lang.String"
+        column="MEFC_CAPTIONNAME"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="MEFC_CAPTIONNAME"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="mefcStructruecode"
+        type="java.lang.String"
+        column="MEFC_STRUCTRUECODE"
+        not-null="true"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="MEFC_STRUCTRUECODE"
+            length="5"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="mefcFixedcolumnformula"
+        type="java.lang.String"
+        column="MEFC_FIXEDCOLUMNFORMULA"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="MEFC_FIXEDCOLUMNFORMULA"
+            length="128"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TbrManifestexportformat -->
+    <many-to-one
+        name="tbrManifestexportformat"
+	    class="kyle.leis.hi.TbrManifestexportformat"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="MEF_CODE"
+        </meta>
+    	<column name="MEF_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to TdiManifeststandardcolumn -->
+    <many-to-one
+        name="tdiManifeststandardcolumn"
+        class="kyle.leis.hi.TdiManifeststandardcolumn"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="MSC_CODE"         
+        </meta>
+        <column name="MSC_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,332 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TepIncidentalpricevalue" 
+    table="T_EP_INCIDENTALPRICEVALUE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_EP_INCIDENTALPRICEVALUE"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TepIncidentalpricevaluePK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="epCode" 
+            column="EP_CODE" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="EP_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="ipvId" 
+            column="IPV_ID" 
+            type="java.lang.Integer"
+            length="5"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="IPV_ID"
+                length="5"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="ipvMode"
+        type="java.lang.String"
+        column="IPV_MODE"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="IPV_MODE"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="ipvAutocalculatesign"
+        type="java.lang.String"
+        column="IPV_AUTOCALCULATESIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="IPV_AUTOCALCULATESIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ipvReversesign"
+        type="java.lang.String"
+        column="IPV_REVERSESIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="IPV_REVERSESIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ipvMinimumvalue"
+        type="java.math.BigDecimal"
+        column="IPV_MINIMUMVALUE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="IPV_MINIMUMVALUE"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="ipvPricevalue"
+        type="java.math.BigDecimal"
+        column="IPV_PRICEVALUE"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="IPV_PRICEVALUE"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ipvCommissionrate"
+        type="java.math.BigDecimal"
+        column="IPV_COMMISSIONRATE"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="IPV_COMMISSIONRATE"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ipvRemark"
+        type="java.lang.String"
+        column="IPV_REMARK"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="IPV_REMARK"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="ipvCarryweight"
+        type="java.math.BigDecimal"
+        column="IPV_CARRYWEIGHT"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="IPV_CARRYWEIGHT"
+            length="5"
+        </meta>    
+    </property>
+    <property
+        name="ipvMaxvalue"
+        type="java.math.BigDecimal"
+        column="IPV_MAXVALUE"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="IPV_MAXVALUE"
+            length="10"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TepIncidentalprice -->
+    <many-to-one
+        name="tepIncidentalprice"
+	    class="kyle.leis.hi.TepIncidentalprice"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="EP_CODE"
+        </meta>
+    	<column name="EP_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to TdiCargotype -->
+    <many-to-one
+        name="tdiCargotype"
+        class="kyle.leis.hi.TdiCargotype"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CT_CODE"         
+        </meta>
+        <column name="CT_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiExpressspecialtype -->
+    <many-to-one
+        name="tdiExpressspecialtype"
+        class="kyle.leis.hi.TdiExpressspecialtype"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="EST_CODE"         
+        </meta>
+        <column name="EST_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TepIncidentalvaluebase -->
+    <set
+        name="tepIncidentalvaluebases"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EP_CODE"
+           @hibernate.collection-key
+            column="IPV_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepIncidentalvaluebase"
+        </meta>
+        <key>
+            <column name="EP_CODE" />
+            <column name="IPV_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepIncidentalvaluebase"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TepIncidentalstorgechannel -->
+    <set
+        name="tepIncidentalstorgechannels"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EP_CODE"
+           @hibernate.collection-key
+            column="IPV_ID"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepIncidentalstorgechannel"
+        </meta>
+        <key>
+            <column name="EP_CODE" />
+            <column name="IPV_ID" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepIncidentalstorgechannel"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TdiCurrencykind -->
+    <many-to-one
+        name="tdiCurrencykind"
+        class="kyle.leis.hi.TdiCurrencykind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CK_CODE"         
+        </meta>
+        <column name="CK_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiPaymentmode -->
+    <many-to-one
+        name="tdiPaymentmode"
+        class="kyle.leis.hi.TdiPaymentmode"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PM_CODE"         
+        </meta>
+        <column name="PM_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiUnittype -->
+    <many-to-one
+        name="tdiUnittype"
+        class="kyle.leis.hi.TdiUnittype"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="UT_CODE"         
+        </meta>
+        <column name="UT_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiFeekind -->
+    <many-to-one
+        name="tdiFeekind"
+        class="kyle.leis.hi.TdiFeekind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="FK_CODE"         
+        </meta>
+        <column name="FK_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

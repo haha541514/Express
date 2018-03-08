@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiFormsubmitmethod" 
+    table="T_DI_FORMSUBMITMETHOD"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_FORMSUBMITMETHOD"
+    </meta>
+
+    <id
+        name="fsmCode"
+        type="java.lang.String"
+        column="FSM_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="FSM_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="fsmName"
+        type="java.lang.String"
+        column="FSM_NAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="FSM_NAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TfsWebpageaccessrule -->
+    <set
+        name="tfsWebpageaccessrulesByFsmCodeFirst"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="FSM_CODE_FIRST"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsWebpageaccessrule"
+        </meta>
+        <key>
+            <column name="FSM_CODE_FIRST" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsWebpageaccessrule"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfsWebpageaccessrule -->
+    <set
+        name="tfsWebpageaccessrulesByFsmCodeNext"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="FSM_CODE_NEXT"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsWebpageaccessrule"
+        </meta>
+        <key>
+            <column name="FSM_CODE_NEXT" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsWebpageaccessrule"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiInfomationsystemkind" 
+    table="T_DI_INFOMATIONSYSTEMKIND"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_INFOMATIONSYSTEMKIND"
+    </meta>
+
+    <id
+        name="iskCode"
+        type="java.lang.String"
+        column="ISK_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="ISK_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="iskName"
+        type="java.lang.String"
+        column="ISK_NAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ISK_NAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="iskEname"
+        type="java.lang.String"
+        column="ISK_ENAME"
+        not-null="true"
+        length="100"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ISK_ENAME"
+            length="100"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TfsCachecontainer -->
+    <set
+        name="tfsCachecontainers"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="ISK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsCachecontainer"
+        </meta>
+        <key>
+            <column name="ISK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsCachecontainer"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfsGuimenu -->
+    <set
+        name="tfsGuimenus"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="ISK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsGuimenu"
+        </meta>
+        <key>
+            <column name="ISK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsGuimenu"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfsRole -->
+    <set
+        name="tfsRoles"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="ISK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsRole"
+        </meta>
+        <key>
+            <column name="ISK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsRole"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TfsUserrole -->
+    <set
+        name="tfsUserroles"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="ISK_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsUserrole"
+        </meta>
+        <key>
+            <column name="ISK_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsUserrole"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

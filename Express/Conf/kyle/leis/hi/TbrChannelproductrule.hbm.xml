@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TbrChannelproductrule" 
+    table="T_BR_CHANNELPRODUCTRULE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_BR_CHANNELPRODUCTRULE"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TbrChannelproductrulePK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="cprId" 
+            column="CPR_ID" 
+            type="java.lang.Integer"
+            length="5"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="CPR_ID"
+                length="5"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="brId" 
+            column="BR_ID" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="BR_ID"
+                length="10"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="znId"
+        type="java.lang.Long"
+        column="ZN_ID"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ZN_ID"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="znvId"
+        type="java.lang.Integer"
+        column="ZNV_ID"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="ZNV_ID"
+            length="5"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TbrProductrule -->
+    <many-to-one
+        name="tbrProductrule"
+	    class="kyle.leis.hi.TbrProductrule"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="BR_ID"
+        </meta>
+    	<column name="BR_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to TchnChannel -->
+    <many-to-one
+        name="tchnChannel"
+        class="kyle.leis.hi.TchnChannel"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CHN_CODE"         
+        </meta>
+        <column name="CHN_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

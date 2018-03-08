@@ -1,0 +1,798 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TopHousewaybill" 
+    table="T_OP_HOUSEWAYBILL"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_OP_HOUSEWAYBILL"
+    </meta>
+
+    <id
+        name="cwCode"
+        type="java.lang.Long"
+        column="CW_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.Long"
+            column="CW_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="hwShipperaccount"
+        type="java.lang.String"
+        column="HW_SHIPPERACCOUNT"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_SHIPPERACCOUNT"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="hwShippername"
+        type="java.lang.String"
+        column="HW_SHIPPERNAME"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_SHIPPERNAME"
+            length="80"
+        </meta>    
+    </property>
+    <property
+        name="hwShippercompany"
+        type="java.lang.String"
+        column="HW_SHIPPERCOMPANY"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_SHIPPERCOMPANY"
+            length="80"
+        </meta>    
+    </property>
+    <property
+        name="hwShipperaddress1"
+        type="java.lang.String"
+        column="HW_SHIPPERADDRESS1"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_SHIPPERADDRESS1"
+            length="80"
+        </meta>    
+    </property>
+    <property
+        name="hwShipperaddress2"
+        type="java.lang.String"
+        column="HW_SHIPPERADDRESS2"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_SHIPPERADDRESS2"
+            length="80"
+        </meta>    
+    </property>
+    <property
+        name="hwShipperaddress3"
+        type="java.lang.String"
+        column="HW_SHIPPERADDRESS3"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_SHIPPERADDRESS3"
+            length="80"
+        </meta>    
+    </property>
+    <property
+        name="hwShipperpostcode"
+        type="java.lang.String"
+        column="HW_SHIPPERPOSTCODE"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_SHIPPERPOSTCODE"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="hwShippertelephone"
+        type="java.lang.String"
+        column="HW_SHIPPERTELEPHONE"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_SHIPPERTELEPHONE"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="hwShipperfax"
+        type="java.lang.String"
+        column="HW_SHIPPERFAX"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_SHIPPERFAX"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="hwConsigneename"
+        type="java.lang.String"
+        column="HW_CONSIGNEENAME"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_CONSIGNEENAME"
+            length="80"
+        </meta>    
+    </property>
+    <property
+        name="hwConsigneecompany"
+        type="java.lang.String"
+        column="HW_CONSIGNEECOMPANY"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_CONSIGNEECOMPANY"
+            length="80"
+        </meta>    
+    </property>
+    <property
+        name="hwConsigneepostcode"
+        type="java.lang.String"
+        column="HW_CONSIGNEEPOSTCODE"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_CONSIGNEEPOSTCODE"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="hwConsigneeaddress1"
+        type="java.lang.String"
+        column="HW_CONSIGNEEADDRESS1"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_CONSIGNEEADDRESS1"
+            length="80"
+        </meta>    
+    </property>
+    <property
+        name="hwConsigneeaddress2"
+        type="java.lang.String"
+        column="HW_CONSIGNEEADDRESS2"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_CONSIGNEEADDRESS2"
+            length="80"
+        </meta>    
+    </property>
+    <property
+        name="hwConsigneeaddress3"
+        type="java.lang.String"
+        column="HW_CONSIGNEEADDRESS3"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_CONSIGNEEADDRESS3"
+            length="80"
+        </meta>    
+    </property>
+    <property
+        name="hwConsigneetelephone"
+        type="java.lang.String"
+        column="HW_CONSIGNEETELEPHONE"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_CONSIGNEETELEPHONE"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="hwConsigneeaccount"
+        type="java.lang.String"
+        column="HW_CONSIGNEEACCOUNT"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_CONSIGNEEACCOUNT"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="hwConsigneefax"
+        type="java.lang.String"
+        column="HW_CONSIGNEEFAX"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_CONSIGNEEFAX"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="hwSignindate"
+        type="java.sql.Timestamp"
+        column="HW_SIGNINDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_SIGNINDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="hwOpIdSignin"
+        type="java.lang.Long"
+        column="HW_OP_ID_SIGNIN"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_OP_ID_SIGNIN"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="hwOpIdWeighting"
+        type="java.lang.Long"
+        column="HW_OP_ID_WEIGHTING"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_OP_ID_WEIGHTING"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="hwSignoutdate"
+        type="java.sql.Timestamp"
+        column="HW_SIGNOUTDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_SIGNOUTDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="hwOpIdSignout"
+        type="java.lang.Long"
+        column="HW_OP_ID_SIGNOUT"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_OP_ID_SIGNOUT"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="hwRecorddate"
+        type="java.sql.Timestamp"
+        column="HW_RECORDDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_RECORDDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="hwOpIdRecord"
+        type="java.lang.Long"
+        column="HW_OP_ID_RECORD"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_OP_ID_RECORD"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="hwOpIdPacking"
+        type="java.lang.Long"
+        column="HW_OP_ID_PACKING"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_OP_ID_PACKING"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="hwInsurancevalue"
+        type="java.math.BigDecimal"
+        column="HW_INSURANCEVALUE"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_INSURANCEVALUE"
+            length="8"
+        </meta>    
+    </property>
+    <property
+        name="hwInsurancesign"
+        type="java.lang.String"
+        column="HW_INSURANCESIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_INSURANCESIGN"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="hwConsigneecity"
+        type="java.lang.String"
+        column="HW_CONSIGNEECITY"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_CONSIGNEECITY"
+            length="80"
+        </meta>    
+    </property>
+    <property
+        name="hwLabelprinttimes"
+        type="java.lang.Integer"
+        column="HW_LABELPRINTTIMES"
+        length="5"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_LABELPRINTTIMES"
+            length="5"
+        </meta>    
+    </property>
+    <property
+        name="hwRemark"
+        type="java.lang.String"
+        column="HW_REMARK"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_REMARK"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="hwCustomslabelprintsign"
+        type="java.lang.String"
+        column="HW_CUSTOMSLABELPRINTSIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_CUSTOMSLABELPRINTSIGN"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="hwServerewbchangedsign"
+        type="java.lang.String"
+        column="HW_SERVEREWBCHANGEDSIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_SERVEREWBCHANGEDSIGN"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="hwChannelmasteraccount"
+        type="java.lang.String"
+        column="HW_CHANNELMASTERACCOUNT"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_CHANNELMASTERACCOUNT"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="hwLabelprintremark"
+        type="java.lang.String"
+        column="HW_LABELPRINTREMARK"
+        length="80"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_LABELPRINTREMARK"
+            length="80"
+        </meta>    
+    </property>
+    <property
+        name="hwCargoprinttimes"
+        type="java.lang.Integer"
+        column="HW_CARGOPRINTTIMES"
+        length="3"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_CARGOPRINTTIMES"
+            length="3"
+        </meta>    
+    </property>
+    <property
+        name="hwOpIdWeightcheck"
+        type="java.lang.Long"
+        column="HW_OP_ID_WEIGHTCHECK"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_OP_ID_WEIGHTCHECK"
+            length="10"
+        </meta>    
+    </property>
+    <property
+        name="hwWeightcheckkind"
+        type="java.lang.String"
+        column="HW_WEIGHTCHECKKIND"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_WEIGHTCHECKKIND"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="hwWeightcheckdate"
+        type="java.sql.Timestamp"
+        column="HW_WEIGHTCHECKDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_WEIGHTCHECKDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="hwBuyerid"
+        type="java.lang.String"
+        column="HW_BUYERID"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_BUYERID"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="hwTransactionid"
+        type="java.lang.String"
+        column="HW_TRANSACTIONID"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_TRANSACTIONID"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="hwCustomerlabelprintdate"
+        type="java.sql.Timestamp"
+        column="HW_CUSTOMERLABELPRINTDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_CUSTOMERLABELPRINTDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="hwAttacheinfosign"
+        type="java.lang.String"
+        column="HW_ATTACHEINFOSIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_ATTACHEINFOSIGN"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="hwCustomerdeclaredate"
+        type="java.sql.Timestamp"
+        column="HW_CUSTOMERDECLAREDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_CUSTOMERDECLAREDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="hwConsigneeaddressex"
+        type="java.lang.String"
+        column="HW_CONSIGNEEADDRESSEX"
+        length="512"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_CONSIGNEEADDRESSEX"
+            length="512"
+        </meta>    
+    </property>
+    <property
+        name="hwConsigneenameex"
+        type="java.lang.String"
+        column="HW_CONSIGNEENAMEEX"
+        length="512"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_CONSIGNEENAMEEX"
+            length="512"
+        </meta>    
+    </property>
+    <property
+        name="hwOwninputcwauditsign"
+        type="java.lang.String"
+        column="HW_OWNINPUTCWAUDITSIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_OWNINPUTCWAUDITSIGN"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="hwArrearsignout"
+        type="java.lang.String"
+        column="HW_ARREARSIGNOUT"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_ARREARSIGNOUT"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="hwElectricmark"
+        type="java.lang.String"
+        column="HW_ELECTRICMARK"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_ELECTRICMARK"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="hwSewbchangedbywebsign"
+        type="java.lang.String"
+        column="HW_SEWBCHANGEDBYWEBSIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_SEWBCHANGEDBYWEBSIGN"
+            length="1"
+        </meta>    
+    </property>
+    <property
+        name="hwBookingid"
+        type="java.lang.String"
+        column="HW_BOOKINGID"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_BOOKINGID"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="hwPaymentaccount"
+        type="java.lang.String"
+        column="HW_PAYMENTACCOUNT"
+        length="20"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_PAYMENTACCOUNT"
+            length="20"
+        </meta>    
+    </property>
+    <property
+        name="hwConsigneecityex"
+        type="java.lang.String"
+        column="HW_CONSIGNEECITYEX"
+        length="512"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="HW_CONSIGNEECITYEX"
+            length="512"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to TopCorewaybill -->
+    <one-to-one
+        name="topCorewaybill"
+        class="kyle.leis.hi.TopCorewaybill"
+        outer-join="auto"
+        constrained="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            class="kyle.leis.hi.TopCorewaybill"
+            outer-join="auto"
+            constrained="true"
+        </meta>    
+    </one-to-one>
+    <!-- bi-directional many-to-one association to TdiDistrict -->
+    <many-to-one
+        name="tdiDistrict"
+        class="kyle.leis.hi.TdiDistrict"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="DT_CODE_SHIPPER"         
+        </meta>
+        <column name="DT_CODE_SHIPPER" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiWaybillcodekind -->
+    <many-to-one
+        name="tdiWaybillcodekindByHwServerewbkind"
+        class="kyle.leis.hi.TdiWaybillcodekind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="HW_SERVEREWBKIND"         
+        </meta>
+        <column name="HW_SERVEREWBKIND" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiWaybillcodekind -->
+    <many-to-one
+        name="tdiWaybillcodekindByHwSubchildewbkind"
+        class="kyle.leis.hi.TdiWaybillcodekind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="HW_SUBCHILDEWBKIND"         
+        </meta>
+        <column name="HW_SUBCHILDEWBKIND" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TopCustomsdeclaration -->
+    <set
+        name="topCustomsdeclarations"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CW_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopCustomsdeclaration"
+        </meta>
+        <key>
+            <column name="CW_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopCustomsdeclaration"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to TopHwbcargoinfo -->
+    <set
+        name="topHwbcargoinfos"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="CW_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopHwbcargoinfo"
+        </meta>
+        <key>
+            <column name="CW_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopHwbcargoinfo"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TdiCurrencykind -->
+    <many-to-one
+        name="tdiCurrencykind"
+        class="kyle.leis.hi.TdiCurrencykind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="HW_INSURANCECURRENCY"         
+        </meta>
+        <column name="HW_INSURANCECURRENCY" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

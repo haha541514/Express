@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TesSystemcertification" 
+    table="T_ES_SYSTEMCERTIFICATION"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_ES_SYSTEMCERTIFICATION"
+    </meta>
+
+    <id
+        name="scId"
+        type="java.lang.Long"
+        column="SC_ID"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="SC_ID"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_SCF_ID"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_SCF_ID</param>
+        </generator>
+    </id>
+
+    <property
+        name="scHdserialnumber"
+        type="java.lang.String"
+        column="SC_HDSERIALNUMBER"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_HDSERIALNUMBER"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="scMacaddress"
+        type="java.lang.String"
+        column="SC_MACADDRESS"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_MACADDRESS"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="scIpaddress"
+        type="java.lang.String"
+        column="SC_IPADDRESS"
+        not-null="true"
+        length="50"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_IPADDRESS"
+            length="50"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="scStartdate"
+        type="java.sql.Timestamp"
+        column="SC_STARTDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_STARTDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="scEnddate"
+        type="java.sql.Timestamp"
+        column="SC_ENDDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_ENDDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="scConfirmdate"
+        type="java.sql.Timestamp"
+        column="SC_CONFIRMDATE"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_CONFIRMDATE"
+            length="7"
+        </meta>    
+    </property>
+    <property
+        name="scApplydate"
+        type="java.sql.Timestamp"
+        column="SC_APPLYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_APPLYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="scModifydate"
+        type="java.sql.Timestamp"
+        column="SC_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="scRemark"
+        type="java.lang.String"
+        column="SC_REMARK"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_REMARK"
+            length="256"
+        </meta>    
+    </property>
+    <property
+        name="scOwnenterprisesign"
+        type="java.lang.String"
+        column="SC_OWNENTERPRISESIGN"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="SC_OWNENTERPRISESIGN"
+            length="1"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiSimplestatus -->
+    <many-to-one
+        name="tdiSimplestatus"
+        class="kyle.leis.hi.TdiSimplestatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SS_CODE"         
+        </meta>
+        <column name="SS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByScOpIdApply"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SC_OP_ID_APPLY"         
+        </meta>
+        <column name="SC_OP_ID_APPLY" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByScOpIdConfirm"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SC_OP_ID_CONFIRM"         
+        </meta>
+        <column name="SC_OP_ID_CONFIRM" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByScOpIdModify"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="SC_OP_ID_MODIFY"         
+        </meta>
+        <column name="SC_OP_ID_MODIFY" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

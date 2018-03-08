@@ -1,0 +1,277 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TepExpressprice" 
+    table="T_EP_EXPRESSPRICE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_EP_EXPRESSPRICE"
+    </meta>
+
+    <id
+        name="epCode"
+        type="java.lang.Long"
+        column="EP_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="sequence"
+            type="java.lang.Long"
+            column="EP_CODE"
+
+
+           @hibernate.generator-param
+	        name="sequence"
+	        value="S_EP_Code"
+        </meta>
+        <generator class="sequence">
+            <param name="sequence">S_EP_Code</param>
+        </generator>
+    </id>
+
+    <property
+        name="epCreatedate"
+        type="java.sql.Timestamp"
+        column="EP_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EP_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="epModifydate"
+        type="java.sql.Timestamp"
+        column="EP_MODIFYDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EP_MODIFYDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="epStartdate"
+        type="java.sql.Timestamp"
+        column="EP_STARTDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EP_STARTDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="epEnddate"
+        type="java.sql.Timestamp"
+        column="EP_ENDDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EP_ENDDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="epRemark"
+        type="java.lang.String"
+        column="EP_REMARK"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EP_REMARK"
+            length="128"
+        </meta>    
+    </property>
+    <property
+        name="epWithdrawsign"
+        type="java.lang.String"
+        column="EP_WITHDRAWSIGN"
+        not-null="true"
+        length="1"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="EP_WITHDRAWSIGN"
+            length="1"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiExpresspricekind -->
+    <many-to-one
+        name="tdiExpresspricekind"
+        class="kyle.leis.hi.TdiExpresspricekind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="EPK_CODE"         
+        </meta>
+        <column name="EPK_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByEpOpIdCreate"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="EP_OP_ID_CREATE"         
+        </meta>
+        <column name="EP_OP_ID_CREATE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperatorByEpOpIdModify"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="EP_OP_ID_MODIFY"         
+        </meta>
+        <column name="EP_OP_ID_MODIFY" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TepEnterprise -->
+    <set
+        name="tepEnterprises"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="EP_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TepEnterprise"
+        </meta>
+        <key>
+            <column name="EP_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TepEnterprise"
+        />
+    </set>
+    <!-- bi-directional one-to-one association to TepAdjustiveprice -->
+    <one-to-one
+        name="tepAdjustiveprice"
+        class="kyle.leis.hi.TepAdjustiveprice"
+        outer-join="auto"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            outer-join="auto"
+        </meta>
+    </one-to-one>
+    <!-- bi-directional one-to-one association to TepFreightprice -->
+    <one-to-one
+        name="tepFreightprice"
+        class="kyle.leis.hi.TepFreightprice"
+        outer-join="auto"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            outer-join="auto"
+        </meta>
+    </one-to-one>
+    <!-- bi-directional one-to-one association to TepIncidentalprice -->
+    <one-to-one
+        name="tepIncidentalprice"
+        class="kyle.leis.hi.TepIncidentalprice"
+        outer-join="auto"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            outer-join="auto"
+        </meta>
+    </one-to-one>
+    <!-- bi-directional one-to-one association to TepCurrency -->
+    <one-to-one
+        name="tepCurrency"
+        class="kyle.leis.hi.TepCurrency"
+        outer-join="auto"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            outer-join="auto"
+        </meta>
+    </one-to-one>
+    <!-- bi-directional one-to-one association to TepCustomerpricegroup -->
+    <one-to-one
+        name="tepCustomerpricegroup"
+        class="kyle.leis.hi.TepCustomerpricegroup"
+        outer-join="auto"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            outer-join="auto"
+        </meta>
+    </one-to-one>
+    <!-- bi-directional many-to-one association to TdiPricestatus -->
+    <many-to-one
+        name="tdiPricestatus"
+        class="kyle.leis.hi.TdiPricestatus"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="PS_CODE"         
+        </meta>
+        <column name="PS_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiEnterpriseelement -->
+    <many-to-one
+        name="tdiEnterpriseelement"
+        class="kyle.leis.hi.TdiEnterpriseelement"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="EE_CODE"         
+        </meta>
+        <column name="EE_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

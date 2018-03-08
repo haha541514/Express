@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TopWaybillspecialtype" 
+    table="T_OP_WAYBILLSPECIALTYPE"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_OP_WAYBILLSPECIALTYPE"
+    </meta>
+
+    <composite-id name="comp_id" class="kyle.leis.hi.TopWaybillspecialtypePK">
+        <meta attribute="field-description" inherit="false">
+           @hibernate.id
+            generator-class="assigned"
+        </meta>
+        <key-property 
+            name="cwCode" 
+            column="CW_CODE" 
+            type="java.lang.Long"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="CW_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+        <key-property 
+            name="estCode" 
+            column="EST_CODE" 
+            type="java.lang.String"
+            length="10"
+        >
+            <meta attribute="field-description">
+               @hibernate.property
+                column="EST_CODE"
+                length="10"
+            </meta> 
+        </key-property>
+    </composite-id>    
+
+    <property
+        name="wbstCreatedate"
+        type="java.sql.Timestamp"
+        column="WBST_CREATEDATE"
+        not-null="true"
+        length="7"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBST_CREATEDATE"
+            length="7"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="wbstRemark"
+        type="java.lang.String"
+        column="WBST_REMARK"
+        length="128"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="WBST_REMARK"
+            length="128"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to TdiExpressspecialtype -->
+    <many-to-one
+        name="tdiExpressspecialtype"
+	    class="kyle.leis.hi.TdiExpressspecialtype"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="EST_CODE"
+        </meta>
+    	<column name="EST_CODE" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to TopCorewaybill -->
+    <many-to-one
+        name="topCorewaybill"
+	    class="kyle.leis.hi.TopCorewaybill"
+	    update="false"
+	    insert="false"
+	>
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            update="false"
+            insert="false"
+        </meta>
+        <meta attribute="field-description">
+           @hibernate.column
+            name="CW_CODE"
+        </meta>
+    	<column name="CW_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to TdiOperator -->
+    <many-to-one
+        name="tdiOperator"
+        class="kyle.leis.hi.TdiOperator"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="OP_ID_CREATE"         
+        </meta>
+        <column name="OP_ID_CREATE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

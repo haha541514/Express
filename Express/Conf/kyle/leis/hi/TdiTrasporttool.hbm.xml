@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TdiTrasporttool" 
+    table="T_DI_TRASPORTTOOLS"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_DI_TRASPORTTOOLS"
+    </meta>
+
+    <id
+        name="ttCode"
+        type="java.lang.String"
+        column="TT_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="TT_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="ttLabelcode"
+        type="java.lang.String"
+        column="TT_LABELCODE"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TT_LABELCODE"
+            length="30"
+        </meta>    
+    </property>
+    <property
+        name="ttDeparturetime"
+        type="java.lang.String"
+        column="TT_DEPARTURETIME"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TT_DEPARTURETIME"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ttArrivaltime"
+        type="java.lang.String"
+        column="TT_ARRIVALTIME"
+        not-null="true"
+        length="8"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TT_ARRIVALTIME"
+            length="8"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="ttDrivername"
+        type="java.lang.String"
+        column="TT_DRIVERNAME"
+        not-null="true"
+        length="10"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="TT_DRIVERNAME"
+            length="10"
+            not-null="true"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to TdiTransportwaybillkind -->
+    <many-to-one
+        name="tdiTransportwaybillkind"
+        class="kyle.leis.hi.TdiTransportwaybillkind"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="TWBK_CODE"         
+        </meta>
+        <column name="TWBK_CODE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiDistrict -->
+    <many-to-one
+        name="tdiDistrictByDtCodeDeparture"
+        class="kyle.leis.hi.TdiDistrict"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="DT_CODE_DEPARTURE"         
+        </meta>
+        <column name="DT_CODE_DEPARTURE" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TdiDistrict -->
+    <many-to-one
+        name="tdiDistrictByDtCodeArrival"
+        class="kyle.leis.hi.TdiDistrict"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="DT_CODE_ARRIVAL"         
+        </meta>
+        <column name="DT_CODE_ARRIVAL" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TchnChannel -->
+    <many-to-one
+        name="tchnChannel"
+        class="kyle.leis.hi.TchnChannel"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="CHN_CODE"         
+        </meta>
+        <column name="CHN_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TopTransportwaybill -->
+    <set
+        name="topTransportwaybills"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="TT_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TopTransportwaybill"
+        </meta>
+        <key>
+            <column name="TT_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TopTransportwaybill"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TchnAddress" 
+    table="T_CHN_ADDRESS"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_CHN_ADDRESS"
+    </meta>
+
+    <id
+        name="chnCode"
+        type="java.lang.String"
+        column="CHN_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="CHN_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="chnaAddress1"
+        type="java.lang.String"
+        column="CHNA_ADDRESS1"
+        length="40"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CHNA_ADDRESS1"
+            length="40"
+        </meta>    
+    </property>
+    <property
+        name="chnaAddress2"
+        type="java.lang.String"
+        column="CHNA_ADDRESS2"
+        length="40"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CHNA_ADDRESS2"
+            length="40"
+        </meta>    
+    </property>
+    <property
+        name="chnaAddress3"
+        type="java.lang.String"
+        column="CHNA_ADDRESS3"
+        length="40"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CHNA_ADDRESS3"
+            length="40"
+        </meta>    
+    </property>
+    <property
+        name="chnaProcessingaddress1"
+        type="java.lang.String"
+        column="CHNA_PROCESSINGADDRESS1"
+        length="40"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CHNA_PROCESSINGADDRESS1"
+            length="40"
+        </meta>    
+    </property>
+    <property
+        name="chnaProcessingaddress2"
+        type="java.lang.String"
+        column="CHNA_PROCESSINGADDRESS2"
+        length="40"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CHNA_PROCESSINGADDRESS2"
+            length="40"
+        </meta>    
+    </property>
+    <property
+        name="chnaProcessingaddress3"
+        type="java.lang.String"
+        column="CHNA_PROCESSINGADDRESS3"
+        length="40"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CHNA_PROCESSINGADDRESS3"
+            length="40"
+        </meta>    
+    </property>
+    <property
+        name="chnaMid"
+        type="java.lang.String"
+        column="CHNA_MID"
+        length="40"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="CHNA_MID"
+            length="40"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to TchnChannel -->
+    <one-to-one
+        name="tchnChannel"
+        class="kyle.leis.hi.TchnChannel"
+        outer-join="auto"
+        constrained="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.one-to-one
+            class="kyle.leis.hi.TchnChannel"
+            outer-join="auto"
+            constrained="true"
+        </meta>    
+    </one-to-one>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="kyle.leis.hi.TfsBlocklabel" 
+    table="T_FS_BLOCKLABEL"
+>
+    <meta attribute="class-description" inherit="false">
+       @hibernate.class
+        table="T_FS_BLOCKLABEL"
+    </meta>
+
+    <id
+        name="blCode"
+        type="java.lang.String"
+        column="BL_CODE"
+    >
+        <meta attribute="field-description">
+           @hibernate.id
+            generator-class="assigned"
+            type="java.lang.String"
+            column="BL_CODE"
+
+
+        </meta>
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="blName"
+        type="java.lang.String"
+        column="BL_NAME"
+        not-null="true"
+        length="30"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BL_NAME"
+            length="30"
+            not-null="true"
+        </meta>    
+    </property>
+    <property
+        name="blStart"
+        type="java.lang.String"
+        column="BL_START"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BL_START"
+            length="256"
+        </meta>    
+    </property>
+    <property
+        name="blEnd"
+        type="java.lang.String"
+        column="BL_END"
+        length="256"
+    >
+        <meta attribute="field-description">
+           @hibernate.property
+            column="BL_END"
+            length="256"
+        </meta>    
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to TfsRecordlabel -->
+    <set
+        name="tfsRecordlabels"
+        lazy="true"
+        inverse="true"
+		cascade="none"
+    >
+        <meta attribute="field-description">
+           @hibernate.set
+            lazy="true"
+            inverse="true"
+            cascade="none"
+
+           @hibernate.collection-key
+            column="BL_CODE"
+
+           @hibernate.collection-one-to-many
+            class="kyle.leis.hi.TfsRecordlabel"
+        </meta>
+        <key>
+            <column name="BL_CODE" />
+        </key>
+        <one-to-many 
+            class="kyle.leis.hi.TfsRecordlabel"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to TfsTextformatrule -->
+    <many-to-one
+        name="tfsTextformatrule"
+        class="kyle.leis.hi.TfsTextformatrule"
+        not-null="true"
+    >
+        <meta attribute="field-description">
+           @hibernate.many-to-one
+            not-null="true"
+           @hibernate.column name="TFR_CODE"         
+        </meta>
+        <column name="TFR_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>
